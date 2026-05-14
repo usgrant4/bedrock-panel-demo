@@ -51,35 +51,110 @@ export function GreenStateDiagram() {
       <CardHeader>
         <CardTitle className="text-sm">Green state — what runs today</CardTitle>
         <div className="text-xs text-slate-500">
-          Zero net-new license cost · Vercel free tier + Salesforce REST + OAuth refresh token
+          Two personas · two surfaces · one trust gate. Headless agent layer in production.
         </div>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col items-center gap-3 py-2">
-          <Box node={{ label: 'Dealer service rep', color: 'external' }} className="w-56" />
-          <Arrow />
-          <Box node={{ label: 'Salesforce Lightning Experience (SForg)', sub: 'org id 00DdL00000vSgxxUAC', color: 'ui' }} className="w-full max-w-2xl" />
 
-          <div className="grid w-full max-w-2xl grid-cols-2 gap-4 pt-1">
+          {/* Two personas + two surfaces, side by side */}
+          <div className="grid w-full max-w-3xl grid-cols-2 gap-6">
+
+            {/* LEFT COLUMN: in-org dealer service rep */}
             <div className="flex flex-col items-center gap-3">
-              <Box node={{ label: 'Lightning Agentforce Panel', sub: 'primary write surface', color: 'ui' }} className="w-full" />
+              <Box
+                node={{
+                  label: 'Dealer service rep',
+                  sub: 'internal · Service Cloud licensed user',
+                  color: 'external',
+                }}
+                className="w-full"
+              />
+              <Arrow />
+              <Box
+                node={{
+                  label: 'Salesforce Lightning Experience',
+                  sub: 'in-org surface · SForg',
+                  color: 'ui',
+                }}
+                className="w-full"
+              />
+              <Arrow />
+              <Box
+                node={{
+                  label: 'Lightning Agentforce Panel',
+                  sub: 'embedded in-org chat',
+                  color: 'ui',
+                }}
+                className="w-full"
+              />
               <Arrow label="utterance" />
-              <Box node={{ label: 'Bedrock_Service_Triage', sub: 'router → fault_triage → off_topic', color: 'agent' }} className="w-full" />
-              <Arrow label="invokes" />
-              <Box node={{ label: '4 Apex @InvocableMethod', sub: 'AssetContext · Knowledge · OpenCase · StageWarranty', color: 'apex' }} className="w-full" />
+              <Box
+                node={{
+                  label: 'Bedrock_Service_Triage',
+                  sub: 'AgentforceEmployeeAgent · runs as calling user',
+                  color: 'agent',
+                }}
+                className="w-full"
+              />
             </div>
+
+            {/* RIGHT COLUMN: off-platform consumer via Vercel */}
             <div className="flex flex-col items-center gap-3">
-              <Box node={{ label: 'Salesforce Web Tab', sub: 'iframes Vercel · CSP-allowed', color: 'ui' }} className="w-full" />
-              <Arrow label="poll /api/recent-*" />
-              <Box node={{ label: 'React dashboard', sub: 'Vercel static · 5 pages · 10s poll', color: 'external' }} className="w-full" />
-              <Arrow label="OAuth refresh token" />
-              <Box node={{ label: 'Vercel serverless functions', sub: '/api/recent-cases · /api/recent-claims · /api/oauth-callback', color: 'external' }} className="w-full" />
+              <Box
+                node={{
+                  label: 'Off-platform consumer',
+                  sub: 'fleet ops · BI · partner · no SF license required',
+                  color: 'external',
+                }}
+                className="w-full"
+              />
+              <Arrow />
+              <Box
+                node={{
+                  label: 'React SPA on Vercel',
+                  sub: 'bedrock-dashboard-sand.vercel.app',
+                  color: 'external',
+                }}
+                className="w-full"
+              />
+              <Arrow />
+              <Box
+                node={{
+                  label: 'AgentChat · /api/agent-session · /api/agent-message',
+                  sub: 'Vercel serverless · Client Credentials + JWT',
+                  color: 'external',
+                }}
+                className="w-full"
+              />
+              <Arrow label="api.salesforce.com/einstein/ai-agent/v1" />
+              <Box
+                node={{
+                  label: 'Bedrock_Customer_Service',
+                  sub: 'AgentforceServiceAgent · runs as Agent User',
+                  color: 'agent',
+                }}
+                className="w-full"
+              />
             </div>
           </div>
 
-          <div className="flex w-full max-w-2xl justify-center pt-1">
-            <Arrow label="SOQL · SOSL · DML / REST" />
+          {/* Converging — both agents invoke the same Apex layer */}
+          <div className="flex w-full max-w-3xl items-center justify-center gap-12 pt-1">
+            <Arrow label="invokes" />
+            <Arrow label="invokes" />
           </div>
+
+          <Box
+            node={{
+              label: '4 Apex @InvocableMethod classes  ·  TRUST MATRIX enforced HERE',
+              sub: 'BedrockAssetContext · BedrockKnowledge · BedrockOpenCase · BedrockStageWarranty',
+              color: 'apex',
+            }}
+            className="w-full max-w-3xl"
+          />
+
+          <Arrow label="SOQL · SOSL · DML" />
 
           <Box
             node={{
@@ -87,10 +162,23 @@ export function GreenStateDiagram() {
               sub: 'Customer · Asset · Service_Contract · Telemetry_Event · KB_Section · Service_Case · Warranty_Claim',
               color: 'data',
             }}
-            className="w-full max-w-2xl"
+            className="w-full max-w-3xl"
           />
 
-          <div className="mt-2 grid w-full max-w-2xl grid-cols-2 gap-2 text-[11px] text-slate-600">
+          {/* Side note: the dashboard also has a separate read path */}
+          <div className="w-full max-w-3xl rounded-md border border-sky-200 bg-sky-50 p-2 text-[11px] text-sky-900">
+            <div className="font-semibold">Dashboard read path (separate from chat)</div>
+            <div className="mt-0.5">
+              The React SPA also polls <span className="font-mono">/api/recent-cases</span> and{' '}
+              <span className="font-mono">/api/recent-claims</span> every 10s. Those serverless
+              functions call Salesforce REST <span className="font-mono">/services/data/v66.0/query/</span>{' '}
+              directly with the same JWT token — read-only, bypasses the agent because no
+              writes occur. Same data layer, two access patterns: agent-mediated writes,
+              direct REST reads.
+            </div>
+          </div>
+
+          <div className="mt-2 grid w-full max-w-3xl grid-cols-2 gap-2 text-[11px] text-slate-600">
             <div className="rounded-md border border-slate-200 p-2">
               <div className="font-semibold text-slate-800">Trust matrix (writes)</div>
               <div className="mt-0.5">Autonomous: open_service_case · stage_warranty_claim</div>
@@ -98,10 +186,11 @@ export function GreenStateDiagram() {
               <div>Human: escalate_to_bedrock_engineer</div>
             </div>
             <div className="rounded-md border border-slate-200 p-2">
-              <div className="font-semibold text-slate-800">KPI flow</div>
-              <div className="mt-0.5">Open_service_case autonomous → MTTR clock starts immediately</div>
-              <div>StageWarranty within 72h KB §5 → warranty cycle ≤7d</div>
-              <div>AssetContext rollup → ARR-at-risk visible to rep</div>
+              <div className="font-semibold text-slate-800">Headless property</div>
+              <div className="mt-0.5">
+                Two personas, two surfaces, two agent types — but ONE trust gate in Apex.
+                Same policy applies regardless of which surface initiates the conversation.
+              </div>
             </div>
           </div>
         </div>
