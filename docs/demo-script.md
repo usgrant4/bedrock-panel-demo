@@ -20,6 +20,20 @@ below is panel-tested and produces a known response. Copy-paste; don't retype.
 
 ---
 
+## Memorized fallback lines (verbatim — say these without thinking)
+
+These three lines are the operator's lifeline. Have them memorized so they
+deploy without effort when needed. See [talking-points.md](talking-points.md)
+for the full slide-by-slide narration.
+
+| When | Say |
+|---|---|
+| **Cold opener / any moment of silence opens** | *"From event to action before the customer knows there is a problem. That's the architecture story I'll walk you through over the next 35 minutes."* |
+| **Recovery when something breaks live** | *"Let me flip to the backup. The architecture is what we're really testing, not the substrate."* — then switch (Agent Builder → CLI → Streamlit per the ladder below) and keep going |
+| **Closing the demo, before transitioning to outcomes** | *"That's the loop. Real records, real trust matrix enforcement, real KPI movement. Let me show you outcomes and what I'd build next."* |
+
+---
+
 ## PRIMARY DEMO PATH (run in this order)
 
 ### 1. Happy path — Pinnacle Mining, in-warranty (the headline)

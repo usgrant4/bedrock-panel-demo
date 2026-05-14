@@ -443,6 +443,38 @@ Option C (most open-ended, reads as humble):
   every reason
 - B4. What I considered for stack and rejected (LangGraph, n8n, plain
   OpenAI function-calling)
+- B5. **Salesforce Translation callout** — build → SF product at production scale:
+
+  | What I built | Salesforce product at production scale |
+  |---|---|
+  | 7 custom objects | Same + Data Cloud DMOs for unified profiles |
+  | 4 Apex `@InvocableMethod` classes | Same, augmented with Flow for declarative paths |
+  | SOSL over KB sections | Data Cloud Vector Database |
+  | Apex `BedrockAssetContext` KPI rollup | Data Cloud Calculated Insights |
+  | One SOQL identity resolution | Data Cloud Identity Resolution |
+  | `Bedrock_Telemetry_Event__c` custom object | Data Cloud zero-copy federation to Snowflake (2.4 PB) |
+  | Trust matrix in agent script | Einstein Trust Layer dynamic grounding |
+
+  *When to pull this up:* if the panel asks "where does this go at scale" or
+  pushes on the Salesforce-native vs Streamlit comparison. Makes the
+  translation explicit instead of distributed across docs.
+
+- B6. **What I deliberately left out** — consolidated scope decisions
+  (currently scattered across Slides 4, 8, 11):
+  - Autonomous customer outbound (drafted, never sent — Marketing Cloud
+    journey owns send authority in production)
+  - Data Cloud (architecturally recommended, not built into the DE org;
+    Slide 7 lead recommendation)
+  - MuleSoft integration to WARRANTY-7 (mainframe) and SAP (parts) —
+    architecturally positioned in §3 translation table
+  - Dealer prepositioning flow (week 2 scope per Slide 11)
+  - Real MCP integrations (extension path per Slide 7)
+  - Cohort fault clustering (Data Cloud aggregation in prod)
+  - Dedup / suppression on noisy sensors (Flow in prod)
+
+  *When to pull this up:* if the panel asks what you scoped out or why
+  the build is shaped the way it is. Senior-architect move — scoping
+  intentionally beats building everything.
 
 ---
 
