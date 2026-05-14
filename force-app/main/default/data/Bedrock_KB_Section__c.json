@@ -1,0 +1,74 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Bedrock_KB_Section__c",
+        "referenceId": "Kb1"
+      },
+      "Name": "Fault Code Reference",
+      "Section_Number__c": 1,
+      "Body__c": "Critical fault codes and the canonical first-response guidance.\n\n| Code | Title | First response |\n|---|---|---|\n| **HYD-447** | Hydraulic pressure spike (>4250 psi sustained) | Stop operation. Inspect main pump (P/N HYD-MP-9912) and secondary relief valve (P/N HYD-RV-2204). Replace pump if pressure variance >8% after relief test. Common on HT-797 and D-9000 platforms above 2,000 engine hours. |\n| **COOL-220** | Coolant temperature elevated (>118C, 5+ min) | Derate to 50% load. Inspect radiator core (P/N COOL-RC-7700), coolant pump (P/N COOL-PMP-3318), and thermostat. Do NOT continue operation if ambient is above 35C. Frequent on D-9000 in high-altitude / high-load workloads. |\n| **ENG-105** | Engine oil pressure low at full load | Stop operation immediately. Inspect oil pump pickup, oil cooler, and oil pressure sensor (P/N ENG-OPS-1180). If oil sample shows metallic content, escalate to Bedrock engineer per \u00a75. |\n| **VIB-654** | Bearing vibration anomaly (ISO 10816 zone D) | Reduce load, run vibration spectrum capture. Replace affected bearing assembly (P/N varies by platform). On GEN-2000, this is most often the alternator coupling \u2014 book Bedrock-certified rebuild. |\n| **TRA-308** | Transmission slip on shift 4\u20135 under load | Run gearbox pressure test. If clutch pack pressure <90% nominal, schedule clutch pack replacement (P/N TRA-CP-450 family). |\n| **ELE-091** | Electrical short on auxiliary harness | Isolate harness segment. Inspect connectors at sensor stack J3/J4. Field-repairable in most cases. |\n| **BRK-512** | Brake pad wear >70% | Schedule replacement at next service interval. Not safety-critical until >85%. |\n\nParts numbers above are the canonical Bedrock part identifiers. Dealer\ninventories may use cross-reference SKUs.",
+      "Keywords__c": "10816 1180 118c 2000 2204 3318 4250 7700 9000 9912 above affected after alternator altitude ambient anomaly assembly auxiliary bearing bedrock book brake canonical capture cases certified clutch code codes common connectors content continue cool coolant cooler core coupling critical cross dealer derate electrical elevated engine engineer escalate family fault field first frequent full gearbox guidance harness high hours hydraulic identifiers immediately inspect interval inventories isolate load main metallic most next nominal numbers often operation pack part parts pickup platform platforms pressure pump radiator rebuild reduce reference relief repairable replace replacement response safety sample schedule secondary segment sensor service shift short shows skus slip spectrum spike stack stop sustained temperature test thermostat this title transmission under until valve variance varies vibration wear workloads zone"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_KB_Section__c",
+        "referenceId": "Kb2"
+      },
+      "Name": "Service Contract Entitlements",
+      "Section_Number__c": 2,
+      "Body__c": "Service tiers and what they cover.\n\n- **Platinum tier.** 24\u00d77 fault triage. 4-hour technician dispatch SLA on\n  Critical faults. Parts shipped expedited at no charge if covered by warranty\n  or contract scope. Dedicated Bedrock service manager. Eligible for\n  parts-prepositioning at the dealer level for known cohort risks.\n- **Gold tier.** 12\u00d76 fault triage. 8-hour technician dispatch SLA. Parts\n  ground-shipped at no charge in scope; expedite available at customer cost.\n- **Silver tier.** Business-hours triage. 24-hour technician dispatch target\n  (best-effort, no SLA). Parts at customer cost unless under warranty.\n- **Bronze tier.** Reactive only. No dispatch SLA. Customer self-schedules\n  through dealer portal.\n\nIf an asset is in **Active warranty** AND the fault code maps to a covered\ncomponent, parts and labor are warranty-covered regardless of service tier \u2014\nbut the warranty claim must be staged within 72 hours of fault detection or\nthe entitlement decays per \u00a75.",
+      "Keywords__c": "active asset available bedrock best bronze business charge claim code cohort component contract cost cover covered critical customer dealer decays dedicated detection dispatch effort eligible entitlement expedite expedited fault faults gold ground hour hours known labor level manager maps must only parts platinum portal prepositioning reactive regardless risks schedules scope self service shipped silver staged target technician they through tier tiers triage under unless warranty what within"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_KB_Section__c",
+        "referenceId": "Kb3"
+      },
+      "Name": "Response SLAs",
+      "Section_Number__c": 3,
+      "Body__c": "Response targets are measured **fault-to-technician-on-site**, not\nfault-to-acknowledgement.\n\n| Severity | Platinum | Gold | Silver | Bronze |\n|---|---|---|---|---|\n| Critical | 4 h | 8 h | 24 h target | best effort |\n| High | 8 h | 24 h | 48 h target | best effort |\n| Medium | 24 h | 48 h | 5 d target | best effort |\n| Low | next service interval | next service interval | next service interval | next service interval |\n\n**MTTR is the harder number.** Mean-time-to-repair (fault open \u2192 resolution\nstatus closed) tracks separately from response SLA, and depends on parts\navailability \u2014 see \u00a74. Bedrock's stated service goal is fleet-wide MTTR \u22646 h\non Critical faults.",
+      "Keywords__c": "acknowledgement availability bedrock best bronze closed critical depends effort fault faults fleet from goal gold harder high interval mean measured medium mttr next number open parts platinum repair resolution response separately service severity silver site stated status target targets technician time tracks wide"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_KB_Section__c",
+        "referenceId": "Kb4"
+      },
+      "Name": "Parts Logistics",
+      "Section_Number__c": 4,
+      "Body__c": "Three sourcing tiers, in order of speed and cost:\n\n1. **Dealer-stocked.** Prepositioned at one of Bedrock's 165 dealer locations.\n   Same-day or next-day delivery. Used for high-velocity wear parts and any\n   part where the dealer service manager has accepted prepositioning advice.\n2. **Regional distribution center.** 8 RDCs in North America, 4 in EMEA, 3 in\n   APAC. 24\u201348h delivery to any dealer. The default source for non-stocked\n   parts.\n3. **Factory direct from SAP S/4HANA.** Parts not held in any RDC. 5\u201310 day\n   lead time. Always quote the longer end of the window if the customer is\n   under SLA pressure \u2014 it is better to deliver in 6 days against an 8-day\n   commit than to slip a 5-day commit.\n\n**Prepositioning advice.** When a fault code recurs on more than 3 assets in\na dealer territory within 30 days, prepositioning is *recommended* (never\nautonomous) to the dealer service manager. Recent recurrence patterns:\n\n- HYD-447 cluster on HT-797 platforms above 2,000 engine hours, multiple\n  Western US dealer territories.\n- COOL-220 cluster on D-9000 platforms in high-altitude operation.",
+      "Keywords__c": "4hana 9000 above accepted advice against altitude always america apac assets autonomous bedrock better center cluster code commit cool cost customer days dealer default deliver delivery direct distribution emea engine factory fault from held high hours lead locations longer manager more multiple never next north operation order part parts patterns platforms prepositioned prepositioning pressure quote rdcs recent recommended recurrence recurs regional same service slip source sourcing speed stocked territories territory than three tiers time under used velocity wear western when where window within"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_KB_Section__c",
+        "referenceId": "Kb5"
+      },
+      "Name": "Warranty Claim Workflow",
+      "Section_Number__c": 5,
+      "Body__c": "Warranty claims are staged in the agent layer and submitted by a service\nmanager. The agent never submits autonomously \u2014 always recommend.\n\n**Standard workflow.**\n\n1. Agent detects fault on an in-warranty asset and confirms the fault code\n   maps to a covered component via \u00a71.\n2. Agent stages a draft claim with the asset ID, fault code, contract ID,\n   and an estimated cost (parts + labor at the contract rate).\n3. Service manager reviews within 72 hours and submits to WARRANTY-7. After\n   72 hours, the entitlement decays \u2014 the dealer can still submit but at\n   reduced reimbursement.\n4. WARRANTY-7 returns a claim number; the agent attaches it to the original\n   case for audit.\n\n**Warranty leakage.** Bedrock estimates $180M/year in unrecognized warranty\nentitlement, primarily from manual claims processing. Closing this gap is\nan explicit goal of the proactive service initiative.",
+      "Keywords__c": "180m after agent always asset attaches audit autonomously bedrock case claim claims closing code component confirms contract cost covered dealer decays detects draft entitlement estimated estimates explicit fault from goal hours initiative labor layer leakage manager manual maps never number original parts primarily proactive processing rate recommend reduced reimbursement returns reviews service staged stages standard still submit submits submitted this unrecognized warranty with within workflow year"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_KB_Section__c",
+        "referenceId": "Kb6"
+      },
+      "Name": "Strategic Account Profiles",
+      "Section_Number__c": 6,
+      "Body__c": "Profiles for the named strategic accounts in the demo dataset.\n\n- **Pinnacle Mining Group (CUST-10001).** Platinum service tier. Multi-site\n  operator with HT-797 haul trucks running 24/7 at Bingham Canyon. Service\n  contract up for renewal in late 2027 \u2014 every fault touch is a renewal\n  signal. Sarah Chen (VP Operations) is the executive sponsor; she values\n  proactive notification over technical detail. Default communication: brief,\n  outcome-first, with the action Bedrock has already taken.\n- **Cascade Power Solutions (CUST-10005).** Platinum tier. Generator-heavy\n  fleet supporting data center and utility customers. VIB-654 anomalies on\n  GEN-2000 platforms have been recurring; Aisha Patel has explicitly asked\n  for vibration-spectrum data on every Critical alert.\n- **Granite Construction Partners (CUST-10002).** Gold tier. Mixed\n  excavator/dozer fleet across Phoenix and Tucson. Marcus Holloway is direct\n  about parts cost; quote ranges, not point estimates.\n- **Summit Mining & Metals (CUST-10007).** Gold tier, APAC. Time-zone\n  matters \u2014 anchor SLAs to local time, not Bedrock HQ.\n\nOther accounts use the default service-tier playbook.",
+      "Keywords__c": "10001 10002 10005 10007 2000 2027 about accounts across action aisha alert already anchor anomalies apac asked bedrock been bingham brief canyon cascade center chen communication construction contract cost critical cust customers data dataset default demo detail direct dozer estimates every excavator executive explicitly fault first fleet generator gold granite group haul have heavy holloway late local marcus matters metals mining mixed multi named notification operations operator other outcome over partners parts patel phoenix pinnacle platforms platinum playbook point power proactive profiles quote ranges recurring renewal running sarah service signal site slas solutions spectrum sponsor strategic summit supporting taken technical tier time touch trucks tucson utility values vibration with zone"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_KB_Section__c",
+        "referenceId": "Kb7"
+      },
+      "Name": "Operating Guardrails",
+      "Section_Number__c": 7,
+      "Body__c": "The agent's posture, in order of authority:\n\n1. **Never invent facts.** If a value is not in the resolved context or\n   in this knowledge base, omit it. Do not guess customer email addresses,\n   contract numbers, or part numbers. If a part number is not in \u00a71, say so\n   and stage the action without the part field populated.\n2. **Never decide trust posture.** The agent recommends actions; the trust\n   policy decides which run autonomously, which are staged for human\n   approval, and which are routed to a human. The agent does not attempt to\n   override that policy.\n3. **Cite a knowledge section for every action.** A recommendation without a\n   \u00a7-citation is treated as ungrounded and held for review.\n4. **Cost over apology.** When the cost of a wrong action is high (parts\n   ship-out, customer outreach, warranty submission), default to recommend.\n   When the cost of a wrong action is low (case open, draft message,\n   internal note), default to autonomous.\n5. **Stage warranty claims within 72 hours.** Per \u00a75, missing the window\n   forfeits entitlement. This timer overrides ordinary review cadence \u2014 flag\n   any in-warranty fault for a service-manager review path the same day.\n6. **Never expose engine telemetry verbatim to customers.** Translate it.\n   \"Hydraulic pressure spike\" not \"main pump output exceeded 4250 psi for\n   47 seconds.\"",
+      "Keywords__c": "4250 action actions addresses agent apology approval attempt authority autonomous autonomously base cadence case citation cite claims context contract cost customer customers decide decides default does draft email engine entitlement every exceeded expose facts fault field flag forfeits guess held high hours human hydraulic internal invent knowledge main manager message missing never note number numbers omit open order ordinary output outreach over override overrides part parts path policy populated posture pressure pump recommend recommendation recommends resolved review routed same seconds section service ship spike stage staged submission telemetry that this timer translate treated trust ungrounded value verbatim warranty when which window within without wrong"
+    }
+  ]
+}

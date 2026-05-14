@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CspTrustedSite xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bedrock_Dashboard_Vercel</fullName>
+    <description>Allow Salesforce to iframe the Bedrock Build Dashboard hosted on Vercel</description>
+    <endpointUrl>https://bedrock-dashboard-sand.vercel.app</endpointUrl>
+    <isActive>true</isActive>
+    <context>All</context>
+    <isApplicableToConnectSrc>true</isApplicableToConnectSrc>
+    <isApplicableToFontSrc>false</isApplicableToFontSrc>
+    <isApplicableToFrameSrc>true</isApplicableToFrameSrc>
+    <isApplicableToImgSrc>true</isApplicableToImgSrc>
+    <isApplicableToMediaSrc>false</isApplicableToMediaSrc>
+    <isApplicableToStyleSrc>false</isApplicableToStyleSrc>
+</CspTrustedSite>

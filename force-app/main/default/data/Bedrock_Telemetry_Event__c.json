@@ -1,0 +1,1338 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605090618_50101"
+      },
+      "Event_Id__c": "EVT-202605090618-50101",
+      "Asset__c": "@AssetASSET_50101",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-05-09T06:18:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 2160,
+      "Coolant_Temp_C__c": 102.0,
+      "Hydraulic_Pressure_PSI__c": 4280,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605081000_50105"
+      },
+      "Event_Id__c": "EVT-202605081000-50105",
+      "Asset__c": "@AssetASSET_50105",
+      "Fault_Code__c": "COOL-220",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-05-08T10:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1850,
+      "Coolant_Temp_C__c": 121.0,
+      "Hydraulic_Pressure_PSI__c": 2100,
+      "Description__c": "Coolant temperature elevated \u2014 sustained >118C for 6 minutes"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605070800_50302"
+      },
+      "Event_Id__c": "EVT-202605070800-50302",
+      "Asset__c": "@AssetASSET_50302",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-05-07T08:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 2080,
+      "Coolant_Temp_C__c": 95.0,
+      "Hydraulic_Pressure_PSI__c": 4310,
+      "Description__c": "Hydraulic pressure spike on lift cycle \u2014 secondary relief tripped twice"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605070000_50703"
+      },
+      "Event_Id__c": "EVT-202605070000-50703",
+      "Asset__c": "@AssetASSET_50703",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-05-07T00:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1707,
+      "Coolant_Temp_C__c": 84.0,
+      "Hydraulic_Pressure_PSI__c": 2139,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%",
+      "Resolved_Timestamp__c": "2026-05-07T05:35:36Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605061200_50703"
+      },
+      "Event_Id__c": "EVT-202605061200-50703",
+      "Asset__c": "@AssetASSET_50703",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-05-06T12:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1734,
+      "Coolant_Temp_C__c": 90.0,
+      "Hydraulic_Pressure_PSI__c": 2279,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-05-06T13:28:52Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605052200_50503"
+      },
+      "Event_Id__c": "EVT-202605052200-50503",
+      "Asset__c": "@AssetASSET_50503",
+      "Fault_Code__c": "VIB-654",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-05-05T22:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1720,
+      "Coolant_Temp_C__c": 89.0,
+      "Hydraulic_Pressure_PSI__c": 2050,
+      "Description__c": "Bearing vibration anomaly on alternator \u2014 ISO 10816 zone D exceeded"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605051400_50302"
+      },
+      "Event_Id__c": "EVT-202605051400-50302",
+      "Asset__c": "@AssetASSET_50302",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-05-05T14:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1875,
+      "Coolant_Temp_C__c": 91.0,
+      "Hydraulic_Pressure_PSI__c": 2086,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-05-05T18:23:57Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605041800_50503"
+      },
+      "Event_Id__c": "EVT-202605041800-50503",
+      "Asset__c": "@AssetASSET_50503",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-05-04T18:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 2171,
+      "Coolant_Temp_C__c": 90.0,
+      "Hydraulic_Pressure_PSI__c": 4214,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s",
+      "Resolved_Timestamp__c": "2026-05-05T10:42:36Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605041600_50703"
+      },
+      "Event_Id__c": "EVT-202605041600-50703",
+      "Asset__c": "@AssetASSET_50703",
+      "Fault_Code__c": "ENG-105",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-05-04T16:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1980,
+      "Coolant_Temp_C__c": 99.0,
+      "Hydraulic_Pressure_PSI__c": 2310,
+      "Description__c": "Engine oil pressure below safe threshold under load \u2014 derated"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605040200_50401"
+      },
+      "Event_Id__c": "EVT-202605040200-50401",
+      "Asset__c": "@AssetASSET_50401",
+      "Fault_Code__c": "VIB-654",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-05-04T02:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1801,
+      "Coolant_Temp_C__c": 88.0,
+      "Hydraulic_Pressure_PSI__c": 1803,
+      "Description__c": "Bearing vibration anomaly \u2014 ISO 10816 zone D exceeded for 8 minutes",
+      "Resolved_Timestamp__c": "2026-05-04T12:51:45Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605031000_50401"
+      },
+      "Event_Id__c": "EVT-202605031000-50401",
+      "Asset__c": "@AssetASSET_50401",
+      "Fault_Code__c": "LUB-016",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-05-03T10:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1789,
+      "Coolant_Temp_C__c": 86.0,
+      "Hydraulic_Pressure_PSI__c": 1964,
+      "Description__c": "Lubrication cycle skipped on bay 3 \u2014 operator notified",
+      "Resolved_Timestamp__c": "2026-05-03T16:37:12Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605011800_50205"
+      },
+      "Event_Id__c": "EVT-202605011800-50205",
+      "Asset__c": "@AssetASSET_50205",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-05-01T18:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1946,
+      "Coolant_Temp_C__c": 94.0,
+      "Hydraulic_Pressure_PSI__c": 2103,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-05-01T20:50:22Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202605010100_50802"
+      },
+      "Event_Id__c": "EVT-202605010100-50802",
+      "Asset__c": "@AssetASSET_50802",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-05-01T01:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 2057,
+      "Coolant_Temp_C__c": 91.0,
+      "Hydraulic_Pressure_PSI__c": 4214,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604292200_50106"
+      },
+      "Event_Id__c": "EVT-202604292200-50106",
+      "Asset__c": "@AssetASSET_50106",
+      "Fault_Code__c": "BRK-512",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-04-29T22:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1567,
+      "Coolant_Temp_C__c": 83.0,
+      "Hydraulic_Pressure_PSI__c": 2132,
+      "Description__c": "Brake pad wear over 70% \u2014 replacement window approaching",
+      "Resolved_Timestamp__c": "2026-04-30T00:27:04Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604290600_51001"
+      },
+      "Event_Id__c": "EVT-202604290600-51001",
+      "Asset__c": "@AssetASSET_51001",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-04-29T06:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1796,
+      "Coolant_Temp_C__c": 90.0,
+      "Hydraulic_Pressure_PSI__c": 1931,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%",
+      "Resolved_Timestamp__c": "2026-04-29T13:45:55Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604290500_50106"
+      },
+      "Event_Id__c": "EVT-202604290500-50106",
+      "Asset__c": "@AssetASSET_50106",
+      "Fault_Code__c": "ENG-105",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-29T05:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1904,
+      "Coolant_Temp_C__c": 93.0,
+      "Hydraulic_Pressure_PSI__c": 2312,
+      "Description__c": "Engine oil pressure below safe threshold (<22 psi at full load)",
+      "Resolved_Timestamp__c": "2026-04-29T09:26:41Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604290400_50201"
+      },
+      "Event_Id__c": "EVT-202604290400-50201",
+      "Asset__c": "@AssetASSET_50201",
+      "Fault_Code__c": "AIR-204",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-04-29T04:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1675,
+      "Coolant_Temp_C__c": 83.0,
+      "Hydraulic_Pressure_PSI__c": 2251,
+      "Description__c": "Air filter restriction approaching service threshold",
+      "Resolved_Timestamp__c": "2026-04-29T06:04:47Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604271200_50101"
+      },
+      "Event_Id__c": "EVT-202604271200-50101",
+      "Asset__c": "@AssetASSET_50101",
+      "Fault_Code__c": "COOL-220",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-27T12:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1767,
+      "Coolant_Temp_C__c": 119.0,
+      "Hydraulic_Pressure_PSI__c": 2026,
+      "Description__c": "Coolant temperature elevated \u2014 sustained >118C for 6+ minutes",
+      "Resolved_Timestamp__c": "2026-04-27T22:30:00Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604261800_50202"
+      },
+      "Event_Id__c": "EVT-202604261800-50202",
+      "Asset__c": "@AssetASSET_50202",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-04-26T18:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1735,
+      "Coolant_Temp_C__c": 88.0,
+      "Hydraulic_Pressure_PSI__c": 1955,
+      "Description__c": "Transmission slip detected on shift 4-5 under load"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604261300_50702"
+      },
+      "Event_Id__c": "EVT-202604261300-50702",
+      "Asset__c": "@AssetASSET_50702",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-26T13:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 2110,
+      "Coolant_Temp_C__c": 91.0,
+      "Hydraulic_Pressure_PSI__c": 4268,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604261200_50102"
+      },
+      "Event_Id__c": "EVT-202604261200-50102",
+      "Asset__c": "@AssetASSET_50102",
+      "Fault_Code__c": "VIB-654",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-26T12:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1742,
+      "Coolant_Temp_C__c": 86.0,
+      "Hydraulic_Pressure_PSI__c": 2088,
+      "Description__c": "Bearing vibration anomaly \u2014 ISO 10816 zone D exceeded for 8 minutes",
+      "Resolved_Timestamp__c": "2026-04-26T17:49:00Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604251200_50104"
+      },
+      "Event_Id__c": "EVT-202604251200-50104",
+      "Asset__c": "@AssetASSET_50104",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-25T12:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 2187,
+      "Coolant_Temp_C__c": 96.0,
+      "Hydraulic_Pressure_PSI__c": 4267,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s",
+      "Resolved_Timestamp__c": "2026-04-26T00:30:00Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604241000_50105"
+      },
+      "Event_Id__c": "EVT-202604241000-50105",
+      "Asset__c": "@AssetASSET_50105",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-24T10:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 2069,
+      "Coolant_Temp_C__c": 89.0,
+      "Hydraulic_Pressure_PSI__c": 4331,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604231200_50202"
+      },
+      "Event_Id__c": "EVT-202604231200-50202",
+      "Asset__c": "@AssetASSET_50202",
+      "Fault_Code__c": "ENG-105",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-23T12:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 2041,
+      "Coolant_Temp_C__c": 98.0,
+      "Hydraulic_Pressure_PSI__c": 2398,
+      "Description__c": "Engine oil pressure below safe threshold (<22 psi at full load)",
+      "Resolved_Timestamp__c": "2026-04-24T00:12:00Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604221800_50202"
+      },
+      "Event_Id__c": "EVT-202604221800-50202",
+      "Asset__c": "@AssetASSET_50202",
+      "Fault_Code__c": "LUB-016",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-04-22T18:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1614,
+      "Coolant_Temp_C__c": 87.0,
+      "Hydraulic_Pressure_PSI__c": 2189,
+      "Description__c": "Lubrication cycle skipped on bay 3 \u2014 operator notified",
+      "Resolved_Timestamp__c": "2026-04-22T23:08:43Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604220600_50901"
+      },
+      "Event_Id__c": "EVT-202604220600-50901",
+      "Asset__c": "@AssetASSET_50901",
+      "Fault_Code__c": "ELE-091",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-04-22T06:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1571,
+      "Coolant_Temp_C__c": 81.0,
+      "Hydraulic_Pressure_PSI__c": 1767,
+      "Description__c": "Electrical short detected on auxiliary harness",
+      "Resolved_Timestamp__c": "2026-04-22T08:51:22Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604201200_50503"
+      },
+      "Event_Id__c": "EVT-202604201200-50503",
+      "Asset__c": "@AssetASSET_50503",
+      "Fault_Code__c": "COOL-220",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-20T12:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1802,
+      "Coolant_Temp_C__c": 120.0,
+      "Hydraulic_Pressure_PSI__c": 2012,
+      "Description__c": "Coolant temperature elevated \u2014 sustained >118C for 6+ minutes",
+      "Resolved_Timestamp__c": "2026-04-21T00:45:00Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604181200_50201"
+      },
+      "Event_Id__c": "EVT-202604181200-50201",
+      "Asset__c": "@AssetASSET_50201",
+      "Fault_Code__c": "VIB-654",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-18T12:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1570,
+      "Coolant_Temp_C__c": 93.0,
+      "Hydraulic_Pressure_PSI__c": 2052,
+      "Description__c": "Bearing vibration anomaly \u2014 ISO 10816 zone D exceeded for 8 minutes",
+      "Resolved_Timestamp__c": "2026-04-18T23:30:00Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604181000_50502"
+      },
+      "Event_Id__c": "EVT-202604181000-50502",
+      "Asset__c": "@AssetASSET_50502",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-04-18T10:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1788,
+      "Coolant_Temp_C__c": 83.0,
+      "Hydraulic_Pressure_PSI__c": 1937,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%",
+      "Resolved_Timestamp__c": "2026-04-18T15:09:31Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604151600_50105"
+      },
+      "Event_Id__c": "EVT-202604151600-50105",
+      "Asset__c": "@AssetASSET_50105",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-04-15T16:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1874,
+      "Coolant_Temp_C__c": 93.0,
+      "Hydraulic_Pressure_PSI__c": 1914,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-04-15T21:35:46Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604151200_50703"
+      },
+      "Event_Id__c": "EVT-202604151200-50703",
+      "Asset__c": "@AssetASSET_50703",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-15T12:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1946,
+      "Coolant_Temp_C__c": 88.0,
+      "Hydraulic_Pressure_PSI__c": 4228,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s",
+      "Resolved_Timestamp__c": "2026-04-16T00:00:00Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604150700_50302"
+      },
+      "Event_Id__c": "EVT-202604150700-50302",
+      "Asset__c": "@AssetASSET_50302",
+      "Fault_Code__c": "ENG-105",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-15T07:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1985,
+      "Coolant_Temp_C__c": 92.0,
+      "Hydraulic_Pressure_PSI__c": 2265,
+      "Description__c": "Engine oil pressure below safe threshold (<22 psi at full load)",
+      "Resolved_Timestamp__c": "2026-04-15T21:27:28Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604141100_50205"
+      },
+      "Event_Id__c": "EVT-202604141100-50205",
+      "Asset__c": "@AssetASSET_50205",
+      "Fault_Code__c": "COOL-220",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-14T11:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1756,
+      "Coolant_Temp_C__c": 119.0,
+      "Hydraulic_Pressure_PSI__c": 2135,
+      "Description__c": "Coolant temperature elevated \u2014 sustained >118C for 6+ minutes"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604140400_50603"
+      },
+      "Event_Id__c": "EVT-202604140400-50603",
+      "Asset__c": "@AssetASSET_50603",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-14T04:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 2132,
+      "Coolant_Temp_C__c": 92.0,
+      "Hydraulic_Pressure_PSI__c": 4308,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604132100_50102"
+      },
+      "Event_Id__c": "EVT-202604132100-50102",
+      "Asset__c": "@AssetASSET_50102",
+      "Fault_Code__c": "LUB-016",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-04-13T21:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1785,
+      "Coolant_Temp_C__c": 84.0,
+      "Hydraulic_Pressure_PSI__c": 2114,
+      "Description__c": "Lubrication cycle skipped on bay 3 \u2014 operator notified",
+      "Resolved_Timestamp__c": "2026-04-14T00:08:17Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604131700_50105"
+      },
+      "Event_Id__c": "EVT-202604131700-50105",
+      "Asset__c": "@AssetASSET_50105",
+      "Fault_Code__c": "BRK-512",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-04-13T17:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1670,
+      "Coolant_Temp_C__c": 84.0,
+      "Hydraulic_Pressure_PSI__c": 2183,
+      "Description__c": "Brake pad wear over 70% \u2014 replacement window approaching"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604121500_50302"
+      },
+      "Event_Id__c": "EVT-202604121500-50302",
+      "Asset__c": "@AssetASSET_50302",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-04-12T15:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1864,
+      "Coolant_Temp_C__c": 95.0,
+      "Hydraulic_Pressure_PSI__c": 1961,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-04-12T18:47:08Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604111600_50105"
+      },
+      "Event_Id__c": "EVT-202604111600-50105",
+      "Asset__c": "@AssetASSET_50105",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-04-11T16:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1696,
+      "Coolant_Temp_C__c": 89.0,
+      "Hydraulic_Pressure_PSI__c": 2104,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%",
+      "Resolved_Timestamp__c": "2026-04-11T21:53:15Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604110700_50202"
+      },
+      "Event_Id__c": "EVT-202604110700-50202",
+      "Asset__c": "@AssetASSET_50202",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-04-11T07:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1968,
+      "Coolant_Temp_C__c": 92.0,
+      "Hydraulic_Pressure_PSI__c": 2156,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-04-11T14:39:13Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604101200_50801"
+      },
+      "Event_Id__c": "EVT-202604101200-50801",
+      "Asset__c": "@AssetASSET_50801",
+      "Fault_Code__c": "ENG-105",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-10T12:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1889,
+      "Coolant_Temp_C__c": 94.0,
+      "Hydraulic_Pressure_PSI__c": 2316,
+      "Description__c": "Engine oil pressure below safe threshold (<22 psi at full load)",
+      "Resolved_Timestamp__c": "2026-04-10T23:15:00Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604101000_50401"
+      },
+      "Event_Id__c": "EVT-202604101000-50401",
+      "Asset__c": "@AssetASSET_50401",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-04-10T10:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1771,
+      "Coolant_Temp_C__c": 93.0,
+      "Hydraulic_Pressure_PSI__c": 2176,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-04-10T12:15:31Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604100400_50205"
+      },
+      "Event_Id__c": "EVT-202604100400-50205",
+      "Asset__c": "@AssetASSET_50205",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-04-10T04:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1641,
+      "Coolant_Temp_C__c": 90.0,
+      "Hydraulic_Pressure_PSI__c": 2148,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%",
+      "Resolved_Timestamp__c": "2026-04-10T10:47:56Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604092200_50503"
+      },
+      "Event_Id__c": "EVT-202604092200-50503",
+      "Asset__c": "@AssetASSET_50503",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-04-09T22:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1906,
+      "Coolant_Temp_C__c": 84.0,
+      "Hydraulic_Pressure_PSI__c": 2237,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%",
+      "Resolved_Timestamp__c": "2026-04-10T02:20:01Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604091900_50501"
+      },
+      "Event_Id__c": "EVT-202604091900-50501",
+      "Asset__c": "@AssetASSET_50501",
+      "Fault_Code__c": "ENG-105",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-09T19:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 2006,
+      "Coolant_Temp_C__c": 100.0,
+      "Hydraulic_Pressure_PSI__c": 2104,
+      "Description__c": "Engine oil pressure below safe threshold (<22 psi at full load)"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604090500_50301"
+      },
+      "Event_Id__c": "EVT-202604090500-50301",
+      "Asset__c": "@AssetASSET_50301",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-04-09T05:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1638,
+      "Coolant_Temp_C__c": 95.0,
+      "Hydraulic_Pressure_PSI__c": 2181,
+      "Description__c": "Transmission slip detected on shift 4-5 under load"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604080600_50702"
+      },
+      "Event_Id__c": "EVT-202604080600-50702",
+      "Asset__c": "@AssetASSET_50702",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-04-08T06:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1962,
+      "Coolant_Temp_C__c": 82.0,
+      "Hydraulic_Pressure_PSI__c": 1984,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604070400_50402"
+      },
+      "Event_Id__c": "EVT-202604070400-50402",
+      "Asset__c": "@AssetASSET_50402",
+      "Fault_Code__c": "AIR-204",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-04-07T04:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1933,
+      "Coolant_Temp_C__c": 80.0,
+      "Hydraulic_Pressure_PSI__c": 1947,
+      "Description__c": "Air filter restriction approaching service threshold"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604060400_50902"
+      },
+      "Event_Id__c": "EVT-202604060400-50902",
+      "Asset__c": "@AssetASSET_50902",
+      "Fault_Code__c": "VIB-654",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-04-06T04:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1535,
+      "Coolant_Temp_C__c": 88.0,
+      "Hydraulic_Pressure_PSI__c": 1989,
+      "Description__c": "Bearing vibration anomaly \u2014 ISO 10816 zone D exceeded for 8 minutes",
+      "Resolved_Timestamp__c": "2026-04-06T11:35:02Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604051500_50106"
+      },
+      "Event_Id__c": "EVT-202604051500-50106",
+      "Asset__c": "@AssetASSET_50106",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-04-05T15:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1984,
+      "Coolant_Temp_C__c": 91.0,
+      "Hydraulic_Pressure_PSI__c": 2244,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-04-05T18:00:50Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604041200_50203"
+      },
+      "Event_Id__c": "EVT-202604041200-50203",
+      "Asset__c": "@AssetASSET_50203",
+      "Fault_Code__c": "LUB-016",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-04-04T12:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1703,
+      "Coolant_Temp_C__c": 87.0,
+      "Hydraulic_Pressure_PSI__c": 1913,
+      "Description__c": "Lubrication cycle skipped on bay 3 \u2014 operator notified"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604032200_50702"
+      },
+      "Event_Id__c": "EVT-202604032200-50702",
+      "Asset__c": "@AssetASSET_50702",
+      "Fault_Code__c": "ELE-091",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-04-03T22:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1730,
+      "Coolant_Temp_C__c": 81.0,
+      "Hydraulic_Pressure_PSI__c": 2094,
+      "Description__c": "Electrical short detected on auxiliary harness",
+      "Resolved_Timestamp__c": "2026-04-04T00:03:04Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202604030700_50203"
+      },
+      "Event_Id__c": "EVT-202604030700-50203",
+      "Asset__c": "@AssetASSET_50203",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-04-03T07:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1716,
+      "Coolant_Temp_C__c": 85.0,
+      "Hydraulic_Pressure_PSI__c": 2176,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%",
+      "Resolved_Timestamp__c": "2026-04-03T14:02:35Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603271900_50201"
+      },
+      "Event_Id__c": "EVT-202603271900-50201",
+      "Asset__c": "@AssetASSET_50201",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-03-27T19:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1947,
+      "Coolant_Temp_C__c": 91.0,
+      "Hydraulic_Pressure_PSI__c": 4242,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603271400_50401"
+      },
+      "Event_Id__c": "EVT-202603271400-50401",
+      "Asset__c": "@AssetASSET_50401",
+      "Fault_Code__c": "ENG-105",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-03-27T14:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 2047,
+      "Coolant_Temp_C__c": 93.0,
+      "Hydraulic_Pressure_PSI__c": 2317,
+      "Description__c": "Engine oil pressure below safe threshold (<22 psi at full load)",
+      "Resolved_Timestamp__c": "2026-03-28T04:00:55Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603270900_51001"
+      },
+      "Event_Id__c": "EVT-202603270900-51001",
+      "Asset__c": "@AssetASSET_51001",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-03-27T09:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1668,
+      "Coolant_Temp_C__c": 92.0,
+      "Hydraulic_Pressure_PSI__c": 1959,
+      "Description__c": "Transmission slip detected on shift 4-5 under load"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603270200_50703"
+      },
+      "Event_Id__c": "EVT-202603270200-50703",
+      "Asset__c": "@AssetASSET_50703",
+      "Fault_Code__c": "COOL-220",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-03-27T02:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1731,
+      "Coolant_Temp_C__c": 123.0,
+      "Hydraulic_Pressure_PSI__c": 2053,
+      "Description__c": "Coolant temperature elevated \u2014 sustained >118C for 6+ minutes",
+      "Resolved_Timestamp__c": "2026-03-27T14:36:51Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603262300_50803"
+      },
+      "Event_Id__c": "EVT-202603262300-50803",
+      "Asset__c": "@AssetASSET_50803",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-03-26T23:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1883,
+      "Coolant_Temp_C__c": 90.0,
+      "Hydraulic_Pressure_PSI__c": 1998,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-03-27T04:43:44Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603262100_50401"
+      },
+      "Event_Id__c": "EVT-202603262100-50401",
+      "Asset__c": "@AssetASSET_50401",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-03-26T21:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1892,
+      "Coolant_Temp_C__c": 97.0,
+      "Hydraulic_Pressure_PSI__c": 2142,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-03-26T22:29:32Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603262000_50203"
+      },
+      "Event_Id__c": "EVT-202603262000-50203",
+      "Asset__c": "@AssetASSET_50203",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-03-26T20:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1804,
+      "Coolant_Temp_C__c": 87.0,
+      "Hydraulic_Pressure_PSI__c": 2286,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603251900_50101"
+      },
+      "Event_Id__c": "EVT-202603251900-50101",
+      "Asset__c": "@AssetASSET_50101",
+      "Fault_Code__c": "COOL-220",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-03-25T19:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1896,
+      "Coolant_Temp_C__c": 123.0,
+      "Hydraulic_Pressure_PSI__c": 2074,
+      "Description__c": "Coolant temperature elevated \u2014 sustained >118C for 6+ minutes"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603251300_50702"
+      },
+      "Event_Id__c": "EVT-202603251300-50702",
+      "Asset__c": "@AssetASSET_50702",
+      "Fault_Code__c": "BRK-512",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-03-25T13:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1715,
+      "Coolant_Temp_C__c": 89.0,
+      "Hydraulic_Pressure_PSI__c": 2054,
+      "Description__c": "Brake pad wear over 70% \u2014 replacement window approaching"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603250400_50303"
+      },
+      "Event_Id__c": "EVT-202603250400-50303",
+      "Asset__c": "@AssetASSET_50303",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-03-25T04:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1810,
+      "Coolant_Temp_C__c": 83.0,
+      "Hydraulic_Pressure_PSI__c": 2298,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%",
+      "Resolved_Timestamp__c": "2026-03-25T05:45:30Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603232300_50704"
+      },
+      "Event_Id__c": "EVT-202603232300-50704",
+      "Asset__c": "@AssetASSET_50704",
+      "Fault_Code__c": "AIR-204",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-03-23T23:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1983,
+      "Coolant_Temp_C__c": 91.0,
+      "Hydraulic_Pressure_PSI__c": 1976,
+      "Description__c": "Air filter restriction approaching service threshold",
+      "Resolved_Timestamp__c": "2026-03-24T00:20:20Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603230200_50703"
+      },
+      "Event_Id__c": "EVT-202603230200-50703",
+      "Asset__c": "@AssetASSET_50703",
+      "Fault_Code__c": "ELE-091",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-03-23T02:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1418,
+      "Coolant_Temp_C__c": 81.0,
+      "Hydraulic_Pressure_PSI__c": 1995,
+      "Description__c": "Electrical short detected on auxiliary harness",
+      "Resolved_Timestamp__c": "2026-03-23T09:52:54Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603220800_50702"
+      },
+      "Event_Id__c": "EVT-202603220800-50702",
+      "Asset__c": "@AssetASSET_50702",
+      "Fault_Code__c": "LUB-016",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-03-22T08:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1521,
+      "Coolant_Temp_C__c": 80.0,
+      "Hydraulic_Pressure_PSI__c": 1990,
+      "Description__c": "Lubrication cycle skipped on bay 3 \u2014 operator notified"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603211900_50801"
+      },
+      "Event_Id__c": "EVT-202603211900-50801",
+      "Asset__c": "@AssetASSET_50801",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-03-21T19:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 2014,
+      "Coolant_Temp_C__c": 89.0,
+      "Hydraulic_Pressure_PSI__c": 4210,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s",
+      "Resolved_Timestamp__c": "2026-03-22T12:13:50Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603210000_50503"
+      },
+      "Event_Id__c": "EVT-202603210000-50503",
+      "Asset__c": "@AssetASSET_50503",
+      "Fault_Code__c": "ELE-091",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-03-21T00:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1731,
+      "Coolant_Temp_C__c": 79.0,
+      "Hydraulic_Pressure_PSI__c": 1741,
+      "Description__c": "Electrical short detected on auxiliary harness",
+      "Resolved_Timestamp__c": "2026-03-21T07:38:02Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603180900_50701"
+      },
+      "Event_Id__c": "EVT-202603180900-50701",
+      "Asset__c": "@AssetASSET_50701",
+      "Fault_Code__c": "ELE-091",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-03-18T09:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1759,
+      "Coolant_Temp_C__c": 77.0,
+      "Hydraulic_Pressure_PSI__c": 1916,
+      "Description__c": "Electrical short detected on auxiliary harness",
+      "Resolved_Timestamp__c": "2026-03-18T10:55:35Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603180600_50502"
+      },
+      "Event_Id__c": "EVT-202603180600-50502",
+      "Asset__c": "@AssetASSET_50502",
+      "Fault_Code__c": "VIB-654",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-03-18T06:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1743,
+      "Coolant_Temp_C__c": 94.0,
+      "Hydraulic_Pressure_PSI__c": 2193,
+      "Description__c": "Bearing vibration anomaly \u2014 ISO 10816 zone D exceeded for 8 minutes",
+      "Resolved_Timestamp__c": "2026-03-18T08:44:21Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603172300_50401"
+      },
+      "Event_Id__c": "EVT-202603172300-50401",
+      "Asset__c": "@AssetASSET_50401",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-03-17T23:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1720,
+      "Coolant_Temp_C__c": 87.0,
+      "Hydraulic_Pressure_PSI__c": 2116,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%",
+      "Resolved_Timestamp__c": "2026-03-18T00:13:37Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603171700_50902"
+      },
+      "Event_Id__c": "EVT-202603171700-50902",
+      "Asset__c": "@AssetASSET_50902",
+      "Fault_Code__c": "AIR-204",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-03-17T17:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1749,
+      "Coolant_Temp_C__c": 83.0,
+      "Hydraulic_Pressure_PSI__c": 2039,
+      "Description__c": "Air filter restriction approaching service threshold"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603171400_50304"
+      },
+      "Event_Id__c": "EVT-202603171400-50304",
+      "Asset__c": "@AssetASSET_50304",
+      "Fault_Code__c": "ENG-105",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-03-17T14:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1913,
+      "Coolant_Temp_C__c": 93.0,
+      "Hydraulic_Pressure_PSI__c": 2333,
+      "Description__c": "Engine oil pressure below safe threshold (<22 psi at full load)",
+      "Resolved_Timestamp__c": "2026-03-17T16:48:12Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603170500_50601"
+      },
+      "Event_Id__c": "EVT-202603170500-50601",
+      "Asset__c": "@AssetASSET_50601",
+      "Fault_Code__c": "TRA-308",
+      "Severity__c": "High",
+      "Event_Timestamp__c": "2026-03-17T05:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1804,
+      "Coolant_Temp_C__c": 93.0,
+      "Hydraulic_Pressure_PSI__c": 2042,
+      "Description__c": "Transmission slip detected on shift 4-5 under load",
+      "Resolved_Timestamp__c": "2026-03-17T10:27:00Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603161300_50704"
+      },
+      "Event_Id__c": "EVT-202603161300-50704",
+      "Asset__c": "@AssetASSET_50704",
+      "Fault_Code__c": "LUB-016",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-03-16T13:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1618,
+      "Coolant_Temp_C__c": 86.0,
+      "Hydraulic_Pressure_PSI__c": 2128,
+      "Description__c": "Lubrication cycle skipped on bay 3 \u2014 operator notified"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603161200_50701"
+      },
+      "Event_Id__c": "EVT-202603161200-50701",
+      "Asset__c": "@AssetASSET_50701",
+      "Fault_Code__c": "AIR-204",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-03-16T12:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1902,
+      "Coolant_Temp_C__c": 89.0,
+      "Hydraulic_Pressure_PSI__c": 2210,
+      "Description__c": "Air filter restriction approaching service threshold",
+      "Resolved_Timestamp__c": "2026-03-16T14:04:34Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603160100_50902"
+      },
+      "Event_Id__c": "EVT-202603160100-50902",
+      "Asset__c": "@AssetASSET_50902",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-03-16T01:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1965,
+      "Coolant_Temp_C__c": 88.0,
+      "Hydraulic_Pressure_PSI__c": 4278,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s",
+      "Resolved_Timestamp__c": "2026-03-16T05:22:10Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603150700_50803"
+      },
+      "Event_Id__c": "EVT-202603150700-50803",
+      "Asset__c": "@AssetASSET_50803",
+      "Fault_Code__c": "COOL-220",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-03-15T07:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1920,
+      "Coolant_Temp_C__c": 119.0,
+      "Hydraulic_Pressure_PSI__c": 2106,
+      "Description__c": "Coolant temperature elevated \u2014 sustained >118C for 6+ minutes",
+      "Resolved_Timestamp__c": "2026-03-15T10:05:14Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603131300_50702"
+      },
+      "Event_Id__c": "EVT-202603131300-50702",
+      "Asset__c": "@AssetASSET_50702",
+      "Fault_Code__c": "FUEL-073",
+      "Severity__c": "Medium",
+      "Event_Timestamp__c": "2026-03-13T13:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1830,
+      "Coolant_Temp_C__c": 83.0,
+      "Hydraulic_Pressure_PSI__c": 1931,
+      "Description__c": "Fuel system anomaly \u2014 injector flow variance >12%",
+      "Resolved_Timestamp__c": "2026-03-13T18:24:03Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603120100_50602"
+      },
+      "Event_Id__c": "EVT-202603120100-50602",
+      "Asset__c": "@AssetASSET_50602",
+      "Fault_Code__c": "HYD-447",
+      "Severity__c": "Critical",
+      "Event_Timestamp__c": "2026-03-12T01:00:00Z",
+      "Resolution_Status__c": "Resolved",
+      "RPM__c": 1952,
+      "Coolant_Temp_C__c": 93.0,
+      "Hydraulic_Pressure_PSI__c": 4343,
+      "Description__c": "Hydraulic pressure spike \u2014 main pump output beyond 4250 psi for 47s",
+      "Resolved_Timestamp__c": "2026-03-12T06:59:32Z"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Telemetry_Event__c",
+        "referenceId": "EvtEVT_202603110900_50301"
+      },
+      "Event_Id__c": "EVT-202603110900-50301",
+      "Asset__c": "@AssetASSET_50301",
+      "Fault_Code__c": "AIR-204",
+      "Severity__c": "Low",
+      "Event_Timestamp__c": "2026-03-11T09:00:00Z",
+      "Resolution_Status__c": "Open",
+      "RPM__c": 1652,
+      "Coolant_Temp_C__c": 90.0,
+      "Hydraulic_Pressure_PSI__c": 2159,
+      "Description__c": "Air filter restriction approaching service threshold"
+    }
+  ]
+}

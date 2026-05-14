@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentDSLEnabled>true</agentDSLEnabled>
+    <agentType>AgentforceEmployeeAgent</agentType>
+    <botMlDomain>
+        <label>Bedrock Service Triage</label>
+        <name>Bedrock_Service_Triage</name>
+    </botMlDomain>
+    <botSource>None</botSource>
+    <description>Triages critical fault events on Bedrock connected assets. Resolves asset 360, grounds in the service KB, recommends and executes the trust-policy-allowed actions.</description>
+    <label>Bedrock Service Triage</label>
+    <logPrivateConversationData>false</logPrivateConversationData>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>0</sessionTimeout>
+    <type>InternalCopilot</type>
+</Bot>

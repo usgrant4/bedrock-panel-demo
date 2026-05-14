@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A section of the Bedrock service knowledge base. In production this is Data Cloud Vector DB or Knowledge.</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Bedrock KB Section</label>
+    <nameField>
+    <label>Section Title</label>
+    <type>Text</type>
+</nameField>
+    <pluralLabel>Bedrock KB Sections</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

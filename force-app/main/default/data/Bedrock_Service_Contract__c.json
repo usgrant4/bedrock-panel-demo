@@ -1,0 +1,559 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50101"
+      },
+      "Contract_Id__c": "CON-50101",
+      "Customer__c": "@CustCUST_10001",
+      "Asset__c": "@AssetASSET_50101",
+      "Contract_Tier__c": "Platinum",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-10-08",
+      "End_Date__c": "2025-10-03",
+      "Annual_Value_USD__c": 515000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50102"
+      },
+      "Contract_Id__c": "CON-50102",
+      "Customer__c": "@CustCUST_10001",
+      "Asset__c": "@AssetASSET_50102",
+      "Contract_Tier__c": "Platinum",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-05-22",
+      "End_Date__c": "2025-05-17",
+      "Annual_Value_USD__c": 555000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50103"
+      },
+      "Contract_Id__c": "CON-50103",
+      "Customer__c": "@CustCUST_10001",
+      "Asset__c": "@AssetASSET_50103",
+      "Contract_Tier__c": "Platinum",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2024-03-30",
+      "End_Date__c": "2027-03-15",
+      "Annual_Value_USD__c": 510000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50104"
+      },
+      "Contract_Id__c": "CON-50104",
+      "Customer__c": "@CustCUST_10001",
+      "Asset__c": "@AssetASSET_50104",
+      "Contract_Tier__c": "Platinum",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-01-31",
+      "End_Date__c": "2025-01-25",
+      "Annual_Value_USD__c": 615000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50105"
+      },
+      "Contract_Id__c": "CON-50105",
+      "Customer__c": "@CustCUST_10001",
+      "Asset__c": "@AssetASSET_50105",
+      "Contract_Tier__c": "Platinum",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-08-26",
+      "End_Date__c": "2025-08-21",
+      "Annual_Value_USD__c": 505000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50106"
+      },
+      "Contract_Id__c": "CON-50106",
+      "Customer__c": "@CustCUST_10001",
+      "Asset__c": "@AssetASSET_50106",
+      "Contract_Tier__c": "Platinum",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2024-01-28",
+      "End_Date__c": "2027-01-12",
+      "Annual_Value_USD__c": 640000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50201"
+      },
+      "Contract_Id__c": "CON-50201",
+      "Customer__c": "@CustCUST_10002",
+      "Asset__c": "@AssetASSET_50201",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2025-03-05",
+      "End_Date__c": "2026-02-28",
+      "Annual_Value_USD__c": 265000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50202"
+      },
+      "Contract_Id__c": "CON-50202",
+      "Customer__c": "@CustCUST_10002",
+      "Asset__c": "@AssetASSET_50202",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 24,
+      "Start_Date__c": "2024-10-11",
+      "End_Date__c": "2026-10-01",
+      "Annual_Value_USD__c": 215000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50203"
+      },
+      "Contract_Id__c": "CON-50203",
+      "Customer__c": "@CustCUST_10002",
+      "Asset__c": "@AssetASSET_50203",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-06-12",
+      "End_Date__c": "2025-06-07",
+      "Annual_Value_USD__c": 305000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50204"
+      },
+      "Contract_Id__c": "CON-50204",
+      "Customer__c": "@CustCUST_10002",
+      "Asset__c": "@AssetASSET_50204",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 24,
+      "Start_Date__c": "2024-12-14",
+      "End_Date__c": "2026-12-04",
+      "Annual_Value_USD__c": 290000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50205"
+      },
+      "Contract_Id__c": "CON-50205",
+      "Customer__c": "@CustCUST_10002",
+      "Asset__c": "@AssetASSET_50205",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2025-05-01",
+      "End_Date__c": "2026-04-30",
+      "Annual_Value_USD__c": 220000.0,
+      "Status__c": "Pending Renewal"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50301"
+      },
+      "Contract_Id__c": "CON-50301",
+      "Customer__c": "@CustCUST_10003",
+      "Asset__c": "@AssetASSET_50301",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-12-10",
+      "End_Date__c": "2025-12-05",
+      "Annual_Value_USD__c": 200000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50302"
+      },
+      "Contract_Id__c": "CON-50302",
+      "Customer__c": "@CustCUST_10003",
+      "Asset__c": "@AssetASSET_50302",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2025-01-24",
+      "End_Date__c": "2026-01-19",
+      "Annual_Value_USD__c": 195000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50303"
+      },
+      "Contract_Id__c": "CON-50303",
+      "Customer__c": "@CustCUST_10003",
+      "Asset__c": "@AssetASSET_50303",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 24,
+      "Start_Date__c": "2024-12-18",
+      "End_Date__c": "2026-12-08",
+      "Annual_Value_USD__c": 195000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50304"
+      },
+      "Contract_Id__c": "CON-50304",
+      "Customer__c": "@CustCUST_10003",
+      "Asset__c": "@AssetASSET_50304",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 24,
+      "Start_Date__c": "2024-02-14",
+      "End_Date__c": "2026-02-03",
+      "Annual_Value_USD__c": 275000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50401"
+      },
+      "Contract_Id__c": "CON-50401",
+      "Customer__c": "@CustCUST_10004",
+      "Asset__c": "@AssetASSET_50401",
+      "Contract_Tier__c": "Silver",
+      "Term_Months__c": 24,
+      "Start_Date__c": "2024-05-07",
+      "End_Date__c": "2026-04-27",
+      "Annual_Value_USD__c": 135000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50402"
+      },
+      "Contract_Id__c": "CON-50402",
+      "Customer__c": "@CustCUST_10004",
+      "Asset__c": "@AssetASSET_50402",
+      "Contract_Tier__c": "Silver",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-10-27",
+      "End_Date__c": "2025-10-22",
+      "Annual_Value_USD__c": 110000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50403"
+      },
+      "Contract_Id__c": "CON-50403",
+      "Customer__c": "@CustCUST_10004",
+      "Asset__c": "@AssetASSET_50403",
+      "Contract_Tier__c": "Silver",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-05-01",
+      "End_Date__c": "2025-04-30",
+      "Annual_Value_USD__c": 130000.0,
+      "Status__c": "Expired"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50501"
+      },
+      "Contract_Id__c": "CON-50501",
+      "Customer__c": "@CustCUST_10005",
+      "Asset__c": "@AssetASSET_50501",
+      "Contract_Tier__c": "Platinum",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2024-07-15",
+      "End_Date__c": "2027-06-30",
+      "Annual_Value_USD__c": 595000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50502"
+      },
+      "Contract_Id__c": "CON-50502",
+      "Customer__c": "@CustCUST_10005",
+      "Asset__c": "@AssetASSET_50502",
+      "Contract_Tier__c": "Platinum",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-08-21",
+      "End_Date__c": "2025-08-16",
+      "Annual_Value_USD__c": 500000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50503"
+      },
+      "Contract_Id__c": "CON-50503",
+      "Customer__c": "@CustCUST_10005",
+      "Asset__c": "@AssetASSET_50503",
+      "Contract_Tier__c": "Platinum",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-08-26",
+      "End_Date__c": "2025-08-21",
+      "Annual_Value_USD__c": 570000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50504"
+      },
+      "Contract_Id__c": "CON-50504",
+      "Customer__c": "@CustCUST_10005",
+      "Asset__c": "@AssetASSET_50504",
+      "Contract_Tier__c": "Platinum",
+      "Term_Months__c": 24,
+      "Start_Date__c": "2024-10-11",
+      "End_Date__c": "2026-10-01",
+      "Annual_Value_USD__c": 510000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50601"
+      },
+      "Contract_Id__c": "CON-50601",
+      "Customer__c": "@CustCUST_10006",
+      "Asset__c": "@AssetASSET_50601",
+      "Contract_Tier__c": "Silver",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2025-01-08",
+      "End_Date__c": "2027-12-24",
+      "Annual_Value_USD__c": 115000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50602"
+      },
+      "Contract_Id__c": "CON-50602",
+      "Customer__c": "@CustCUST_10006",
+      "Asset__c": "@AssetASSET_50602",
+      "Contract_Tier__c": "Silver",
+      "Term_Months__c": 24,
+      "Start_Date__c": "2024-12-29",
+      "End_Date__c": "2026-12-19",
+      "Annual_Value_USD__c": 90000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50603"
+      },
+      "Contract_Id__c": "CON-50603",
+      "Customer__c": "@CustCUST_10006",
+      "Asset__c": "@AssetASSET_50603",
+      "Contract_Tier__c": "Silver",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2024-09-30",
+      "End_Date__c": "2027-09-15",
+      "Annual_Value_USD__c": 95000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50701"
+      },
+      "Contract_Id__c": "CON-50701",
+      "Customer__c": "@CustCUST_10007",
+      "Asset__c": "@AssetASSET_50701",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2024-03-14",
+      "End_Date__c": "2027-02-27",
+      "Annual_Value_USD__c": 290000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50702"
+      },
+      "Contract_Id__c": "CON-50702",
+      "Customer__c": "@CustCUST_10007",
+      "Asset__c": "@AssetASSET_50702",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2024-06-24",
+      "End_Date__c": "2027-06-09",
+      "Annual_Value_USD__c": 275000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50703"
+      },
+      "Contract_Id__c": "CON-50703",
+      "Customer__c": "@CustCUST_10007",
+      "Asset__c": "@AssetASSET_50703",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2024-09-07",
+      "End_Date__c": "2027-08-23",
+      "Annual_Value_USD__c": 265000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50704"
+      },
+      "Contract_Id__c": "CON-50704",
+      "Customer__c": "@CustCUST_10007",
+      "Asset__c": "@AssetASSET_50704",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 24,
+      "Start_Date__c": "2025-01-23",
+      "End_Date__c": "2027-01-13",
+      "Annual_Value_USD__c": 205000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50705"
+      },
+      "Contract_Id__c": "CON-50705",
+      "Customer__c": "@CustCUST_10007",
+      "Asset__c": "@AssetASSET_50705",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2024-08-12",
+      "End_Date__c": "2027-07-28",
+      "Annual_Value_USD__c": 220000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50801"
+      },
+      "Contract_Id__c": "CON-50801",
+      "Customer__c": "@CustCUST_10008",
+      "Asset__c": "@AssetASSET_50801",
+      "Contract_Tier__c": "Silver",
+      "Term_Months__c": 24,
+      "Start_Date__c": "2024-02-27",
+      "End_Date__c": "2026-02-16",
+      "Annual_Value_USD__c": 130000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50802"
+      },
+      "Contract_Id__c": "CON-50802",
+      "Customer__c": "@CustCUST_10008",
+      "Asset__c": "@AssetASSET_50802",
+      "Contract_Tier__c": "Silver",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-11-19",
+      "End_Date__c": "2025-11-14",
+      "Annual_Value_USD__c": 95000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50803"
+      },
+      "Contract_Id__c": "CON-50803",
+      "Customer__c": "@CustCUST_10008",
+      "Asset__c": "@AssetASSET_50803",
+      "Contract_Tier__c": "Silver",
+      "Term_Months__c": 24,
+      "Start_Date__c": "2024-03-08",
+      "End_Date__c": "2026-02-26",
+      "Annual_Value_USD__c": 110000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50901"
+      },
+      "Contract_Id__c": "CON-50901",
+      "Customer__c": "@CustCUST_10009",
+      "Asset__c": "@AssetASSET_50901",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2024-11-18",
+      "End_Date__c": "2027-11-03",
+      "Annual_Value_USD__c": 210000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_50902"
+      },
+      "Contract_Id__c": "CON-50902",
+      "Customer__c": "@CustCUST_10009",
+      "Asset__c": "@AssetASSET_50902",
+      "Contract_Tier__c": "Gold",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2025-05-26",
+      "End_Date__c": "2028-05-10",
+      "Annual_Value_USD__c": 210000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_51001"
+      },
+      "Contract_Id__c": "CON-51001",
+      "Customer__c": "@CustCUST_10010",
+      "Asset__c": "@AssetASSET_51001",
+      "Contract_Tier__c": "Bronze",
+      "Term_Months__c": 36,
+      "Start_Date__c": "2025-04-14",
+      "End_Date__c": "2028-03-29",
+      "Annual_Value_USD__c": 45000.0,
+      "Status__c": "Active"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Service_Contract__c",
+        "referenceId": "ConCON_51002"
+      },
+      "Contract_Id__c": "CON-51002",
+      "Customer__c": "@CustCUST_10010",
+      "Asset__c": "@AssetASSET_51002",
+      "Contract_Tier__c": "Bronze",
+      "Term_Months__c": 12,
+      "Start_Date__c": "2024-08-01",
+      "End_Date__c": "2025-07-31",
+      "Annual_Value_USD__c": 35000.0,
+      "Status__c": "Expired"
+    }
+  ]
+}

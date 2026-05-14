@@ -1,0 +1,11 @@
+Customer_Id__c,Account_Name__c,Account_Tier__c,Service_Tier__c,Primary_Contact_Name__c,Primary_Contact_Email__c,Country__c
+CUST-10001,Pinnacle Mining Group,Strategic,Platinum,Sarah Chen,sarah.chen@pinnaclemining.com,USA
+CUST-10002,Granite Construction Partners,Strategic,Gold,Marcus Holloway,m.holloway@graniteconstructs.com,USA
+CUST-10003,Sunbelt Earthworks Co,Enterprise,Gold,Diana Park,dpark@sunbeltearthworks.com,USA
+CUST-10004,Northbridge Quarry Inc,Enterprise,Silver,Ryan Becker,r.becker@northbridgequarry.com,Canada
+CUST-10005,Cascade Power Solutions,Strategic,Platinum,Aisha Patel,aisha.patel@cascadepower.com,USA
+CUST-10006,Heartland Aggregates LLC,Mid-Market,Silver,Tom Reyes,treyes@heartlandagg.com,USA
+CUST-10007,Summit Mining & Metals,Enterprise,Gold,Elena Volkov,e.volkov@summitmining.com,Australia
+CUST-10008,Riverbend Construction,Mid-Market,Silver,Carl Jensen,cjensen@riverbendcon.com,USA
+CUST-10009,Gulf Coast Energy Services,Enterprise,Gold,Priya Singh,priya.singh@gulfcoastenergy.com,USA
+CUST-10010,Maple Ridge Earthmoving,Mid-Market,Bronze,James Wu,jwu@mapleridge-em.com,Canada

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Bedrock Build Dashboard — a React app showing a holistic view of the Bedrock Proactive Service build (KPIs, object inventory, agent topology, trust matrix, architecture narrative). Hosted on Vercel and embedded here as a Web Tab.</description>
+    <frameHeight>900</frameHeight>
+    <hasSidebar>false</hasSidebar>
+    <label>Bedrock Build Dashboard</label>
+    <motif>Custom71: Spaceship</motif>
+    <url>https://bedrock-dashboard-sand.vercel.app</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Coolant_Temp_C__c</fullName>
+    <label>Coolant Temp (C)</label>
+    <precision>5</precision>
+    <scale>1</scale>
+    <type>Number</type>
+</CustomField>

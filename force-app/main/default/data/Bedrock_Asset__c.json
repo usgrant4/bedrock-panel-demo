@@ -1,0 +1,707 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50101"
+      },
+      "Name": "ASSET-50101",
+      "Asset_Id__c": "ASSET-50101",
+      "Customer__c": "@CustCUST_10001",
+      "Model__c": "HT-797",
+      "Model_Class__c": "Haul Truck",
+      "Serial_Number__c": "PMG-77234",
+      "Engine_Hours__c": 3420,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Faulted",
+      "Location__c": "Bingham Canyon Mine, UT",
+      "Latitude__c": 40.5197,
+      "Longitude__c": -112.1492
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50102"
+      },
+      "Name": "ASSET-50102",
+      "Asset_Id__c": "ASSET-50102",
+      "Customer__c": "@CustCUST_10001",
+      "Model__c": "HT-797",
+      "Model_Class__c": "Haul Truck",
+      "Serial_Number__c": "PMG-77235",
+      "Engine_Hours__c": 3380,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Bingham Canyon Mine, UT",
+      "Latitude__c": 40.5197,
+      "Longitude__c": -112.1492
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50103"
+      },
+      "Name": "ASSET-50103",
+      "Asset_Id__c": "ASSET-50103",
+      "Customer__c": "@CustCUST_10001",
+      "Model__c": "HT-797",
+      "Model_Class__c": "Haul Truck",
+      "Serial_Number__c": "PMG-77231",
+      "Engine_Hours__c": 18450,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Bingham Canyon Mine, UT",
+      "Latitude__c": 40.5197,
+      "Longitude__c": -112.1492
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50104"
+      },
+      "Name": "ASSET-50104",
+      "Asset_Id__c": "ASSET-50104",
+      "Customer__c": "@CustCUST_10001",
+      "Model__c": "D-9000",
+      "Model_Class__c": "Dozer",
+      "Serial_Number__c": "PMG-90112",
+      "Engine_Hours__c": 2104,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Bingham Canyon Mine, UT",
+      "Latitude__c": 40.5197,
+      "Longitude__c": -112.1492
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50105"
+      },
+      "Name": "ASSET-50105",
+      "Asset_Id__c": "ASSET-50105",
+      "Customer__c": "@CustCUST_10001",
+      "Model__c": "D-9000",
+      "Model_Class__c": "Dozer",
+      "Serial_Number__c": "PMG-90119",
+      "Engine_Hours__c": 2870,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Faulted",
+      "Location__c": "Bingham Canyon Mine, UT",
+      "Latitude__c": 40.5197,
+      "Longitude__c": -112.1492
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50106"
+      },
+      "Name": "ASSET-50106",
+      "Asset_Id__c": "ASSET-50106",
+      "Customer__c": "@CustCUST_10001",
+      "Model__c": "GEN-2000",
+      "Model_Class__c": "Generator",
+      "Serial_Number__c": "PMG-20055",
+      "Engine_Hours__c": 5210,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Pinnacle Ops Center, UT",
+      "Latitude__c": 40.521,
+      "Longitude__c": -112.15
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50201"
+      },
+      "Name": "ASSET-50201",
+      "Asset_Id__c": "ASSET-50201",
+      "Customer__c": "@CustCUST_10002",
+      "Model__c": "EX-450",
+      "Model_Class__c": "Excavator",
+      "Serial_Number__c": "GCP-45044",
+      "Engine_Hours__c": 4530,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Phoenix Site, AZ",
+      "Latitude__c": 33.4484,
+      "Longitude__c": -112.074
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50202"
+      },
+      "Name": "ASSET-50202",
+      "Asset_Id__c": "ASSET-50202",
+      "Customer__c": "@CustCUST_10002",
+      "Model__c": "EX-450",
+      "Model_Class__c": "Excavator",
+      "Serial_Number__c": "GCP-45048",
+      "Engine_Hours__c": 4280,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Phoenix Site, AZ",
+      "Latitude__c": 33.4484,
+      "Longitude__c": -112.074
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50203"
+      },
+      "Name": "ASSET-50203",
+      "Asset_Id__c": "ASSET-50203",
+      "Customer__c": "@CustCUST_10002",
+      "Model__c": "WL-988",
+      "Model_Class__c": "Wheel Loader",
+      "Serial_Number__c": "GCP-98801",
+      "Engine_Hours__c": 12200,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Tucson Yard, AZ",
+      "Latitude__c": 32.2226,
+      "Longitude__c": -110.9747
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50204"
+      },
+      "Name": "ASSET-50204",
+      "Asset_Id__c": "ASSET-50204",
+      "Customer__c": "@CustCUST_10002",
+      "Model__c": "D-9000",
+      "Model_Class__c": "Dozer",
+      "Serial_Number__c": "GCP-90201",
+      "Engine_Hours__c": 3050,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Phoenix Site, AZ",
+      "Latitude__c": 33.4484,
+      "Longitude__c": -112.074
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50205"
+      },
+      "Name": "ASSET-50205",
+      "Asset_Id__c": "ASSET-50205",
+      "Customer__c": "@CustCUST_10002",
+      "Model__c": "BL-650",
+      "Model_Class__c": "Backhoe Loader",
+      "Serial_Number__c": "GCP-65001",
+      "Engine_Hours__c": 1840,
+      "Contract_Status__c": "Pending Renewal",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Phoenix Site, AZ",
+      "Latitude__c": 33.4484,
+      "Longitude__c": -112.074
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50301"
+      },
+      "Name": "ASSET-50301",
+      "Asset_Id__c": "ASSET-50301",
+      "Customer__c": "@CustCUST_10003",
+      "Model__c": "EX-450",
+      "Model_Class__c": "Excavator",
+      "Serial_Number__c": "SBE-45122",
+      "Engine_Hours__c": 5680,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Houston Site, TX",
+      "Latitude__c": 29.7604,
+      "Longitude__c": -95.3698
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50302"
+      },
+      "Name": "ASSET-50302",
+      "Asset_Id__c": "ASSET-50302",
+      "Customer__c": "@CustCUST_10003",
+      "Model__c": "BL-650",
+      "Model_Class__c": "Backhoe Loader",
+      "Serial_Number__c": "SBE-65033",
+      "Engine_Hours__c": 3200,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Faulted",
+      "Location__c": "Houston Site, TX",
+      "Latitude__c": 29.7604,
+      "Longitude__c": -95.3698
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50303"
+      },
+      "Name": "ASSET-50303",
+      "Asset_Id__c": "ASSET-50303",
+      "Customer__c": "@CustCUST_10003",
+      "Model__c": "D-9000",
+      "Model_Class__c": "Dozer",
+      "Serial_Number__c": "SBE-90305",
+      "Engine_Hours__c": 8400,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Dallas Site, TX",
+      "Latitude__c": 32.7767,
+      "Longitude__c": -96.797
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50304"
+      },
+      "Name": "ASSET-50304",
+      "Asset_Id__c": "ASSET-50304",
+      "Customer__c": "@CustCUST_10003",
+      "Model__c": "WL-988",
+      "Model_Class__c": "Wheel Loader",
+      "Serial_Number__c": "SBE-98810",
+      "Engine_Hours__c": 2150,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Idle",
+      "Location__c": "Dallas Site, TX",
+      "Latitude__c": 32.7767,
+      "Longitude__c": -96.797
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50401"
+      },
+      "Name": "ASSET-50401",
+      "Asset_Id__c": "ASSET-50401",
+      "Customer__c": "@CustCUST_10004",
+      "Model__c": "EX-450",
+      "Model_Class__c": "Excavator",
+      "Serial_Number__c": "NBQ-45201",
+      "Engine_Hours__c": 9280,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Sudbury Quarry, ON",
+      "Latitude__c": 46.4917,
+      "Longitude__c": -80.993
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50402"
+      },
+      "Name": "ASSET-50402",
+      "Asset_Id__c": "ASSET-50402",
+      "Customer__c": "@CustCUST_10004",
+      "Model__c": "WL-988",
+      "Model_Class__c": "Wheel Loader",
+      "Serial_Number__c": "NBQ-98815",
+      "Engine_Hours__c": 7140,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Sudbury Quarry, ON",
+      "Latitude__c": 46.4917,
+      "Longitude__c": -80.993
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50403"
+      },
+      "Name": "ASSET-50403",
+      "Asset_Id__c": "ASSET-50403",
+      "Customer__c": "@CustCUST_10004",
+      "Model__c": "D-9000",
+      "Model_Class__c": "Dozer",
+      "Serial_Number__c": "NBQ-90410",
+      "Engine_Hours__c": 11850,
+      "Contract_Status__c": "Expired",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Maintenance",
+      "Location__c": "Sudbury Quarry, ON",
+      "Latitude__c": 46.4917,
+      "Longitude__c": -80.993
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50501"
+      },
+      "Name": "ASSET-50501",
+      "Asset_Id__c": "ASSET-50501",
+      "Customer__c": "@CustCUST_10005",
+      "Model__c": "GEN-2000",
+      "Model_Class__c": "Generator",
+      "Serial_Number__c": "CPS-20081",
+      "Engine_Hours__c": 4230,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Portland Plant, OR",
+      "Latitude__c": 45.5152,
+      "Longitude__c": -122.6784
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50502"
+      },
+      "Name": "ASSET-50502",
+      "Asset_Id__c": "ASSET-50502",
+      "Customer__c": "@CustCUST_10005",
+      "Model__c": "GEN-2000",
+      "Model_Class__c": "Generator",
+      "Serial_Number__c": "CPS-20084",
+      "Engine_Hours__c": 4150,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Portland Plant, OR",
+      "Latitude__c": 45.5152,
+      "Longitude__c": -122.6784
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50503"
+      },
+      "Name": "ASSET-50503",
+      "Asset_Id__c": "ASSET-50503",
+      "Customer__c": "@CustCUST_10005",
+      "Model__c": "GEN-2000",
+      "Model_Class__c": "Generator",
+      "Serial_Number__c": "CPS-20087",
+      "Engine_Hours__c": 3890,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Faulted",
+      "Location__c": "Seattle Plant, WA",
+      "Latitude__c": 47.6062,
+      "Longitude__c": -122.3321
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50504"
+      },
+      "Name": "ASSET-50504",
+      "Asset_Id__c": "ASSET-50504",
+      "Customer__c": "@CustCUST_10005",
+      "Model__c": "D-9000",
+      "Model_Class__c": "Dozer",
+      "Serial_Number__c": "CPS-90510",
+      "Engine_Hours__c": 1620,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Portland Plant, OR",
+      "Latitude__c": 45.5152,
+      "Longitude__c": -122.6784
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50601"
+      },
+      "Name": "ASSET-50601",
+      "Asset_Id__c": "ASSET-50601",
+      "Customer__c": "@CustCUST_10006",
+      "Model__c": "EX-450",
+      "Model_Class__c": "Excavator",
+      "Serial_Number__c": "HLA-45301",
+      "Engine_Hours__c": 6500,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Kansas City Site, MO",
+      "Latitude__c": 39.0997,
+      "Longitude__c": -94.5786
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50602"
+      },
+      "Name": "ASSET-50602",
+      "Asset_Id__c": "ASSET-50602",
+      "Customer__c": "@CustCUST_10006",
+      "Model__c": "WL-988",
+      "Model_Class__c": "Wheel Loader",
+      "Serial_Number__c": "HLA-98820",
+      "Engine_Hours__c": 5240,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Kansas City Site, MO",
+      "Latitude__c": 39.0997,
+      "Longitude__c": -94.5786
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50603"
+      },
+      "Name": "ASSET-50603",
+      "Asset_Id__c": "ASSET-50603",
+      "Customer__c": "@CustCUST_10006",
+      "Model__c": "BL-650",
+      "Model_Class__c": "Backhoe Loader",
+      "Serial_Number__c": "HLA-65120",
+      "Engine_Hours__c": 2800,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Kansas City Site, MO",
+      "Latitude__c": 39.0997,
+      "Longitude__c": -94.5786
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50701"
+      },
+      "Name": "ASSET-50701",
+      "Asset_Id__c": "ASSET-50701",
+      "Customer__c": "@CustCUST_10007",
+      "Model__c": "HT-797",
+      "Model_Class__c": "Haul Truck",
+      "Serial_Number__c": "SMM-77301",
+      "Engine_Hours__c": 5610,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Mount Whaleback, AU",
+      "Latitude__c": -23.3604,
+      "Longitude__c": 119.6799
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50702"
+      },
+      "Name": "ASSET-50702",
+      "Asset_Id__c": "ASSET-50702",
+      "Customer__c": "@CustCUST_10007",
+      "Model__c": "HT-797",
+      "Model_Class__c": "Haul Truck",
+      "Serial_Number__c": "SMM-77305",
+      "Engine_Hours__c": 5430,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Mount Whaleback, AU",
+      "Latitude__c": -23.3604,
+      "Longitude__c": 119.6799
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50703"
+      },
+      "Name": "ASSET-50703",
+      "Asset_Id__c": "ASSET-50703",
+      "Customer__c": "@CustCUST_10007",
+      "Model__c": "EX-450",
+      "Model_Class__c": "Excavator",
+      "Serial_Number__c": "SMM-45230",
+      "Engine_Hours__c": 4890,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Faulted",
+      "Location__c": "Mount Whaleback, AU",
+      "Latitude__c": -23.3604,
+      "Longitude__c": 119.6799
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50704"
+      },
+      "Name": "ASSET-50704",
+      "Asset_Id__c": "ASSET-50704",
+      "Customer__c": "@CustCUST_10007",
+      "Model__c": "D-9000",
+      "Model_Class__c": "Dozer",
+      "Serial_Number__c": "SMM-90801",
+      "Engine_Hours__c": 3210,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Mount Whaleback, AU",
+      "Latitude__c": -23.3604,
+      "Longitude__c": 119.6799
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50705"
+      },
+      "Name": "ASSET-50705",
+      "Asset_Id__c": "ASSET-50705",
+      "Customer__c": "@CustCUST_10007",
+      "Model__c": "GEN-2000",
+      "Model_Class__c": "Generator",
+      "Serial_Number__c": "SMM-20140",
+      "Engine_Hours__c": 2980,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Mount Whaleback, AU",
+      "Latitude__c": -23.3604,
+      "Longitude__c": 119.6799
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50801"
+      },
+      "Name": "ASSET-50801",
+      "Asset_Id__c": "ASSET-50801",
+      "Customer__c": "@CustCUST_10008",
+      "Model__c": "BL-650",
+      "Model_Class__c": "Backhoe Loader",
+      "Serial_Number__c": "RBC-65240",
+      "Engine_Hours__c": 4720,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Memphis Site, TN",
+      "Latitude__c": 35.1495,
+      "Longitude__c": -90.049
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50802"
+      },
+      "Name": "ASSET-50802",
+      "Asset_Id__c": "ASSET-50802",
+      "Customer__c": "@CustCUST_10008",
+      "Model__c": "EX-450",
+      "Model_Class__c": "Excavator",
+      "Serial_Number__c": "RBC-45350",
+      "Engine_Hours__c": 3850,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Active",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Memphis Site, TN",
+      "Latitude__c": 35.1495,
+      "Longitude__c": -90.049
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50803"
+      },
+      "Name": "ASSET-50803",
+      "Asset_Id__c": "ASSET-50803",
+      "Customer__c": "@CustCUST_10008",
+      "Model__c": "D-9000",
+      "Model_Class__c": "Dozer",
+      "Serial_Number__c": "RBC-90910",
+      "Engine_Hours__c": 7200,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Idle",
+      "Location__c": "Nashville Site, TN",
+      "Latitude__c": 36.1627,
+      "Longitude__c": -86.7816
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50901"
+      },
+      "Name": "ASSET-50901",
+      "Asset_Id__c": "ASSET-50901",
+      "Customer__c": "@CustCUST_10009",
+      "Model__c": "GEN-2000",
+      "Model_Class__c": "Generator",
+      "Serial_Number__c": "GCE-20210",
+      "Engine_Hours__c": 8120,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Galveston, TX",
+      "Latitude__c": 29.3013,
+      "Longitude__c": -94.7977
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_50902"
+      },
+      "Name": "ASSET-50902",
+      "Asset_Id__c": "ASSET-50902",
+      "Customer__c": "@CustCUST_10009",
+      "Model__c": "GEN-2000",
+      "Model_Class__c": "Generator",
+      "Serial_Number__c": "GCE-20215",
+      "Engine_Hours__c": 7850,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Galveston, TX",
+      "Latitude__c": 29.3013,
+      "Longitude__c": -94.7977
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_51001"
+      },
+      "Name": "ASSET-51001",
+      "Asset_Id__c": "ASSET-51001",
+      "Customer__c": "@CustCUST_10010",
+      "Model__c": "BL-650",
+      "Model_Class__c": "Backhoe Loader",
+      "Serial_Number__c": "MRE-65310",
+      "Engine_Hours__c": 5340,
+      "Contract_Status__c": "Active",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Operational",
+      "Location__c": "Vancouver Site, BC",
+      "Latitude__c": 49.2827,
+      "Longitude__c": -123.1207
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Asset__c",
+        "referenceId": "AssetASSET_51002"
+      },
+      "Name": "ASSET-51002",
+      "Asset_Id__c": "ASSET-51002",
+      "Customer__c": "@CustCUST_10010",
+      "Model__c": "WL-988",
+      "Model_Class__c": "Wheel Loader",
+      "Serial_Number__c": "MRE-98890",
+      "Engine_Hours__c": 4910,
+      "Contract_Status__c": "Expired",
+      "Warranty_Status__c": "Expired",
+      "Operating_Status__c": "Idle",
+      "Location__c": "Vancouver Site, BC",
+      "Latitude__c": 49.2827,
+      "Longitude__c": -123.1207
+    }
+  ]
+}

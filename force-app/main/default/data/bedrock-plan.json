@@ -1,0 +1,32 @@
+[
+  {
+    "sobject": "Bedrock_Customer__c",
+    "files": [
+      "Bedrock_Customer__c.json"
+    ]
+  },
+  {
+    "sobject": "Bedrock_Asset__c",
+    "files": [
+      "Bedrock_Asset__c.json"
+    ]
+  },
+  {
+    "sobject": "Bedrock_Service_Contract__c",
+    "files": [
+      "Bedrock_Service_Contract__c.json"
+    ]
+  },
+  {
+    "sobject": "Bedrock_Telemetry_Event__c",
+    "files": [
+      "Bedrock_Telemetry_Event__c.json"
+    ]
+  },
+  {
+    "sobject": "Bedrock_KB_Section__c",
+    "files": [
+      "Bedrock_KB_Section__c.json"
+    ]
+  }
+]

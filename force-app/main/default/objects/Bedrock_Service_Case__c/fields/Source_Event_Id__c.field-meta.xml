@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Event_Id__c</fullName>
+    <description>Optional pointer back to the triggering telemetry event.</description>
+    <label>Source Event Id</label>
+    <length>40</length>
+    <type>Text</type>
+</CustomField>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model_Class__c</fullName>
+    <label>Model Class</label>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Haul Truck</fullName>
+                <label>Haul Truck</label>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>Excavator</fullName>
+                <label>Excavator</label>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>Dozer</fullName>
+                <label>Dozer</label>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>Generator</fullName>
+                <label>Generator</label>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>Wheel Loader</fullName>
+                <label>Wheel Loader</label>
+                <default>false</default>
+            </value>
+            <value>
+                <fullName>Backhoe Loader</fullName>
+                <label>Backhoe Loader</label>
+                <default>false</default>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

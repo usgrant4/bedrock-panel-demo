@@ -1,0 +1,41 @@
+# Project-level forceignore for Salesforce CLI deployments.
+
+# UI bundle development artifacts — only `dist/` (the built output) ships with the UIBundle metadata.
+**/uiBundles/**/node_modules/
+**/uiBundles/**/src/
+**/uiBundles/**/api/
+**/uiBundles/**/e2e/
+**/uiBundles/**/scripts/
+**/uiBundles/**/vercel.json
+**/uiBundles/**/.vercel/
+**/uiBundles/**/.vite/
+**/uiBundles/**/coverage/
+**/uiBundles/**/.turbo/
+**/uiBundles/**/package.json
+**/uiBundles/**/package-lock.json
+**/uiBundles/**/tsconfig.json
+**/uiBundles/**/tsconfig.node.json
+**/uiBundles/**/vite.config.ts
+**/uiBundles/**/vitest.config.ts
+**/uiBundles/**/vite-env.d.ts
+**/uiBundles/**/vitest-env.d.ts
+**/uiBundles/**/vitest.setup.ts
+**/uiBundles/**/playwright.config.ts
+**/uiBundles/**/eslint.config.js
+**/uiBundles/**/components.json
+**/uiBundles/**/codegen.yml
+**/uiBundles/**/.graphqlrc.yml
+**/uiBundles/**/.prettierrc
+**/uiBundles/**/.prettierignore
+**/uiBundles/**/CHANGELOG.md
+**/uiBundles/**/README.md
+**/uiBundles/**/index.html
+**/uiBundles/**/.gitignore
+**/uiBundles/**/.eslintrc*
+**/uiBundles/**/.forceignore
+
+# Generic noise
+**/.DS_Store
+**/node_modules/
+**/.env
+**/.env.local

@@ -1,0 +1,38 @@
+asset_id,customer_id,model,model_class,serial_number,engine_hours,contract_status,warranty_status,operating_status,location,latitude,longitude
+ASSET-50101,CUST-10001,HT-797,Haul Truck,PMG-77234,3420,Active,Active,Faulted,"Bingham Canyon Mine, UT",40.5197,-112.1492
+ASSET-50102,CUST-10001,HT-797,Haul Truck,PMG-77235,3380,Active,Active,Operational,"Bingham Canyon Mine, UT",40.5197,-112.1492
+ASSET-50103,CUST-10001,HT-797,Haul Truck,PMG-77231,18450,Active,Expired,Operational,"Bingham Canyon Mine, UT",40.5197,-112.1492
+ASSET-50104,CUST-10001,D-9000,Dozer,PMG-90112,2104,Active,Active,Operational,"Bingham Canyon Mine, UT",40.5197,-112.1492
+ASSET-50105,CUST-10001,D-9000,Dozer,PMG-90119,2870,Active,Active,Faulted,"Bingham Canyon Mine, UT",40.5197,-112.1492
+ASSET-50106,CUST-10001,GEN-2000,Generator,PMG-20055,5210,Active,Active,Operational,"Pinnacle Ops Center, UT",40.521,-112.15
+ASSET-50201,CUST-10002,EX-450,Excavator,GCP-45044,4530,Active,Active,Operational,"Phoenix Site, AZ",33.4484,-112.074
+ASSET-50202,CUST-10002,EX-450,Excavator,GCP-45048,4280,Active,Active,Operational,"Phoenix Site, AZ",33.4484,-112.074
+ASSET-50203,CUST-10002,WL-988,Wheel Loader,GCP-98801,12200,Active,Expired,Operational,"Tucson Yard, AZ",32.2226,-110.9747
+ASSET-50204,CUST-10002,D-9000,Dozer,GCP-90201,3050,Active,Active,Operational,"Phoenix Site, AZ",33.4484,-112.074
+ASSET-50205,CUST-10002,BL-650,Backhoe Loader,GCP-65001,1840,Pending Renewal,Active,Operational,"Phoenix Site, AZ",33.4484,-112.074
+ASSET-50301,CUST-10003,EX-450,Excavator,SBE-45122,5680,Active,Active,Operational,"Houston Site, TX",29.7604,-95.3698
+ASSET-50302,CUST-10003,BL-650,Backhoe Loader,SBE-65033,3200,Active,Active,Faulted,"Houston Site, TX",29.7604,-95.3698
+ASSET-50303,CUST-10003,D-9000,Dozer,SBE-90305,8400,Active,Expired,Operational,"Dallas Site, TX",32.7767,-96.797
+ASSET-50304,CUST-10003,WL-988,Wheel Loader,SBE-98810,2150,Active,Active,Idle,"Dallas Site, TX",32.7767,-96.797
+ASSET-50401,CUST-10004,EX-450,Excavator,NBQ-45201,9280,Active,Expired,Operational,"Sudbury Quarry, ON",46.4917,-80.993
+ASSET-50402,CUST-10004,WL-988,Wheel Loader,NBQ-98815,7140,Active,Expired,Operational,"Sudbury Quarry, ON",46.4917,-80.993
+ASSET-50403,CUST-10004,D-9000,Dozer,NBQ-90410,11850,Expired,Expired,Maintenance,"Sudbury Quarry, ON",46.4917,-80.993
+ASSET-50501,CUST-10005,GEN-2000,Generator,CPS-20081,4230,Active,Active,Operational,"Portland Plant, OR",45.5152,-122.6784
+ASSET-50502,CUST-10005,GEN-2000,Generator,CPS-20084,4150,Active,Active,Operational,"Portland Plant, OR",45.5152,-122.6784
+ASSET-50503,CUST-10005,GEN-2000,Generator,CPS-20087,3890,Active,Active,Faulted,"Seattle Plant, WA",47.6062,-122.3321
+ASSET-50504,CUST-10005,D-9000,Dozer,CPS-90510,1620,Active,Active,Operational,"Portland Plant, OR",45.5152,-122.6784
+ASSET-50601,CUST-10006,EX-450,Excavator,HLA-45301,6500,Active,Expired,Operational,"Kansas City Site, MO",39.0997,-94.5786
+ASSET-50602,CUST-10006,WL-988,Wheel Loader,HLA-98820,5240,Active,Expired,Operational,"Kansas City Site, MO",39.0997,-94.5786
+ASSET-50603,CUST-10006,BL-650,Backhoe Loader,HLA-65120,2800,Active,Active,Operational,"Kansas City Site, MO",39.0997,-94.5786
+ASSET-50701,CUST-10007,HT-797,Haul Truck,SMM-77301,5610,Active,Active,Operational,"Mount Whaleback, AU",-23.3604,119.6799
+ASSET-50702,CUST-10007,HT-797,Haul Truck,SMM-77305,5430,Active,Active,Operational,"Mount Whaleback, AU",-23.3604,119.6799
+ASSET-50703,CUST-10007,EX-450,Excavator,SMM-45230,4890,Active,Active,Faulted,"Mount Whaleback, AU",-23.3604,119.6799
+ASSET-50704,CUST-10007,D-9000,Dozer,SMM-90801,3210,Active,Active,Operational,"Mount Whaleback, AU",-23.3604,119.6799
+ASSET-50705,CUST-10007,GEN-2000,Generator,SMM-20140,2980,Active,Active,Operational,"Mount Whaleback, AU",-23.3604,119.6799
+ASSET-50801,CUST-10008,BL-650,Backhoe Loader,RBC-65240,4720,Active,Expired,Operational,"Memphis Site, TN",35.1495,-90.049
+ASSET-50802,CUST-10008,EX-450,Excavator,RBC-45350,3850,Active,Active,Operational,"Memphis Site, TN",35.1495,-90.049
+ASSET-50803,CUST-10008,D-9000,Dozer,RBC-90910,7200,Active,Expired,Idle,"Nashville Site, TN",36.1627,-86.7816
+ASSET-50901,CUST-10009,GEN-2000,Generator,GCE-20210,8120,Active,Expired,Operational,"Galveston, TX",29.3013,-94.7977
+ASSET-50902,CUST-10009,GEN-2000,Generator,GCE-20215,7850,Active,Expired,Operational,"Galveston, TX",29.3013,-94.7977
+ASSET-51001,CUST-10010,BL-650,Backhoe Loader,MRE-65310,5340,Active,Expired,Operational,"Vancouver Site, BC",49.2827,-123.1207
+ASSET-51002,CUST-10010,WL-988,Wheel Loader,MRE-98890,4910,Expired,Expired,Idle,"Vancouver Site, BC",49.2827,-123.1207

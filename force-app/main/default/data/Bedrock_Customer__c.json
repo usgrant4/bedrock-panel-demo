@@ -1,0 +1,134 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Bedrock_Customer__c",
+        "referenceId": "CustCUST_10001"
+      },
+      "Customer_Id__c": "CUST-10001",
+      "Account_Name__c": "Pinnacle Mining Group",
+      "Account_Tier__c": "Strategic",
+      "Service_Tier__c": "Platinum",
+      "Primary_Contact_Name__c": "Sarah Chen",
+      "Primary_Contact_Email__c": "sarah.chen@pinnaclemining.com",
+      "Country__c": "USA"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Customer__c",
+        "referenceId": "CustCUST_10002"
+      },
+      "Customer_Id__c": "CUST-10002",
+      "Account_Name__c": "Granite Construction Partners",
+      "Account_Tier__c": "Strategic",
+      "Service_Tier__c": "Gold",
+      "Primary_Contact_Name__c": "Marcus Holloway",
+      "Primary_Contact_Email__c": "m.holloway@graniteconstructs.com",
+      "Country__c": "USA"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Customer__c",
+        "referenceId": "CustCUST_10003"
+      },
+      "Customer_Id__c": "CUST-10003",
+      "Account_Name__c": "Sunbelt Earthworks Co",
+      "Account_Tier__c": "Enterprise",
+      "Service_Tier__c": "Gold",
+      "Primary_Contact_Name__c": "Diana Park",
+      "Primary_Contact_Email__c": "dpark@sunbeltearthworks.com",
+      "Country__c": "USA"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Customer__c",
+        "referenceId": "CustCUST_10004"
+      },
+      "Customer_Id__c": "CUST-10004",
+      "Account_Name__c": "Northbridge Quarry Inc",
+      "Account_Tier__c": "Enterprise",
+      "Service_Tier__c": "Silver",
+      "Primary_Contact_Name__c": "Ryan Becker",
+      "Primary_Contact_Email__c": "r.becker@northbridgequarry.com",
+      "Country__c": "Canada"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Customer__c",
+        "referenceId": "CustCUST_10005"
+      },
+      "Customer_Id__c": "CUST-10005",
+      "Account_Name__c": "Cascade Power Solutions",
+      "Account_Tier__c": "Strategic",
+      "Service_Tier__c": "Platinum",
+      "Primary_Contact_Name__c": "Aisha Patel",
+      "Primary_Contact_Email__c": "aisha.patel@cascadepower.com",
+      "Country__c": "USA"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Customer__c",
+        "referenceId": "CustCUST_10006"
+      },
+      "Customer_Id__c": "CUST-10006",
+      "Account_Name__c": "Heartland Aggregates LLC",
+      "Account_Tier__c": "Mid-Market",
+      "Service_Tier__c": "Silver",
+      "Primary_Contact_Name__c": "Tom Reyes",
+      "Primary_Contact_Email__c": "treyes@heartlandagg.com",
+      "Country__c": "USA"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Customer__c",
+        "referenceId": "CustCUST_10007"
+      },
+      "Customer_Id__c": "CUST-10007",
+      "Account_Name__c": "Summit Mining & Metals",
+      "Account_Tier__c": "Enterprise",
+      "Service_Tier__c": "Gold",
+      "Primary_Contact_Name__c": "Elena Volkov",
+      "Primary_Contact_Email__c": "e.volkov@summitmining.com",
+      "Country__c": "Australia"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Customer__c",
+        "referenceId": "CustCUST_10008"
+      },
+      "Customer_Id__c": "CUST-10008",
+      "Account_Name__c": "Riverbend Construction",
+      "Account_Tier__c": "Mid-Market",
+      "Service_Tier__c": "Silver",
+      "Primary_Contact_Name__c": "Carl Jensen",
+      "Primary_Contact_Email__c": "cjensen@riverbendcon.com",
+      "Country__c": "USA"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Customer__c",
+        "referenceId": "CustCUST_10009"
+      },
+      "Customer_Id__c": "CUST-10009",
+      "Account_Name__c": "Gulf Coast Energy Services",
+      "Account_Tier__c": "Enterprise",
+      "Service_Tier__c": "Gold",
+      "Primary_Contact_Name__c": "Priya Singh",
+      "Primary_Contact_Email__c": "priya.singh@gulfcoastenergy.com",
+      "Country__c": "USA"
+    },
+    {
+      "attributes": {
+        "type": "Bedrock_Customer__c",
+        "referenceId": "CustCUST_10010"
+      },
+      "Customer_Id__c": "CUST-10010",
+      "Account_Name__c": "Maple Ridge Earthmoving",
+      "Account_Tier__c": "Mid-Market",
+      "Service_Tier__c": "Bronze",
+      "Primary_Contact_Name__c": "James Wu",
+      "Primary_Contact_Email__c": "jwu@mapleridge-em.com",
+      "Country__c": "Canada"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "required" : [ "assetId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "assetId" : {
+      "title" : "Asset Id",
+      "description" : "External asset id, e.g. ASSET-50101.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

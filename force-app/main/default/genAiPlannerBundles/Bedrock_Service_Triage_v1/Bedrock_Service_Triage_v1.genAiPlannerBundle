@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Triages critical fault events on Bedrock connected assets. Resolves asset 360, grounds in the service KB, recommends and executes the trust-policy-allowed actions.</description>
+    <localTopicLinks>
+        <genAiPluginName>agent_router_16jdL0000033C1J</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>fault_triage_16jdL0000033C1J</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>off_topic_16jdL0000033C1J</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>off_topic_16jdL0000033C1J</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Politely redirect when the user asks something that is not a Bedrock fault triage question.</description>
+        <developerName>off_topic_16jdL0000033C1J</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Bedrock Proactive Service triage agent. You help dealer service reps triage critical fault events on connected Bedrock equipment. You ground every recommendation in the Bedrock service knowledge base and never invent facts. The trust posture for each action is fixed by policy — you recommend, the policy decides what executes autonomously.</description>
+            <developerName>instruction0_179dL000004ExAn</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179dL000004ExAn</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>off_topic</localDeveloperName>
+        <masterLabel>Off Topic</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>agent_router_16jdL0000033C1J</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Welcome the user and route based on whether they are reporting a fault or asking something off-topic.</description>
+        <developerName>agent_router_16jdL0000033C1J</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Bedrock Proactive Service triage agent. You help dealer service reps triage critical fault events on connected Bedrock equipment. You ground every recommendation in the Bedrock service knowledge base and never invent facts. The trust posture for each action is fixed by policy — you recommend, the policy decides what executes autonomously.</description>
+            <developerName>instruction0_179dL000004ExAp</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179dL000004ExAp</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>fault_triage_16jdL0000033C1J</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Handles incoming critical fault reports on Bedrock connected assets. Resolves the asset 360, retrieves grounding knowledge, and recommends or stages actions.</description>
+        <developerName>fault_triage_16jdL0000033C1J</developerName>
+        <genAiPluginInstructions>
+            <description>You are the Bedrock Proactive Service triage agent. You help dealer service reps triage critical fault events on connected Bedrock equipment. You ground every recommendation in the Bedrock service knowledge base and never invent facts. The trust posture for each action is fixed by policy — you recommend, the policy decides what executes autonomously.</description>
+            <developerName>instruction0_179dL000004ExAo</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179dL000004ExAo</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>stage_warranty_claim_179dL000004ExAo</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>open_service_case_179dL000004ExAo</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>retrieve_knowledge_179dL000004ExAo</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>get_asset_context_179dL000004ExAo</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>retrieve_knowledge_179dL000004ExAo</fullName>
+            <description>Search the Bedrock service knowledge base. Backed by Apex BedrockKnowledge.</description>
+            <developerName>retrieve_knowledge_179dL000004ExAo</developerName>
+            <invocationTarget>BedrockKnowledge</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>retrieve_knowledge</localDeveloperName>
+            <masterLabel>Retrieve Knowledge</masterLabel>
+            <progressIndicatorMessage>Retrieving knowledge...</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>stage_warranty_claim_179dL000004ExAo</fullName>
+            <description>Stage a draft warranty claim for service-manager review. Per KB Section 5, the 72-hour window makes inaction the more expensive failure — staging is autonomous, submission is recommended. Backed by Apex BedrockStageWarranty.</description>
+            <developerName>stage_warranty_claim_179dL000004ExAo</developerName>
+            <invocationTarget>BedrockStageWarranty</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>stage_warranty_claim</localDeveloperName>
+            <masterLabel>Stage Warranty Claim</masterLabel>
+            <progressIndicatorMessage>Staging warranty claim...</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>get_asset_context_179dL000004ExAo</fullName>
+            <description>Resolve customer, asset, contract, warranty, and headline KPIs for a Bedrock asset id. Backed by Apex BedrockAssetContext.</description>
+            <developerName>get_asset_context_179dL000004ExAo</developerName>
+            <invocationTarget>BedrockAssetContext</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>get_asset_context</localDeveloperName>
+            <masterLabel>Get Asset Context</masterLabel>
+            <progressIndicatorMessage>Resolving asset 360...</progressIndicatorMessage>
+        </localActions>
+        <localActions>
+            <fullName>open_service_case_179dL000004ExAo</fullName>
+            <description>Open a Bedrock service case for a fault. Trust posture: autonomous per the trust matrix. Backed by Apex BedrockOpenCase.</description>
+            <developerName>open_service_case_179dL000004ExAo</developerName>
+            <invocationTarget>BedrockOpenCase</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>open_service_case</localDeveloperName>
+            <masterLabel>Open Service Case</masterLabel>
+            <progressIndicatorMessage>Opening service case...</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>fault_triage</localDeveloperName>
+        <masterLabel>Fault Triage</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <masterLabel>Bedrock Service Triage</masterLabel>
+    <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+</GenAiPlannerBundle>

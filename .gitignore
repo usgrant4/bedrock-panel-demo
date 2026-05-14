@@ -1,0 +1,45 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Secrets / env
+.env
+.env.local
+.env.*.local
+.streamlit/secrets.toml
+
+# Node / Vercel
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.vercel
+**/.vercel
+*.tsbuildinfo
+**/*.tsbuildinfo
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Data — large, often customer-specific
+data/*.csv
+data/*.pdf
+!data/sample/
+!data/README.md
+
+# Diagnostic / transient outputs (don't commit token previews, user info, debug dumps)
+agent-debug-*.json
+*-debug-*.json
+debug-*.json
+*.log
+
+# Salesforce CLI scratch / auth — never commit
+.sf/
+.sfdx/
+**/.sf/
+**/.sfdx/

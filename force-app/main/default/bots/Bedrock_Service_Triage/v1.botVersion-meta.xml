@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BotVersion xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>v1</fullName>
+    <articleAnswersGPTEnabled>false</articleAnswersGPTEnabled>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>Hi, I&apos;m the Bedrock Service Triage agent. Give me an asset id and a fault — for example, &apos;critical HYD-447 fault on ASSET-50101&apos; — and I&apos;ll resolve the 360, ground in the KB, and recommend next steps.</message>
+                <messageIdentifier>4fa92e00-a41f-4512-8979-bd7a18197b70</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>1b37c292-2963-4019-bece-d87181e4ee39</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier>8c1acec6-934e-4d4b-a8c1-8d79b1f2553f</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Welcome</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Welcome</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>Something went wrong. Please try again or check the agent trace.</message>
+                <messageIdentifier>e2dc1786-5475-4878-8d18-78436efa59f4</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>fa7fd84c-ac51-4f6b-823e-04700613329f</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier>61dcc411-2daa-4a64-8e38-2d8c6982186b</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Rich_Content_Error_Handling</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Error Handler</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <developerName>Transfer_To_Agent</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Transfer To Agent</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <citationsEnabled>false</citationsEnabled>
+    <conversationDefinitionPlanners>
+        <genAiPlannerName>Bedrock_Service_Triage_v1</genAiPlannerName>
+    </conversationDefinitionPlanners>
+    <conversationSystemDialogs>
+        <dialog>Rich_Content_Error_Handling</dialog>
+        <type>ErrorHandling</type>
+    </conversationSystemDialogs>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The agent instructions</description>
+        <developerName>AgentScriptInternal_agent_instructions</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Agent Instructions</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Customer Name</description>
+        <developerName>customer_name</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Customer Name</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Severity: Critical, High, Medium, or Low.</description>
+        <developerName>severity</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Severity</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Boolean</dataType>
+        <description>True if the asset is in active warranty.</description>
+        <developerName>warranty_active</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Warranty Active</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Comma-separated KB section titles returned from retrieve_knowledge.</description>
+        <developerName>kb_citations</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Kb Citations</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The next topic to be visited</description>
+        <developerName>AgentScriptInternal_next_topic</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Next Topic</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Boolean</dataType>
+        <description>Runtime condition evaluation for if statements</description>
+        <developerName>AgentScriptInternal_condition</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Runtime Condition</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Boolean</dataType>
+        <description>Set to True once get_asset_context has populated the customer + contract + warranty fields.</description>
+        <developerName>context_loaded</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Context Loaded</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Platinum / Gold / Silver / Bronze — drives SLA per KB Section 2.</description>
+        <developerName>service_tier</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Service Tier</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Bedrock asset external id, e.g. ASSET-50101.</description>
+        <developerName>asset_id</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Asset Id</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Number</dataType>
+        <description>Sum of annual contract value across active contracts on faulted assets for this customer.</description>
+        <developerName>arr_at_risk_usd</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Arr At Risk Usd</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Contract Id</description>
+        <developerName>contract_id</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Contract Id</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The fault code reported on the asset, e.g. HYD-447.</description>
+        <developerName>fault_code</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Fault Code</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>Customer external id, resolved by get_asset_context.</description>
+        <developerName>customer_id</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Customer Id</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Number</dataType>
+        <description>Count of open Critical faults on this customer in the last 30 days. KPI for business framing.</description>
+        <developerName>open_critical_faults_30d</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Open Critical Faults 30 D</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <copilotPrimaryLanguage>en_US</copilotPrimaryLanguage>
+    <defaultStdObjForContactIdFltrEnabled>false</defaultStdObjForContactIdFltrEnabled>
+    <entryDialog>Welcome</entryDialog>
+    <intentDisambiguationEnabled>false</intentDisambiguationEnabled>
+    <intentV3Enabled>false</intentV3Enabled>
+    <isScriptCompatibleAgent>true</isScriptCompatibleAgent>
+    <knowledgeActionEnabled>false</knowledgeActionEnabled>
+    <knowledgeFallbackEnabled>false</knowledgeFallbackEnabled>
+    <smallTalkEnabled>false</smallTalkEnabled>
+    <staticPromptsEnabled>false</staticPromptsEnabled>
+    <stopRecPrompts>false</stopRecPrompts>
+    <stopWelcomePrompts>false</stopWelcomePrompts>
+    <surfacesEnabled>false</surfacesEnabled>
+    <toneType>Casual</toneType>
+</BotVersion>
