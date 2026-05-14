@@ -56,7 +56,7 @@ export default function Home() {
         </div>
         <p className="mt-3 max-w-3xl text-xs text-slate-500">
           Each KPI is computed from real seeded data. MTTR target ≤6h is the briefing's stated service goal
-          on Critical faults. The 22d→≤7d warranty cycle is protected by the 72-hour entitlement window in KB §5.
+          on Critical faults. The 22d→≤7d warranty cycle is protected by the 72-hour entitlement window in KB Section 5.
         </p>
       </section>
 

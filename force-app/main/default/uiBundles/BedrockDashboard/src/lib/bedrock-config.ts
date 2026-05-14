@@ -208,7 +208,7 @@ export const APEX_ACTIONS: BedrockApexAction[] = [
   },
   {
     className: 'BedrockStageWarranty',
-    purpose: 'Stage a warranty claim inside the 72h KB §5 entitlement window. Submission stays human-required.',
+    purpose: 'Stage a warranty claim inside the 72h KB Section 5 entitlement window. Submission stays human-required.',
     inputs: [
       { name: 'assetId', type: 'String', required: true },
       { name: 'faultCode', type: 'String', required: true },
@@ -234,7 +234,7 @@ export const TRUST_MATRIX: { action: string; posture: TrustPosture; rationale: s
   {
     action: 'stage_warranty_claim',
     posture: 'Autonomous',
-    rationale: 'Staging (not submitting) protects the 72h entitlement window per KB §5. Human approves submission.',
+    rationale: 'Staging (not submitting) protects the 72h entitlement window per KB Section 5. Human approves submission.',
   },
   {
     action: 'dispatch_technician',
@@ -244,7 +244,7 @@ export const TRUST_MATRIX: { action: string; posture: TrustPosture; rationale: s
   {
     action: 'ship_part',
     posture: 'Recommend',
-    rationale: 'Parts inventory + freight cost; recommend the SKUs from KB §1 and let logistics confirm.',
+    rationale: 'Parts inventory + freight cost; recommend the SKUs from KB Section 1 and let logistics confirm.',
   },
   {
     action: 'preposition_parts_to_dealer',
@@ -447,7 +447,7 @@ export const DEMO_ASSETS: DemoAsset[] = [
       status: 'Active',
     },
     recentTelemetry: [
-      { eventId: 'EVT-105-COOL', timestamp: '2026-05-07 09:11', faultCode: 'COOL-220', severity: 'Critical', resolution: 'Open', rpm: 1640, coolantC: 121, hydPressurePsi: 2050, description: 'Coolant temperature alarm — preposition cooler radiator (KB §1)' },
+      { eventId: 'EVT-105-COOL', timestamp: '2026-05-07 09:11', faultCode: 'COOL-220', severity: 'Critical', resolution: 'Open', rpm: 1640, coolantC: 121, hydPressurePsi: 2050, description: 'Coolant temperature alarm — preposition cooler radiator (KB Section 1)' },
     ],
     whyDemo: 'Backup headline if ASSET-50101 has issues — same customer, same Platinum tier, different fault family (COOL-220).',
   },
@@ -503,7 +503,7 @@ export const DEMO_ASSETS: DemoAsset[] = [
     recentTelemetry: [
       { eventId: 'EVT-801-BRK', timestamp: '2026-05-06 11:00', faultCode: 'BRK-512', severity: 'Medium', resolution: 'Open', rpm: 1820, coolantC: 92, hydPressurePsi: 2400, description: 'Medium-severity brake wear alert — schedule next service interval' },
     ],
-    whyDemo: 'Non-critical severity demo — Medium BRK-512. Agent should quote Silver Medium SLA ("5 d target") verbatim from KB §3 and stay out of autonomous mode.',
+    whyDemo: 'Non-critical severity demo — Medium BRK-512. Agent should quote Silver Medium SLA ("5 d target") verbatim from KB Section 3 and stay out of autonomous mode.',
   },
 ];
 
@@ -524,13 +524,13 @@ export const PERSONAS: Persona[] = [
   {
     role: 'Warranty admin',
     changeToday: 'Warranty cycle compresses from 22d to ≤7d. The 72-hour entitlement window is never lost.',
-    how: 'BedrockStageWarranty is Autonomous within the KB §5 staging window; admin only approves submission.',
-    buildPiece: 'BedrockStageWarranty · KB §5 rule',
+    how: 'BedrockStageWarranty is Autonomous within the KB Section 5 staging window; admin only approves submission.',
+    buildPiece: 'BedrockStageWarranty · KB Section 5 rule',
   },
   {
     role: 'Parts logistics ops',
     changeToday: 'Zero wrong-part dispatches on known fault codes. Exact part numbers surface in every case.',
-    how: 'BedrockKnowledge quotes part numbers (HYD-MP-9912, HYD-RV-2204) from KB §1 directly in the agent response.',
+    how: 'BedrockKnowledge quotes part numbers (HYD-MP-9912, HYD-RV-2204) from KB Section 1 directly in the agent response.',
     buildPiece: 'BedrockKnowledge · Bedrock_KB_Section__c',
   },
   {

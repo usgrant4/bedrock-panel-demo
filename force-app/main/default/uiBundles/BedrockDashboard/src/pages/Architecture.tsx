@@ -27,7 +27,7 @@ const KPI_MAP = [
     kpi: 'Warranty cycle time',
     target: `${KPI_TARGETS.warrantyCycleDays.current}d → ≤${KPI_TARGETS.warrantyCycleDays.target}d`,
     moves: [
-      'BedrockStageWarranty is Autonomous within the 72h KB §5 entitlement window',
+      'BedrockStageWarranty is Autonomous within the 72h KB Section 5 entitlement window',
       'Agent stages; human approves submission within 7d',
       'Submission timestamp is captured for cycle-time measurement',
     ],

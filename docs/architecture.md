@@ -34,7 +34,7 @@ Six steps, the same in this demo and in the production architecture:
                                                               └────────────────┘
 ```
 
-Every box in the demo maps to a Salesforce capability in §3. The mapping is
+Every box in the demo maps to a Salesforce capability in Section 3. The mapping is
 the architecture; everything else is implementation detail.
 
 ---
@@ -85,7 +85,7 @@ defendable substitution, not a vague analogue.
 
 | Layer | Demo | Salesforce realization |
 |---|---|---|
-| Telemetry stream | CSV of fault events | **Bedrock Connect (Kinesis) → Data Cloud** with **zero-copy federation** to Snowflake. The 2.4 PB stays in Snowflake; Data Cloud queries through it. Federation is the cost/latency win — see §4. |
+| Telemetry stream | CSV of fault events | **Bedrock Connect (Kinesis) → Data Cloud** with **zero-copy federation** to Snowflake. The 2.4 PB stays in Snowflake; Data Cloud queries through it. Federation is the cost/latency win — see Section 4. |
 | Reference data (customers, contracts, warranty status) | small CSVs | **Data Cloud DLOs → DMOs** with **identity resolution** rules on `customer_id ↔ asset_id ↔ serial_number`. Volatile-enough to ingest, small-enough that the cost is trivial. |
 | Legacy systems (SAP, ServiceMax, WARRANTY-7) | not modeled | **MuleSoft Anypoint** API-led layer. SAP S/4HANA for parts, ServiceMax during the migration to Service Cloud, WARRANTY-7 as a back-end claim-staging integration. |
 | Knowledge base | PDF / MD via TF-IDF | **Data Cloud Vector Database** with embeddings, exposed to **Agentforce** as a grounded data source. Citations preserved as metadata, surfaced in the agent response. |
@@ -94,7 +94,7 @@ defendable substitution, not a vague analogue.
 | Action: dispatch technician | dict payload | **Field Service Work Order** + Resource Optimization. |
 | Action: ship part / preposition | dict payload | **MuleSoft → SAP S/4HANA** parts order. |
 | Action: customer comms | drafted email body | **Marketing Cloud Engagement** journey trigger; outbound from Service Cloud Case context. |
-| Action: warranty claim | staged dict | **MuleSoft → WARRANTY-7** integration, staged for service-manager review per §5 of the KB. |
+| Action: warranty claim | staged dict | **MuleSoft → WARRANTY-7** integration, staged for service-manager review per Section 5 of the KB. |
 | Dealer surface | Streamlit UI | **Experience Cloud** (LWR) for the dealer portal + an embedded **LWC** in the **Service Console** for in-app context for dealer service reps. |
 | Audit / governance | session-scoped timeline | **Data Cloud Audit Trail** + **Agentforce session traces** + standard Salesforce platform audit logs. |
 
@@ -140,7 +140,7 @@ Bedrock has 2.4 PB of telemetry in Snowflake. Two options:
 | WARRANTY-7 claims | **Federate via MuleSoft** | Mainframe; cannot bulk-extract |
 | Customers, contracts, warranty status | **Ingest into Data Cloud** | Small, used as join keys + agent gates; staleness here = wrong agent decision |
 | Dealer service history (post-ServiceMax migration) | **Ingest into Data Cloud** | Already inside Salesforce; no reason to federate |
-| Read-side consumers (dashboards, BI, partner apps) | **Federate via Salesforce REST + OAuth** | Same discipline on the read path — read at query time, no parallel mirror; freshness controlled by poll cadence. See §6. |
+| Read-side consumers (dashboards, BI, partner apps) | **Federate via Salesforce REST + OAuth** | Same discipline on the read path — read at query time, no parallel mirror; freshness controlled by poll cadence. See Section 6. |
 
 The panel will likely push on the latency claim. Be honest: federation is a
 read-time cost, and for sub-second agent flows you batch-prefetch the
@@ -152,7 +152,7 @@ context block once at fault time, not row-by-row during reasoning.
 
 | Posture | Actions | Why |
 |---|---|---|
-| **Autonomous** | open service case, draft customer message, stage warranty claim | Read-only joins, low-blast-radius writes, drafts not sends. The warranty *staging* is autonomous because the 72-hour entitlement window per KB §5 makes inaction the worse failure. |
+| **Autonomous** | open service case, draft customer message, stage warranty claim | Read-only joins, low-blast-radius writes, drafts not sends. The warranty *staging* is autonomous because the 72-hour entitlement window per KB Section 5 makes inaction the worse failure. |
 | **Recommend** | dispatch technician, ship / preposition parts, send customer message, submit warranty claim | Anything with cost (parts, technician hours), customer relationship impact (outbound message), or financial commitment. Service manager approval, in the same UI surface. |
 | **Human-required** | escalate to Bedrock engineer, approve warranty payout | Engineering escalation has signal-noise risk; payout approval is financial control. The default for any action not in the matrix is also `human_required` — fail-safe. |
 
@@ -172,7 +172,7 @@ The agent layer in this build is **headless**: callable from anywhere over
 REST, not bound to any single UI surface. The Lightning Agentforce panel,
 Agent Builder Preview, MIAW channels, Experience Cloud, and the off-platform
 Vercel dashboard are all clients of the *same* agent logic, running through
-the *same* §5 trust matrix in Apex. This section walks the off-platform
+the *same* Section 5 trust matrix in Apex. This section walks the off-platform
 surface — a Vite/React SPA on Vercel — because it's the clearest proof of
 the headless property and demonstrates how downstream systems (BI tools,
 partner apps, customer-facing portals) would reach the generative AI layer
@@ -201,7 +201,7 @@ Connected App via Client Credentials + JWT-issued access tokens:
 
 Two paths, one trust gate. The read path consumes records the agent created
 on platform; the write path invokes the agent itself. Both terminate in
-Apex governed by the §5 trust matrix.
+Apex governed by the Section 5 trust matrix.
 
 Defensible properties:
 
@@ -227,7 +227,7 @@ Defensible properties:
 - **Writes go through the agent, not around it.** The off-platform chat
   cannot create records directly. It can only invoke the agent, which
   executes its Apex actions (`BedrockOpenCase`, `BedrockStageWarranty`,
-  etc.) under the §5 trust matrix. The trust gate is enforced in Apex
+  etc.) under the Section 5 trust matrix. The trust gate is enforced in Apex
   regardless of which surface initiated the conversation. This inverts
   the usual "off-platform = risky" framing: the customer-facing surface
   is read-and-invoke only; the policy lives where it can be enforced.
@@ -269,7 +269,7 @@ would adopt at scale:
 
 | Integration layer | Use case | What it solves |
 |---|---|---|
-| **Data Cloud zero-copy federation** (§4) | Telemetry, SAP, WARRANTY-7 reads | Volume that can't move; freshness; existing investment |
+| **Data Cloud zero-copy federation** (Section 4) | Telemetry, SAP, WARRANTY-7 reads | Volume that can't move; freshness; existing investment |
 | **Headless REST APIs — Salesforce REST + Agentforce Agent API** (this section) | Headless invocation of the GenAI layer + record reads from any consumer over HTTP | Decouples the agent from any one UI surface; proven live via the Vercel dashboard |
 | **MCPs (Model Context Protocol)** *(extension path, not built)* | Pluggable tool routing for the agent itself — e.g., calling Bedrock's own asset-telemetry MCP server, or third-party logistics MCPs | Standardized agent-to-tool wiring across vendors |
 | **Apex / Flow** (on-platform) | Trust gate, action execution, audit | Where policy is canonical and enforceable |
@@ -281,7 +281,7 @@ GenAI layer needs to be reachable, MCPs where tool composition is the
 real value, Apex/Flow where the trust gate has to live.
 
 **Why this is in the architecture, not just the build log.** It proves the
-federation-vs-ingestion choice from §4 applies to consumers as well as
+federation-vs-ingestion choice from Section 4 applies to consumers as well as
 producers, AND it makes the agent layer a true peer of the data layer —
 not a UI feature glued onto Service Cloud. Fleet ops directors, BI tools,
 partner apps, customer-facing portals — any downstream reader or invoker
@@ -290,7 +290,7 @@ on their side.
 
 **What this is not.** A replacement for Experience Cloud LWR or an
 embedded LWC in Service Console; those remain the on-platform surfaces
-(§3, "Dealer surface"). This is the off-platform analogue, for consumers
+(Section 3, "Dealer surface"). This is the off-platform analogue, for consumers
 in a different trust boundary or without a Salesforce license.
 
 ---
@@ -300,7 +300,7 @@ in a different trust boundary or without a Salesforce license.
 - **Cohort-level reasoning.** Single-event today. Next: vector retrieval
   over the fault corpus to surface "this fault pattern preceded a major
   failure on 4 other assets in the last 90 days."
-- **Dedup / suppression.** Per §5.
+- **Dedup / suppression.** Per Section 5.
 - **Dealer prepositioning recommendations.** The KB describes the pattern
   (HYD-447 cluster on HT-797 above 2,000 hours); the demo doesn't yet
   generate the recommendation. A nightly Flow + Data Cloud aggregation.
@@ -320,7 +320,7 @@ calls, not pattern-matching.
 
 **One override I made.** AI's first draft of the trust policy made
 `stage_warranty_claim` a `Recommend` (human-staged). I overrode it to
-`Autonomous` after re-reading KB §5 — the 72-hour entitlement window
+`Autonomous` after re-reading KB Section 5 — the 72-hour entitlement window
 inverts the default. Inaction is the more expensive failure, so the agent
 should stage proactively and the human reviews-and-submits, not
 reviews-and-stages. That is a small example of the pattern the panel asks

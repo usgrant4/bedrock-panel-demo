@@ -183,7 +183,7 @@ export default function Inventory() {
             <Card key={s.number} className="border-slate-200">
               <CardContent className="pt-5">
                 <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  §{s.number}
+                  Section {s.number}
                 </div>
                 <div className="mt-1 font-medium text-slate-900">{s.title}</div>
                 <div className="mt-2 text-sm text-slate-600">{s.summary}</div>

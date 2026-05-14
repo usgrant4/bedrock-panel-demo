@@ -11,7 +11,7 @@ Critical fault codes and the canonical first-response guidance.
 |---|---|---|
 | **HYD-447** | Hydraulic pressure spike (>4250 psi sustained) | Stop operation. Inspect main pump (P/N HYD-MP-9912) and secondary relief valve (P/N HYD-RV-2204). Replace pump if pressure variance >8% after relief test. Common on HT-797 and D-9000 platforms above 2,000 engine hours. |
 | **COOL-220** | Coolant temperature elevated (>118C, 5+ min) | Derate to 50% load. Inspect radiator core (P/N COOL-RC-7700), coolant pump (P/N COOL-PMP-3318), and thermostat. Do NOT continue operation if ambient is above 35C. Frequent on D-9000 in high-altitude / high-load workloads. |
-| **ENG-105** | Engine oil pressure low at full load | Stop operation immediately. Inspect oil pump pickup, oil cooler, and oil pressure sensor (P/N ENG-OPS-1180). If oil sample shows metallic content, escalate to Bedrock engineer per §5. |
+| **ENG-105** | Engine oil pressure low at full load | Stop operation immediately. Inspect oil pump pickup, oil cooler, and oil pressure sensor (P/N ENG-OPS-1180). If oil sample shows metallic content, escalate to Bedrock engineer per Section 5. |
 | **VIB-654** | Bearing vibration anomaly (ISO 10816 zone D) | Reduce load, run vibration spectrum capture. Replace affected bearing assembly (P/N varies by platform). On GEN-2000, this is most often the alternator coupling — book Bedrock-certified rebuild. |
 | **TRA-308** | Transmission slip on shift 4–5 under load | Run gearbox pressure test. If clutch pack pressure <90% nominal, schedule clutch pack replacement (P/N TRA-CP-450 family). |
 | **ELE-091** | Electrical short on auxiliary harness | Isolate harness segment. Inspect connectors at sensor stack J3/J4. Field-repairable in most cases. |
@@ -38,7 +38,7 @@ Service tiers and what they cover.
 If an asset is in **Active warranty** AND the fault code maps to a covered
 component, parts and labor are warranty-covered regardless of service tier —
 but the warranty claim must be staged within 72 hours of fault detection or
-the entitlement decays per §5.
+the entitlement decays per Section 5.
 
 ## 3. Response SLAs
 
@@ -54,7 +54,7 @@ fault-to-acknowledgement.
 
 **MTTR is the harder number.** Mean-time-to-repair (fault open → resolution
 status closed) tracks separately from response SLA, and depends on parts
-availability — see §4. Bedrock's stated service goal is fleet-wide MTTR ≤6 h
+availability — see Section 4. Bedrock's stated service goal is fleet-wide MTTR ≤6 h
 on Critical faults.
 
 ## 4. Parts Logistics
@@ -88,7 +88,7 @@ manager. The agent never submits autonomously — always recommend.
 **Standard workflow.**
 
 1. Agent detects fault on an in-warranty asset and confirms the fault code
-   maps to a covered component via §1.
+   maps to a covered component via Section 1.
 2. Agent stages a draft claim with the asset ID, fault code, contract ID,
    and an estimated cost (parts + labor at the contract rate).
 3. Service manager reviews within 72 hours and submits to WARRANTY-7. After
@@ -129,19 +129,19 @@ The agent's posture, in order of authority:
 
 1. **Never invent facts.** If a value is not in the resolved context or
    in this knowledge base, omit it. Do not guess customer email addresses,
-   contract numbers, or part numbers. If a part number is not in §1, say so
+   contract numbers, or part numbers. If a part number is not in Section 1, say so
    and stage the action without the part field populated.
 2. **Never decide trust posture.** The agent recommends actions; the trust
    policy decides which run autonomously, which are staged for human
    approval, and which are routed to a human. The agent does not attempt to
    override that policy.
 3. **Cite a knowledge section for every action.** A recommendation without a
-   §-citation is treated as ungrounded and held for review.
+   section-citation is treated as ungrounded and held for review.
 4. **Cost over apology.** When the cost of a wrong action is high (parts
    ship-out, customer outreach, warranty submission), default to recommend.
    When the cost of a wrong action is low (case open, draft message,
    internal note), default to autonomous.
-5. **Stage warranty claims within 72 hours.** Per §5, missing the window
+5. **Stage warranty claims within 72 hours.** Per Section 5, missing the window
    forfeits entitlement. This timer overrides ordinary review cadence — flag
    any in-warranty fault for a service-manager review path the same day.
 6. **Never expose engine telemetry verbatim to customers.** Translate it.

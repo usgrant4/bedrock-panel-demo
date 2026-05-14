@@ -43,3 +43,10 @@ debug-*.json
 .sfdx/
 **/.sf/
 **/.sfdx/
+
+# Claude Code per-user settings (the .local variant is user-specific; base settings.json is committed if present)
+.claude/settings.local.json
+
+# MCP config with local user paths (re-create per machine; backup files never committed)
+.mcp.json
+.mcp.json.*.bkp.json

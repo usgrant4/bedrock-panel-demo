@@ -1,7 +1,7 @@
 /**
  * Stages a warranty claim against an active contract. Trust posture:
  * Autonomous in the trust matrix — staging is the action that closes the
- * 72-hour entitlement window per KB §5. Submission is still recommend.
+ * 72-hour entitlement window per KB Section 5. Submission is still recommend.
  *
  * Map note: in production this is a MuleSoft staging call to WARRANTY-7,
  * with the staged record visible to a service manager for review.
@@ -37,7 +37,7 @@ public with sharing class BedrockStageWarranty {
     }
 
     @InvocableMethod(label='Stage Warranty Claim'
-                     description='Stage a warranty claim for service-manager review. Per KB §5, must occur within 72h of fault detection.'
+                     description='Stage a warranty claim for service-manager review. Per KB Section 5, must occur within 72h of fault detection.'
                      callout=false)
     public static List<Response> execute(List<Request> requests) {
         Set<String> assetIds = new Set<String>();

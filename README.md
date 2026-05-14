@@ -78,14 +78,14 @@ you build outside Salesforce?"* without having to imagine it.
 
 | Integration layer | Purpose | Status in this build |
 |---|---|---|
-| **Data Cloud zero-copy federation** | 2.4 PB telemetry in Snowflake; SAP parts; WARRANTY-7 mainframe | **Recommended** — lead in [docs/architecture.md §4](docs/architecture.md#4-federation-vs-ingestion--the-trade-off) |
+| **Data Cloud zero-copy federation** | 2.4 PB telemetry in Snowflake; SAP parts; WARRANTY-7 mainframe | **Recommended** — lead in [docs/architecture.md Section 4](docs/architecture.md#4-federation-vs-ingestion--the-trade-off) |
 | **Headless REST APIs (Salesforce REST + Agentforce Agent API)** | Decouple the agent layer from any UI surface; reads + writes from any consumer | **Built and live** — see Vercel app above |
 | **MCPs (Model Context Protocol)** | Standardized agent-to-tool wiring; pluggable third-party tools | **Recommended** — extension path |
 | **Apex / Flow (on-platform)** | Trust gate enforcement, action execution, audit | **Built** — four `@InvocableMethod` classes |
 
 The trust matrix sits in Apex regardless of which surface invokes the
 agent — that's the load-bearing architectural argument. Full version
-in [docs/architecture.md §5](docs/architecture.md#5-trust-posture-rationale).
+in [docs/architecture.md Section 5](docs/architecture.md#5-trust-posture-rationale).
 
 ---
 
@@ -134,7 +134,7 @@ sf apex run --target-org SForg --file tools/find_agent_ids.apex
 Connected App needs Client Credentials Flow enabled, "Issue JWT-based
 access tokens" checked, and a **Run As** user with the *Salesforce
 Integration* license (standard admin users won't work — see
-[docs/architecture.md §6](docs/architecture.md#6-off-platform-consumer-surface--the-headless-agent-layer)
+[docs/architecture.md Section 6](docs/architecture.md#6-off-platform-consumer-surface--the-headless-agent-layer)
 for the full chain).
 
 ### Streamlit reference design

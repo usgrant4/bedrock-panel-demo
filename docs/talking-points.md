@@ -161,10 +161,10 @@ Streamlit reference, headless Vercel surface]*
 
 ## Slide 6 — Architecture & data model (4 min)
 
-*[On screen: the §1 diagram from architecture.md. Tell the panel to also
-read the §3 Salesforce translation table while you talk]*
+*[On screen: the Section 1 diagram from architecture.md. Tell the panel to also
+read the Section 3 Salesforce translation table while you talk]*
 
-> "Show this diagram and the §3 translation table in architecture.md
+> "Show this diagram and the Section 3 translation table in architecture.md
 > together — the diagram is the verbal walkthrough; the table is the
 > evidence. Read both.
 >
@@ -249,7 +249,7 @@ APIs, MCPs, Apex/Flow — with built vs recommended for each]*
 
 ## Slide 8 — Design choices & trust boundary (3 min)
 
-*[On screen: the §5 trust matrix from architecture.md]*
+*[On screen: the Section 5 trust matrix from architecture.md]*
 
 > "Show the trust matrix. I want to walk three rows — these are the
 > defenses you should test me on.
@@ -351,7 +351,7 @@ APIs, MCPs, Apex/Flow — with built vs recommended for each]*
 > > rail. The rails poll every 10 seconds. The pulse is
 > > CreatedDate-recency based — any record within the last 60 seconds,
 > > regardless of when the page loaded. The trust-color stripe — green
-> > because `open_service_case` is autonomous — makes the §5 policy
+> > because `open_service_case` is autonomous — makes the Section 5 policy
 > > legible inline."
 > >
 > > *(Click a row to open the modal):*

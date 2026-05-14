@@ -78,7 +78,7 @@ What I built — and notably, I built it TWICE:
 - Side-by-side it answers the panel's "what would you build outside
   Salesforce?" question without me having to imagine it
 
-**Headless agent layer: off-platform Vercel dashboard** *(architecture rationale in [architecture.md §6](architecture.md#6-off-platform-consumer-surface--the-headless-agent-layer))*
+**Headless agent layer: off-platform Vercel dashboard** *(architecture rationale in [architecture.md Section 6](architecture.md#6-off-platform-consumer-surface--the-headless-agent-layer))*
 - A React/Vite SPA on Vercel that **both reads records and invokes the
   agent itself** over REST — proving the agent layer is headless, callable
   from anywhere via API, not tied to any one UI surface
@@ -89,7 +89,7 @@ What I built — and notably, I built it TWICE:
   call the public Agentforce Agent API at
   `api.salesforce.com/einstein/ai-agent/v1` — invoking
   `Bedrock_Customer_Service` (`AgentforceServiceAgent`) with the same
-  Agent Script logic, KB grounding, and §5 trust matrix as the in-org
+  Agent Script logic, KB grounding, and Section 5 trust matrix as the in-org
   Employee Agent. Records created on platform appear on the rail within ~60s.
 - Authentication is **OAuth Client Credentials + JWT-issued access
   tokens** (the gateway requires JWT format), Run As an `Integration User`
@@ -97,7 +97,7 @@ What I built — and notably, I built it TWICE:
 - This is one layer of a **multi-layered integration strategy** detailed
   in Slide 7: **headless REST APIs with Vercel is what I built** (this
   bullet — the agent layer callable from anywhere over HTTP); **Data
-  Cloud zero-copy** is the recommendation for the 2.4 PB telemetry (§4);
+  Cloud zero-copy** is the recommendation for the 2.4 PB telemetry (Section 4);
   **MCPs** are the future tool-composition vector worth investing in;
   **Apex / Flow** is where the trust gate lives. Each layer carries the
   load it's best suited for — don't pick one
@@ -129,9 +129,9 @@ What I did **not** build, deliberately:
 
 ## Slide 6 — Architecture & data model (4 min)
 
-Show the diagram from `docs/architecture.md` §1.
+Show the diagram from `docs/architecture.md` Section 1.
 
-**Tell the panel to read [docs/architecture.md §3](architecture.md#3-salesforce-translation) while you talk** — it's the demo-to-Salesforce translation table (telemetry, reference data, KB, reasoning, every action, comms, dealer surface, audit). That table is the architectural argument; this slide is the verbal walkthrough of it.
+**Tell the panel to read [docs/architecture.md Section 3](architecture.md#3-salesforce-translation) while you talk** — it's the demo-to-Salesforce translation table (telemetry, reference data, KB, reasoning, every action, comms, dealer surface, audit). That table is the architectural argument; this slide is the verbal walkthrough of it.
 
 Walk four things:
 
@@ -168,14 +168,14 @@ breadth and honesty about scope.
 
 | Layer | Purpose | This build |
 |---|---|---|
-| **Data Cloud zero-copy federation** | Telemetry, SAP parts inventory, WARRANTY-7 mainframe reads at scale | **Recommended** — theoretical for this DE-org demo, but it's the lead recommendation in §4 |
-| **Headless REST APIs — Salesforce REST + Agentforce Agent API** | Decouple the agent layer from any one UI surface; reads and writes from any consumer over HTTP | **Built and live** — Vercel/Vite SPA (§6); same agent invocable from Lightning, Builder Preview, MIAW, Experience Cloud, or this off-platform chat |
+| **Data Cloud zero-copy federation** | Telemetry, SAP parts inventory, WARRANTY-7 mainframe reads at scale | **Recommended** — theoretical for this DE-org demo, but it's the lead recommendation in Section 4 |
+| **Headless REST APIs — Salesforce REST + Agentforce Agent API** | Decouple the agent layer from any one UI surface; reads and writes from any consumer over HTTP | **Built and live** — Vercel/Vite SPA (Section 6); same agent invocable from Lightning, Builder Preview, MIAW, Experience Cloud, or this off-platform chat |
 | **MCPs (Model Context Protocol)** | Standardized agent-to-tool wiring — Bedrock's own asset-telemetry MCP, third-party logistics MCPs | **Recommended** — extension path, not built today |
-| **Apex / Flow (on-platform)** | Trust gate enforcement, action execution, audit | **Built** — four Apex `@InvocableMethod` classes (§3) |
+| **Apex / Flow (on-platform)** | Trust gate enforcement, action execution, audit | **Built** — four Apex `@InvocableMethod` classes (Section 3) |
 
 Headline beats:
 
-- **Zero-copy where data has gravity** (§4 federation table). 2.4 PB
+- **Zero-copy where data has gravity** (Section 4 federation table). 2.4 PB
   stays in Snowflake; Data Cloud queries through it. Customers,
   contracts, warranty status → ingested. Small, volatile, used as join
   keys + agent gates. Latency cost is real; mitigation is one prefetch
@@ -208,11 +208,11 @@ on the table for Bedrock's data shape; the 2.4 PB telemetry doesn't move.
 
 ## Slide 8 — Design choices & trust boundary (3 min)
 
-Show the trust matrix from `docs/architecture.md` §5.
+Show the trust matrix from `docs/architecture.md` Section 5.
 
 Walk three rows out loud:
 
-- **`stage_warranty_claim` is Autonomous** — because KB §5 says missing the
+- **`stage_warranty_claim` is Autonomous** — because KB Section 5 says missing the
   72-hour window forfeits entitlement, and inaction is the more expensive
   failure. (This is your override-AI example.)
 - **`dispatch_technician` is Recommend** — because dispatch costs are real
@@ -256,16 +256,16 @@ panel reacts to. Have the Streamlit demo open in a separate tab as backup.
    preview pane as it executes:
    - `capture_fault_details` — LLM extracts the structured payload
    - `get_asset_context` — Apex SOQL resolves Pinnacle, Platinum, warranty Active
-   - `retrieve_knowledge` — SOSL grounds the agent in KB §1, §2, §3
+   - `retrieve_knowledge` — SOSL grounds the agent in KB Section 1, Section 2, Section 3
    - `open_service_case` — autonomous, creates a real Case
    - `stage_warranty_claim` — autonomous, real Claim record. *"This is the
      override-AI moment — I'll come back to it in a second."*
 
 5. **Walk the response** (1 min). Highlight in the chat output:
    - The two part numbers (`HYD-MP-9912`, `HYD-RV-2204`) — *"verbatim from
-     KB §1, not hallucinated."*
+     KB Section 1, not hallucinated."*
    - The *"pressure variance >8% after relief test"* threshold — *"that's
-     specific operational guidance from KB §1."*
+     specific operational guidance from KB Section 1."*
    - The 4-hour Platinum SLA — *"and that number comes from a deterministic
      prompt injection — Agent Script evaluates the resolved service tier
      before the LLM reasons, so it can't drift on 4h vs 8h between runs."*
@@ -279,7 +279,7 @@ panel reacts to. Have the Streamlit demo open in a separate tab as backup.
    workflow."*
 
 7. **Switch to Bedrock Warranty Claims → All** (30 sec). Click the new
-   `BWC-*` claim. *"And this is the staged warranty claim — KB §5 says the
+   `BWC-*` claim. *"And this is the staged warranty claim — KB Section 5 says the
    72-hour entitlement window makes inaction the more expensive failure,
    so staging is autonomous; submission still requires service-manager
    approval. That's the override-AI example I'll talk about on the next
@@ -295,7 +295,7 @@ panel reacts to. Have the Streamlit demo open in a separate tab as backup.
    now 8-hour Gold. *"Same agent, same KB, but the trust matrix gates on
    real data — it's not theatrical."*
 
-9. **Switch to the Vercel dashboard tab** (60 sec) — *full architecture rationale in [architecture.md §6](architecture.md#6-off-platform-consumer-surface--the-headless-agent-layer); point the panel there if they push on the consumer-side trust argument or want the headless framing.* Open
+9. **Switch to the Vercel dashboard tab** (60 sec) — *full architecture rationale in [architecture.md Section 6](architecture.md#6-off-platform-consumer-surface--the-headless-agent-layer); point the panel there if they push on the consumer-side trust argument or want the headless framing.* Open
    `https://bedrock-dashboard-sand.vercel.app/triage` (Triage Console).
    Within 60 seconds of the on-platform triage from step 5, the `BSV-*`
    case and `BWC-*` claim pulse green in the "Recent
@@ -314,7 +314,7 @@ panel reacts to. Have the Streamlit demo open in a separate tab as backup.
    `api.salesforce.com/einstein/ai-agent/v1` for the GenAI layer.
    Authentication is OAuth Client Credentials + JWT — the gateway
    requires JWT format, not opaque bearer tokens. The agent runs as
-   its assigned Integration User; writes still happen through the §5
+   its assigned Integration User; writes still happen through the Section 5
    Apex actions because the agent is the only thing this surface can
    ask to write — the trust gate is enforced on platform regardless of
    which surface initiated the conversation."*
@@ -326,11 +326,11 @@ panel reacts to. Have the Streamlit demo open in a separate tab as backup.
    demo actually unfolds."* Click one of the pulsing rows; the dashboard
    opens an **in-app detail modal** (Subject, fault code, asset, customer,
    service tier, timeline, KB-tagged provenance — "↳ created by
-   open_service_case", color-keyed to the §5 trust matrix). *"Two surfaces,
+   open_service_case", color-keyed to the Section 5 trust matrix). *"Two surfaces,
    one source of truth, no Salesforce license needed on the consumer
    side. This is how a fleet-ops director or a downstream BI tool reads
    what the agent produced — and the trust-color stripe makes the
-   §5 policy legible inline."*
+   Section 5 policy legible inline."*
 
 10. **Open the architecture diagram** in [docs/architecture.md](architecture.md)
    (30 sec). Land on the federation-vs-ingestion table. *"Two more things
@@ -379,13 +379,13 @@ override example before the panel — what's here is a strawman.*
   the agent narrowly to fault triage rather than spread it across all
   dealer service queries.
 - **One override.** AI's first trust-policy draft made
-  `stage_warranty_claim` a Recommend posture. I read KB §5, saw the
+  `stage_warranty_claim` a Recommend posture. I read KB Section 5, saw the
   72-hour entitlement window and the $180M annual warranty leakage, and
   inverted the posture to Autonomous. The reason is in the data: when
   the cost of inaction (forfeited entitlement) exceeds the cost of a
   wrong action (a service manager rejecting a staged claim), staging
   should happen by default. This is now hard-coded in the agent's
-  instructions as a "MUST execute" rule with the KB §5 citation as the
+  instructions as a "MUST execute" rule with the KB Section 5 citation as the
   justification.
 
 ---

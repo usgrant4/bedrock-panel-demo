@@ -204,7 +204,7 @@ subagent fault_triage:
                 with description = ...
 
             # Step 4b — autonomous action: stage a warranty claim.
-            # Per KB §5, must occur within 72h. Trust matrix: autonomous staging,
+            # Per KB Section 5, must occur within 72h. Trust matrix: autonomous staging,
             # human-required submission.
             stage_warranty_claim: @actions.stage_warranty_claim
                 description: "Stage a draft warranty claim for service-manager review. Only call this when warranty is ACTIVE on the asset and the fault code maps to a covered component per KB Section 1."

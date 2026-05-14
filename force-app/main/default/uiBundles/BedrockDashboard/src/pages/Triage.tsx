@@ -54,7 +54,7 @@ export default function Triage() {
                 Live <span className="font-mono">Bedrock_Customer_Service</span> agent (AgentforceServiceAgent type)
                 invoked off-platform via the public Agent API at <span className="font-mono">api.salesforce.com/einstein/ai-agent/v1</span>.
                 Bearer token minted by the Vercel serverless function using OAuth 2.0 Client Credentials with
-                JWT issuance. Same Agent Script logic and §5 trust matrix as the in-org <span className="font-mono">Bedrock_Service_Triage</span> Employee Agent.
+                JWT issuance. Same Agent Script logic and Section 5 trust matrix as the in-org <span className="font-mono">Bedrock_Service_Triage</span> Employee Agent.
               </div>
             </CardHeader>
             <CardContent>
@@ -68,7 +68,7 @@ export default function Triage() {
             <CardHeader>
               <CardTitle className="text-sm">Trust matrix</CardTitle>
               <div className="text-xs text-slate-500">
-                Color-keyed to the rail rows below — green border = action created the record autonomously per the §5 trust matrix.
+                Color-keyed to the rail rows below — green border = action created the record autonomously per the Section 5 trust matrix.
               </div>
             </CardHeader>
             <CardContent>

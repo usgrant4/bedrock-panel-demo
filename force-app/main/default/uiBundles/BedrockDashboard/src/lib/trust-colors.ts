@@ -66,7 +66,7 @@ export function caseProvenance(): RecordProvenance {
   return {
     action: 'open_service_case',
     posture: 'Autonomous',
-    detail: 'Agent opened this case without human approval per the §5 trust matrix.',
+    detail: 'Agent opened this case without human approval per the Section 5 trust matrix.',
   };
 }
 
@@ -83,6 +83,6 @@ export function claimProvenance(submittedTimestamp?: string | null): RecordProve
     action: 'stage_warranty_claim',
     posture: 'Autonomous',
     detail:
-      'Staged autonomously within the KB §5 72-hour entitlement window. Submission remains pending human approval.',
+      'Staged autonomously within the KB Section 5 72-hour entitlement window. Submission remains pending human approval.',
   };
 }

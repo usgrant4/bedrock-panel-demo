@@ -11,7 +11,7 @@ below is panel-tested and produces a known response. Copy-paste; don't retype.
 - [ ] Second Salesforce tab: **App Launcher → Bedrock Service Cases → All view**
 - [ ] Third Salesforce tab: **App Launcher → Bedrock Warranty Claims → All view**
 - [ ] Fourth tab: **Vercel dashboard** at `https://bedrock-dashboard-sand.vercel.app/triage` — Triage Console with the live records rail. Open it 30+ seconds before the demo so the first poll completes and `firstLoadRef` flips; that way the NEW pulse fires only on records created during the demo, not on the initial load.
-- [ ] [docs/architecture.md](architecture.md) open at the federation/ingestion table (§4) for the close, with §6 (off-platform consumer surface) bookmarked if the panel asks how the dashboard fits the architecture
+- [ ] [docs/architecture.md](architecture.md) open at the federation/ingestion table (Section 4) for the close, with Section 6 (off-platform consumer surface) bookmarked if the panel asks how the dashboard fits the architecture
 - [ ] Streamlit demo running on `http://localhost:8501` as backup (`streamlit run app/streamlit_app.py`)
 - [ ] Agent Builder Conversation Preview open in a separate tab as a secondary backup (shows richer trace if panel asks)
 - [ ] Browser zoom at ~125% so the panel can read text
@@ -33,9 +33,9 @@ We have a Critical HYD-447 hydraulic fault on ASSET-50101. Please triage and rec
 **Look for in the trace:** 5 tools fire — `capture_fault_details`, `get_asset_context`, `retrieve_knowledge`, `open_service_case`, `stage_warranty_claim`.
 
 **Anchors to point at in the response:**
-- Part numbers `HYD-MP-9912` and `HYD-RV-2204` (KB §1)
-- *"Replace the main pump if pressure variance exceeds 8% after relief test"* (KB §1)
-- *"Critical | Platinum | 4 h"* (KB §3, exact grid notation)
+- Part numbers `HYD-MP-9912` and `HYD-RV-2204` (KB Section 1)
+- *"Replace the main pump if pressure variance exceeds 8% after relief test"* (KB Section 1)
+- *"Critical | Platinum | 4 h"* (KB Section 3, exact grid notation)
 - *"Open Critical faults in last 30 days: 3"* and *"ARR at risk: $1,020,000.00"* — the briefing's value calculation
 - Case `BSV-*` and Claim `BWC-*` numbers — switch tabs to Lightning to show the records
 
@@ -68,7 +68,7 @@ Fresh conversation. Paste:
 ```
 We have a Critical HYD-447 on ASSET-50101. What part numbers do we need to inspect or replace?
 ```
-Returns `HYD-MP-9912`, `HYD-RV-2204` from KB §1 — and only those.
+Returns `HYD-MP-9912`, `HYD-RV-2204` from KB Section 1 — and only those.
 
 ### "What happens when the data isn't there?"
 Fresh conversation. Paste:
@@ -82,7 +82,7 @@ Fresh conversation. Paste:
 ```
 Medium-severity BRK-512 brake wear alert on ASSET-50801.
 ```
-Agent quotes Silver Medium SLA *"5 d target"* verbatim from KB §3, recommends scheduling at next interval, no warranty claim.
+Agent quotes Silver Medium SLA *"5 d target"* verbatim from KB Section 3, recommends scheduling at next interval, no warranty claim.
 
 ### "Does it remember context across turns?"
 After ANY fault triage (don't start a fresh conversation). Paste:
@@ -118,9 +118,9 @@ Agent routes to off-topic subagent, redirects without revealing internals.
 | ASSET-50801 | Riverbend Construction | Silver | Expired | Non-critical severity demo |
 | ASSET-99999 | (n/a) | — | — | Missing data fail-safe |
 
-## Quick reference — fault codes in KB §1
+## Quick reference — fault codes in KB Section 1
 
-| Code | Severity | Parts named in KB §1 |
+| Code | Severity | Parts named in KB Section 1 |
 |---|---|---|
 | HYD-447 | Critical | HYD-MP-9912, HYD-RV-2204 |
 | COOL-220 | Critical | COOL-RC-7700, COOL-PMP-3318 |
@@ -129,7 +129,7 @@ Agent routes to off-topic subagent, redirects without revealing internals.
 | TRA-308 | High | TRA-CP-450 family |
 | BRK-512 | Medium | (no replacement parts named) |
 
-## Quick reference — SLA grid from KB §3
+## Quick reference — SLA grid from KB Section 3
 
 | Severity | Platinum | Gold | Silver | Bronze |
 |---|---|---|---|---|
@@ -155,7 +155,7 @@ Agent routes to off-topic subagent, redirects without revealing internals.
 3. **Vercel dashboard fails to render or polls hang.** Skip step 9 of the
    demo path; switch directly to the Lightning record tabs (BSV-*/BWC-*).
    The records are still in Salesforce — the dashboard is only a read
-   surface, and the architecture story (§6) holds without the live widget.
+   surface, and the architecture story (Section 6) holds without the live widget.
    Open `https://vercel.com/ugrantiv-6508s-projects/bedrock-dashboard` if
    you want to glance at deployment logs, but don't do it on screen.
 
