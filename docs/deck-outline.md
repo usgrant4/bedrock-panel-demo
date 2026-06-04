@@ -295,7 +295,7 @@ panel reacts to. Have the Streamlit demo open in a separate tab as backup.
    now 8-hour Gold. *"Same agent, same KB, but the trust matrix gates on
    real data — it's not theatrical."*
 
-9. **Switch to the Vercel dashboard tab** (60 sec) — *full architecture rationale in [architecture.md Section 6](architecture.md#6-off-platform-consumer-surface--the-headless-agent-layer); point the panel there if they push on the consumer-side trust argument or want the headless framing.* Open
+9. **Switch to the Vercel dashboard tab** (60 sec) — *full architecture rationale in [architecture.md Section 6](architecture.md#6-off-platform-consumer-surface--the-headless-agent-layer); point the panel there if they push on the consumer-side trust argument or want the headless framing.* **Pre-panel:** re-alias the public URL first (`vercel alias set <latest-deployment> bedrock-dashboard-sand.vercel.app`); the alias was removed after the original panel and won't serve traffic until restored. Open
    `https://bedrock-dashboard-sand.vercel.app/triage` (Triage Console).
    Within 60 seconds of the on-platform triage from step 5, the `BSV-*`
    case and `BWC-*` claim pulse green in the "Recent

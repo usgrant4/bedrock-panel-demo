@@ -10,7 +10,7 @@ below is panel-tested and produces a known response. Copy-paste; don't retype.
 - [ ] **Lightning Experience open** in a Service or Sales app, **Agentforce panel pinned open** on the right (pin icon, top-right of panel). Agent selector showing **"Bedrock Service Triage"**. This is your PRIMARY demo surface.
 - [ ] Second Salesforce tab: **App Launcher → Bedrock Service Cases → All view**
 - [ ] Third Salesforce tab: **App Launcher → Bedrock Warranty Claims → All view**
-- [ ] Fourth tab: **Vercel dashboard** at `https://bedrock-dashboard-sand.vercel.app/triage` — Triage Console with the live records rail. Open it 30+ seconds before the demo so the first poll completes and `firstLoadRef` flips; that way the NEW pulse fires only on records created during the demo, not on the initial load.
+- [ ] Fourth tab: **Vercel dashboard** at `https://bedrock-dashboard-sand.vercel.app/triage` — Triage Console with the live records rail. **NOTE:** the public alias was removed post-panel; re-alias with `vercel alias set <latest-deployment> bedrock-dashboard-sand.vercel.app` before any future live demo. Open it 30+ seconds before the demo so the first poll completes; that way the NEW pulse fires only on records created during the demo, not on the initial load.
 - [ ] [docs/architecture.md](architecture.md) open at the federation/ingestion table (Section 4) for the close, with Section 6 (off-platform consumer surface) bookmarked if the panel asks how the dashboard fits the architecture
 - [ ] Streamlit demo running on `http://localhost:8501` as backup (`streamlit run app/streamlit_app.py`)
 - [ ] Agent Builder Conversation Preview open in a separate tab as a secondary backup (shows richer trace if panel asks)
