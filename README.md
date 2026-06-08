@@ -12,7 +12,7 @@ allows (open the case, stage the warranty claim), and surfaces the rest
 **KPIs targeted:** Mean-time-to-repair on critical faults (11.4 hrs → ≤6 hrs)
 and warranty claim cycle time (22 days → ≤7 days).
 
-**Live surface:** ~~https://bedrock-dashboard-sand.vercel.app/triage~~ — *the public alias was removed post-panel. The Vercel project, deployments, and environment variables are preserved; re-alias with `vercel alias set <latest-deployment> bedrock-dashboard-sand.vercel.app` to bring the URL back online.*
+**Live surface:** https://bedrock-dashboard-sand.vercel.app/triage
 
 ---
 
