@@ -115,6 +115,19 @@ npm run build
 npx vercel --prod
 ```
 
+**A push to `main` now also deploys production.** The `bedrock-dashboard`
+project is git-linked to this repo with **Root Directory** set to
+`force-app/main/default/uiBundles/BedrockDashboard`. Until that root was set,
+git-triggered builds ran from the repo root — which has no `package.json` —
+and failed, while CLI deploys from the bundle directory succeeded; that split
+is why the older instructions above are CLI-only. Both paths work now, and a
+successful production build **moves the `bedrock-dashboard-sand` alias**, so
+treat a push to `main` as a deploy. Roll back with
+`npx vercel rollback <previous-deployment-url>`.
+
+(A second project, `bedrock-panel-demo`, was also auto-deploying from this
+repo and had never built successfully — it has been disconnected from git.)
+
 Required Vercel environment variables (set in the project settings):
 
 | Var | Purpose |
