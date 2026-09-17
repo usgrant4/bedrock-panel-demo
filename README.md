@@ -84,8 +84,17 @@ you build outside Salesforce?"* without having to imagine it.
 | **Apex / Flow (on-platform)** | Trust gate enforcement, action execution, audit | **Built** — four `@InvocableMethod` classes |
 
 The trust matrix sits in Apex regardless of which surface invokes the
-agent — that's the load-bearing architectural argument. Full version
-in [docs/architecture.md Section 5](docs/architecture.md#5-trust-posture-rationale).
+agent — that's the load-bearing architectural argument, and it is enforced
+rather than merely instructed. `BedrockStageWarranty` reads
+`Warranty_Status__c` from the asset (never from the request) and refuses to
+write a claim unless it is `Active`; `BedrockStageWarrantyTest` pins that
+behaviour, including per-request gating inside a batched call. Dispatch,
+parts shipment and claim *submission* have no Apex action at all, so no
+planner can execute them however it is prompted.
+
+Full version in [docs/architecture.md Section 5](docs/architecture.md#5-trust-posture-rationale),
+including the build where this rule lived in the prompt instead and the agent
+staged a claim against an out-of-warranty asset.
 
 ---
 
