@@ -5,6 +5,31 @@ below is panel-tested and produces a known response. Copy-paste; don't retype.
 
 ---
 
+## Data freshness (do this the MORNING OF, before anything else)
+
+The agent's headline value anchors — *"Open Critical faults in last 30 days: 3"*
+and *"ARR at risk: $1,020,000.00"* — are computed by a **real rolling 30-day
+window** in Apex. If the telemetry in the org is older than 30 days, both
+collapse to **0** and **$0**, and the headline moment falls flat. Refresh:
+
+```powershell
+python data/sample/_seed.py                      # regenerate, anchored to today
+python tools/gen_upsert_csv.py                   # rebuild the org load file
+sf apex run --target-org SForg --file tools/delete_telemetry.apex
+sf data upsert bulk --sobject Bedrock_Telemetry_Event__c `
+  --file force-app\main\default\data\upsert\telemetry.csv `
+  --external-id Event_Id__c --target-org SForg --wait 10
+```
+
+The delete step is required: event ids embed their own timestamp, so a
+re-seed produces new ids and a bare upsert would leave the stale rows behind.
+Only `telemetry_events.csv` changes — customers, assets and contracts are
+byte-identical across runs (seed 42), so the $1,020,000 anchor is preserved.
+
+Verify with the headline utterance below; you want **3** and **$1,020,000.00**.
+
+---
+
 ## Setup checklist (do BEFORE you start sharing screen)
 
 - [ ] **Lightning Experience open** in a Service or Sales app, **Agentforce panel pinned open** on the right (pin icon, top-right of panel). Agent selector showing **"Bedrock Service Triage"**. This is your PRIMARY demo surface.

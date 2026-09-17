@@ -15,18 +15,37 @@ It writes:
       • Resolved-fault MTTR converges around the briefing baseline (~11.4 h)
 
 Determinism: a single PRNG seed (42) controls every random choice, so the
-demo numbers don't drift between regenerations.
+demo numbers don't drift between regenerations. Customers, assets and
+contracts are byte-identical across runs; only telemetry timestamps move.
+
+Freshness: telemetry is generated relative to the current clock, because the
+agent's headline KPI ("open critical faults in the last 30 days", 3 faults /
+$1,020,000 ARR at risk for CUST-10001) is a real rolling window in Apex. Data
+older than 30 days silently collapses that KPI to 0 / $0. Re-run this script
+and reload telemetry before a demo; pin BEDROCK_SEED_NOW to reproduce a run.
 """
 from __future__ import annotations
 
 import csv
+import os
 import random
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent
 SEED = 42
-NOW = datetime(2026, 5, 9, 12, 0, tzinfo=timezone.utc)
+
+# Telemetry timestamps are generated as offsets from NOW, so NOW must track the
+# real clock: the agent's "open critical faults in the last 30 days" KPI runs a
+# genuine rolling window in Apex (BedrockAssetContext.cls), and a hardcoded NOW
+# silently ages the whole demo out of that window. Defaults to the current time;
+# set BEDROCK_SEED_NOW (ISO 8601, UTC) to pin it for reproducible output.
+_pinned = os.environ.get("BEDROCK_SEED_NOW")
+NOW = (
+    datetime.fromisoformat(_pinned).replace(tzinfo=timezone.utc)
+    if _pinned
+    else datetime.now(timezone.utc).replace(second=0, microsecond=0)
+)
 
 rng = random.Random(SEED)
 

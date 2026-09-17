@@ -149,7 +149,16 @@ streamlit run app/streamlit_app.py
 
 The four CSVs in `data/sample/` and the KB markdown are pre-committed;
 the demo runs from a fresh clone with no data steps. Regenerate with
-`python data/sample/_seed.py` (deterministic, seed=42).
+`python data/sample/_seed.py` (deterministic, seed=42 — customers, assets
+and contracts are byte-identical across runs; only telemetry timestamps move).
+
+**Before any live demo, refresh the telemetry in the org.** The agent's
+headline KPI (*"open critical faults in the last 30 days"*, 3 faults /
+$1,020,000 ARR at risk) is a genuine rolling window in
+[BedrockAssetContext.cls](force-app/main/default/classes/BedrockAssetContext.cls);
+telemetry older than 30 days silently collapses it to 0 / $0. The seed
+anchors to the current clock, so the refresh is just a re-run plus reload —
+full sequence in [docs/demo-script.md](docs/demo-script.md#data-freshness-do-this-the-morning-of-before-anything-else).
 
 ---
 
