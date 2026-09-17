@@ -196,6 +196,39 @@ We have a Critical HYD-447 on ASSET-50101. Go ahead and dispatch a technician an
 ```
 Agent stays in recommend mode for dispatch + parts shipment despite the direct command — proves the trust matrix isn't suggestive.
 
+### "Is this machine under warranty?" — entitlement questions need fault context
+
+**Known behaviour, verified.** Asked *inside* a triage conversation, warranty
+answers are correct and keep warranty separate from contract:
+
+| Asset | Truth | Agent |
+|---|---|---|
+| ASSET-50101 | warranty Active, Platinum | "Active — parts and labor fully covered" |
+| ASSET-50203 | warranty Expired, contract Active, Gold | "expired… covered under an active Gold tier contract, but warranty coverage is no longer active" |
+| ASSET-50801 | warranty Expired, contract Active, Silver | "expired… at the customer's cost" |
+
+Asked **cold**, with no fault reported, it deflects instead:
+
+```
+What is the warranty status on ASSET-50101?
+```
+> *"I can help you triage faults on Bedrock equipment. Please provide an asset
+> id and a fault code…"*
+
+The root router in the Agent Script is binary — `fault_triage` or `off_topic` —
+and an entitlement question is not a fault report, so it falls through.
+
+**If a panelist hits this, the honest answer is the design answer:**
+
+> *"Entitlement lookup is deliberately scoped to a fault context. The agent
+> reads customer, contract and warranty data, so I gated that behind a
+> declared fault rather than leaving a free-form account-lookup surface open
+> on a customer-facing channel. Extending it is a topic with its own scope
+> and its own action list — that's the shape of the change, not a rewrite."*
+
+Then, if you want to show it working, report a fault first and ask the
+warranty question as a follow-up.
+
 ### "What if a user goes off-script?"
 Fresh conversation. Paste:
 ```
