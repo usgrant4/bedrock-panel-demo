@@ -15,8 +15,9 @@ It writes:
       • Resolved-fault MTTR converges around the briefing baseline (~11.4 h)
 
 Determinism: a single PRNG seed (42) controls every random choice, so the
-demo numbers don't drift between regenerations. Customers, assets and
-contracts are byte-identical across runs; only telemetry timestamps move.
+demo numbers don't drift between regenerations. Only dates move — customers,
+assets, contract values, tiers and terms are byte-identical across runs, so
+the $1,020,000 ARR anchor survives a refresh.
 
 Freshness: telemetry is generated relative to the current clock, because the
 agent's headline KPI ("open critical faults in the last 30 days", 3 faults /
@@ -128,10 +129,15 @@ TIER_VALUES = {
 }
 
 # Contract overrides for the few non-Active rows (everything else is Active).
+# Contracts that must NOT read as cleanly active, keyed by how many days before
+# NOW the term ended (so the story stays true whenever the demo is run):
+# "Pending Renewal" lapsed days ago and is awaiting paperwork; "Expired" is long
+# gone. ASSET-50403 is the dual-expired (warranty AND contract) edge case.
+#   asset -> (status, days since the term ended, term months)
 CONTRACT_OVERRIDES = {
-    "ASSET-50205": ("Pending Renewal", "2025-05-01", "2026-04-30", 12),
-    "ASSET-50403": ("Expired",         "2024-05-01", "2025-04-30", 12),
-    "ASSET-51002": ("Expired",         "2024-08-01", "2025-07-31", 12),
+    "ASSET-50205": ("Pending Renewal",   9, 12),
+    "ASSET-50403": ("Expired",         374, 12),
+    "ASSET-51002": ("Expired",         283, 12),
 }
 
 
@@ -148,11 +154,26 @@ def build_contracts() -> list[tuple]:
         contract_id = "CON-" + asset_id.split("-")[1]
 
         if asset_id in CONTRACT_OVERRIDES:
-            status, start, end, term = CONTRACT_OVERRIDES[asset_id]
+            status, ended_days_ago, term = CONTRACT_OVERRIDES[asset_id]
+            end_dt = NOW - timedelta(days=ended_days_ago)
+            start_dt = end_dt - timedelta(days=term * 30)
+            start = start_dt.date().isoformat()
+            end = end_dt.date().isoformat()
         else:
+            # A contract marked Active must still be running. Anchoring the start
+            # to an absolute date lets the term lapse as the calendar moves on,
+            # which leaves "Active" contracts showing end dates in the past — the
+            # agent reads Status__c, so it will happily call a lapsed contract
+            # active when asked. Place the start inside the term instead, so the
+            # end date is always at least a month out.
+            #
+            # Both rng calls below are kept in their original order: they also
+            # advance the shared PRNG for every later asset, so reordering or
+            # dropping one would shift every downstream annual contract value.
             status = "Active"
             term = rng.choice([12, 24, 36])
-            start_dt = datetime(2024, 1, 1) + timedelta(days=rng.randrange(0, 540))
+            elapsed = rng.randrange(0, 540) % (term * 30 - 30)
+            start_dt = NOW - timedelta(days=elapsed)
             start = start_dt.date().isoformat()
             end = (start_dt + timedelta(days=term * 30)).date().isoformat()
 

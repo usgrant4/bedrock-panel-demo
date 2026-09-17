@@ -14,19 +14,59 @@ collapse to **0** and **$0**, and the headline moment falls flat. Refresh:
 
 ```powershell
 python data/sample/_seed.py                      # regenerate, anchored to today
-python tools/gen_upsert_csv.py                   # rebuild the org load file
+python tools/gen_upsert_csv.py                   # rebuild the org load files
+
+# Contracts upsert in place — Contract_Id__c is stable (CON-50101, ...)
+sf data upsert bulk --sobject Bedrock_Service_Contract__c `
+  --file force-app\main\default\data\upsert\contracts.csv `
+  --external-id Contract_Id__c --target-org SForg --wait 10
+
+# Telemetry must be deleted first — see note below
 sf apex run --target-org SForg --file tools/delete_telemetry.apex
 sf data upsert bulk --sobject Bedrock_Telemetry_Event__c `
   --file force-app\main\default\data\upsert\telemetry.csv `
   --external-id Event_Id__c --target-org SForg --wait 10
 ```
 
-The delete step is required: event ids embed their own timestamp, so a
-re-seed produces new ids and a bare upsert would leave the stale rows behind.
-Only `telemetry_events.csv` changes — customers, assets and contracts are
+The telemetry delete is required: event ids embed their own timestamp, so a
+re-seed mints new ids and a bare upsert would leave the stale rows behind.
+Contracts keep stable ids, so they update in place.
+
+Only dates move. Customers, assets, contract values, tiers and terms are
 byte-identical across runs (seed 42), so the $1,020,000 anchor is preserved.
 
-Verify with the headline utterance below; you want **3** and **$1,020,000.00**.
+Verify: `sf apex run` a count of `Bedrock_Service_Contract__c WHERE
+Status__c = 'Active' AND End_Date__c < TODAY` — you want **0** — then run the
+headline utterance below and confirm **3** and **$1,020,000.00**.
+
+---
+
+## Pre-flight smoke test (~2 min, after the refresh)
+
+Every expectation below was verified against the live deployment, not assumed.
+
+| # | Check | Pass |
+|---|---|---|
+| 1 | `https://bedrock-dashboard-sand.vercel.app/triage` | 200, Triage Console renders |
+| 2 | `/api/recent-cases`, `/api/recent-claims` | 200 with records |
+| 3 | `POST /api/agent-session` | returns a `sessionId` (proves the JWT/token chain) |
+| 4 | `python -m pytest tests/ -q` | `5 passed` |
+| 5 | Active contracts with `End_Date__c < TODAY` | **0** |
+| 6 | Headline utterance (Test 1 below) | **3** and **$1,020,000.00** |
+
+If 3 fails, the Connected App token chain is the culprit — see
+[architecture.md Section 6](architecture.md#6-off-platform-consumer-surface--the-headless-agent-layer).
+If 6 returns 0 / $0, the data aged out; re-run the refresh above.
+
+**Clear the records your rehearsal created** before the real run, so the
+dashboard rail only pulses on records the agent writes live for the panel:
+
+```powershell
+sf apex run --target-org SForg --file tools/reset_rehearsal_records.apex
+```
+
+Scoped to `CreatedDate = TODAY`, so it clears today's rehearsal output and
+leaves the older seeded history on the rail. Telemetry is untouched.
 
 ---
 
@@ -114,21 +154,40 @@ Fresh conversation. Paste:
 ```
 Critical HYD-447 on ASSET-99999. What should we do?
 ```
-Agent says asset not found, refuses to proceed, asks you to confirm the id. No fake records created.
+Agent reports no customer, contract, service tier or warranty status on file
+for the id, states that a warranty claim **cannot** be staged until warranty
+and contract are confirmed, and offers to help locate the right customer.
+**It creates no records at all** — verified, zero cases written.
+
+Note it still returns the generic HYD-447 KB guidance (stop operation, inspect
+`HYD-MP-9912` / `HYD-RV-2204`), because the knowledge retrieval keys on the
+fault code, not the asset. That's correct behaviour, not a leak: the KB is
+public service documentation. The load-bearing property is that nothing was
+written and no entitlement was asserted without data to back it.
 
 ### "How does it handle non-critical events?"
 Fresh conversation. Paste:
 ```
 Medium-severity BRK-512 brake wear alert on ASSET-50801.
 ```
-Agent quotes Silver Medium SLA *"5 d target"* verbatim from KB Section 3, recommends scheduling at next interval, no warranty claim.
+Agent opens a **Medium**-priority case, quotes the Silver/Medium SLA from KB
+Section 3 (usually rendered as *"5-day technician dispatch target"* rather
+than the grid's literal *"5 d target"* — the value is what matters),
+recommends scheduling at the next service interval, and stages no warranty
+claim.
 
 ### "Does it remember context across turns?"
 After ANY fault triage (don't start a fresh conversation). Paste:
 ```
 What's the contract status on this asset?
 ```
-Agent answers from already-resolved context without re-running `get_asset_context`.
+Agent answers from already-resolved context without re-running
+`get_asset_context`, naming the contract (`CON-50101`), the Platinum tier and
+the term dates.
+
+**This doubles as a freshness canary.** The quoted end date must be in the
+future. If it reads as a past date while the agent calls the contract
+"Active", the org data has aged — run the refresh at the top of this file.
 
 ### "What if a user pushes past your trust boundary?"
 Fresh conversation. Paste:

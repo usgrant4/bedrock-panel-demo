@@ -1,81 +1,81 @@
 event_id,asset_id,fault_code,severity,timestamp,resolution_status,resolved_timestamp,rpm,coolant_temp_c,hydraulic_pressure_psi,description
-EVT-202609171335-50101,ASSET-50101,HYD-447,Critical,2026-09-17 13:35:00,Open,,2160,102,4280,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202609161717-50105,ASSET-50105,COOL-220,Critical,2026-09-16 17:17:00,Open,,1850,121,2100,Coolant temperature elevated — sustained >118C for 6 minutes
-EVT-202609151517-50302,ASSET-50302,HYD-447,Critical,2026-09-15 15:17:00,Open,,2080,95,4310,Hydraulic pressure spike on lift cycle — secondary relief tripped twice
-EVT-202609150717-50703,ASSET-50703,FUEL-073,Medium,2026-09-15 07:17:00,Resolved,2026-09-15 12:52:36,1707,84,2139,Fuel system anomaly — injector flow variance >12%
-EVT-202609141917-50703,ASSET-50703,TRA-308,High,2026-09-14 19:17:00,Resolved,2026-09-14 20:45:52,1734,90,2279,Transmission slip detected on shift 4-5 under load
-EVT-202609140517-50503,ASSET-50503,VIB-654,Critical,2026-09-14 05:17:00,Open,,1720,89,2050,Bearing vibration anomaly on alternator — ISO 10816 zone D exceeded
-EVT-202609132117-50302,ASSET-50302,TRA-308,High,2026-09-13 21:17:00,Resolved,2026-09-14 01:40:57,1875,91,2086,Transmission slip detected on shift 4-5 under load
-EVT-202609130117-50503,ASSET-50503,HYD-447,Critical,2026-09-13 01:17:00,Resolved,2026-09-13 17:59:36,2171,90,4214,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202609122317-50703,ASSET-50703,ENG-105,Critical,2026-09-12 23:17:00,Open,,1980,99,2310,Engine oil pressure below safe threshold under load — derated
-EVT-202609120917-50401,ASSET-50401,VIB-654,Critical,2026-09-12 09:17:00,Resolved,2026-09-12 20:08:45,1801,88,1803,Bearing vibration anomaly — ISO 10816 zone D exceeded for 8 minutes
-EVT-202609111717-50401,ASSET-50401,LUB-016,Low,2026-09-11 17:17:00,Resolved,2026-09-11 23:54:12,1789,86,1964,Lubrication cycle skipped on bay 3 — operator notified
-EVT-202609100117-50205,ASSET-50205,TRA-308,High,2026-09-10 01:17:00,Resolved,2026-09-10 04:07:22,1946,94,2103,Transmission slip detected on shift 4-5 under load
-EVT-202609090817-50802,ASSET-50802,HYD-447,Critical,2026-09-09 08:17:00,Open,,2057,91,4214,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202609080517-50106,ASSET-50106,BRK-512,Medium,2026-09-08 05:17:00,Resolved,2026-09-08 07:44:04,1567,83,2132,Brake pad wear over 70% — replacement window approaching
-EVT-202609071317-51001,ASSET-51001,FUEL-073,Medium,2026-09-07 13:17:00,Resolved,2026-09-07 21:02:55,1796,90,1931,Fuel system anomaly — injector flow variance >12%
-EVT-202609071217-50106,ASSET-50106,ENG-105,Critical,2026-09-07 12:17:00,Resolved,2026-09-07 16:43:41,1904,93,2312,Engine oil pressure below safe threshold (<22 psi at full load)
-EVT-202609071117-50201,ASSET-50201,AIR-204,Low,2026-09-07 11:17:00,Resolved,2026-09-07 13:21:47,1675,83,2251,Air filter restriction approaching service threshold
-EVT-202609051917-50101,ASSET-50101,COOL-220,Critical,2026-09-05 19:17:00,Resolved,2026-09-06 05:47:00,1767,119,2026,Coolant temperature elevated — sustained >118C for 6+ minutes
-EVT-202609050117-50202,ASSET-50202,TRA-308,High,2026-09-05 01:17:00,Open,,1735,88,1955,Transmission slip detected on shift 4-5 under load
-EVT-202609042017-50702,ASSET-50702,HYD-447,Critical,2026-09-04 20:17:00,Open,,2110,91,4268,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202609041917-50102,ASSET-50102,VIB-654,Critical,2026-09-04 19:17:00,Resolved,2026-09-05 01:06:00,1742,86,2088,Bearing vibration anomaly — ISO 10816 zone D exceeded for 8 minutes
-EVT-202609031917-50104,ASSET-50104,HYD-447,Critical,2026-09-03 19:17:00,Resolved,2026-09-04 07:47:00,2187,96,4267,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202609021717-50105,ASSET-50105,HYD-447,Critical,2026-09-02 17:17:00,Open,,2069,89,4331,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202609011917-50202,ASSET-50202,ENG-105,Critical,2026-09-01 19:17:00,Resolved,2026-09-02 07:29:00,2041,98,2398,Engine oil pressure below safe threshold (<22 psi at full load)
-EVT-202609010117-50202,ASSET-50202,LUB-016,Low,2026-09-01 01:17:00,Resolved,2026-09-01 06:25:43,1614,87,2189,Lubrication cycle skipped on bay 3 — operator notified
-EVT-202608311317-50901,ASSET-50901,ELE-091,High,2026-08-31 13:17:00,Resolved,2026-08-31 16:08:22,1571,81,1767,Electrical short detected on auxiliary harness
-EVT-202608291917-50503,ASSET-50503,COOL-220,Critical,2026-08-29 19:17:00,Resolved,2026-08-30 08:02:00,1802,120,2012,Coolant temperature elevated — sustained >118C for 6+ minutes
-EVT-202608271917-50201,ASSET-50201,VIB-654,Critical,2026-08-27 19:17:00,Resolved,2026-08-28 06:47:00,1570,93,2052,Bearing vibration anomaly — ISO 10816 zone D exceeded for 8 minutes
-EVT-202608271717-50502,ASSET-50502,FUEL-073,Medium,2026-08-27 17:17:00,Resolved,2026-08-27 22:26:31,1788,83,1937,Fuel system anomaly — injector flow variance >12%
-EVT-202608242317-50105,ASSET-50105,TRA-308,High,2026-08-24 23:17:00,Resolved,2026-08-25 04:52:46,1874,93,1914,Transmission slip detected on shift 4-5 under load
-EVT-202608241917-50703,ASSET-50703,HYD-447,Critical,2026-08-24 19:17:00,Resolved,2026-08-25 07:17:00,1946,88,4228,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202608241417-50302,ASSET-50302,ENG-105,Critical,2026-08-24 14:17:00,Resolved,2026-08-25 04:44:28,1985,92,2265,Engine oil pressure below safe threshold (<22 psi at full load)
-EVT-202608231817-50205,ASSET-50205,COOL-220,Critical,2026-08-23 18:17:00,Open,,1756,119,2135,Coolant temperature elevated — sustained >118C for 6+ minutes
-EVT-202608231117-50603,ASSET-50603,HYD-447,Critical,2026-08-23 11:17:00,Open,,2132,92,4308,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202608230417-50102,ASSET-50102,LUB-016,Low,2026-08-23 04:17:00,Resolved,2026-08-23 07:25:17,1785,84,2114,Lubrication cycle skipped on bay 3 — operator notified
-EVT-202608230017-50105,ASSET-50105,BRK-512,Medium,2026-08-23 00:17:00,Open,,1670,84,2183,Brake pad wear over 70% — replacement window approaching
-EVT-202608212217-50302,ASSET-50302,TRA-308,High,2026-08-21 22:17:00,Resolved,2026-08-22 02:04:08,1864,95,1961,Transmission slip detected on shift 4-5 under load
-EVT-202608202317-50105,ASSET-50105,FUEL-073,Medium,2026-08-20 23:17:00,Resolved,2026-08-21 05:10:15,1696,89,2104,Fuel system anomaly — injector flow variance >12%
-EVT-202608201417-50202,ASSET-50202,TRA-308,High,2026-08-20 14:17:00,Resolved,2026-08-20 21:56:13,1968,92,2156,Transmission slip detected on shift 4-5 under load
-EVT-202608191917-50801,ASSET-50801,ENG-105,Critical,2026-08-19 19:17:00,Resolved,2026-08-20 06:32:00,1889,94,2316,Engine oil pressure below safe threshold (<22 psi at full load)
-EVT-202608191717-50401,ASSET-50401,TRA-308,High,2026-08-19 17:17:00,Resolved,2026-08-19 19:32:31,1771,93,2176,Transmission slip detected on shift 4-5 under load
-EVT-202608191117-50205,ASSET-50205,FUEL-073,Medium,2026-08-19 11:17:00,Resolved,2026-08-19 18:04:56,1641,90,2148,Fuel system anomaly — injector flow variance >12%
-EVT-202608190517-50503,ASSET-50503,FUEL-073,Medium,2026-08-19 05:17:00,Resolved,2026-08-19 09:37:01,1906,84,2237,Fuel system anomaly — injector flow variance >12%
-EVT-202608190217-50501,ASSET-50501,ENG-105,Critical,2026-08-19 02:17:00,Open,,2006,100,2104,Engine oil pressure below safe threshold (<22 psi at full load)
-EVT-202608181217-50301,ASSET-50301,TRA-308,High,2026-08-18 12:17:00,Open,,1638,95,2181,Transmission slip detected on shift 4-5 under load
-EVT-202608171317-50702,ASSET-50702,FUEL-073,Medium,2026-08-17 13:17:00,Open,,1962,82,1984,Fuel system anomaly — injector flow variance >12%
-EVT-202608161117-50402,ASSET-50402,AIR-204,Low,2026-08-16 11:17:00,Open,,1933,80,1947,Air filter restriction approaching service threshold
-EVT-202608151117-50902,ASSET-50902,VIB-654,Critical,2026-08-15 11:17:00,Resolved,2026-08-15 18:52:02,1535,88,1989,Bearing vibration anomaly — ISO 10816 zone D exceeded for 8 minutes
-EVT-202608142217-50106,ASSET-50106,TRA-308,High,2026-08-14 22:17:00,Resolved,2026-08-15 01:17:50,1984,91,2244,Transmission slip detected on shift 4-5 under load
-EVT-202608131917-50203,ASSET-50203,LUB-016,Low,2026-08-13 19:17:00,Open,,1703,87,1913,Lubrication cycle skipped on bay 3 — operator notified
-EVT-202608130517-50702,ASSET-50702,ELE-091,High,2026-08-13 05:17:00,Resolved,2026-08-13 07:20:04,1730,81,2094,Electrical short detected on auxiliary harness
-EVT-202608121417-50203,ASSET-50203,FUEL-073,Medium,2026-08-12 14:17:00,Resolved,2026-08-12 21:19:35,1716,85,2176,Fuel system anomaly — injector flow variance >12%
-EVT-202608060217-50201,ASSET-50201,HYD-447,Critical,2026-08-06 02:17:00,Open,,1947,91,4242,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202608052117-50401,ASSET-50401,ENG-105,Critical,2026-08-05 21:17:00,Resolved,2026-08-06 11:17:55,2047,93,2317,Engine oil pressure below safe threshold (<22 psi at full load)
-EVT-202608051617-51001,ASSET-51001,TRA-308,High,2026-08-05 16:17:00,Open,,1668,92,1959,Transmission slip detected on shift 4-5 under load
-EVT-202608050917-50703,ASSET-50703,COOL-220,Critical,2026-08-05 09:17:00,Resolved,2026-08-05 21:53:51,1731,123,2053,Coolant temperature elevated — sustained >118C for 6+ minutes
-EVT-202608050617-50803,ASSET-50803,TRA-308,High,2026-08-05 06:17:00,Resolved,2026-08-05 12:00:44,1883,90,1998,Transmission slip detected on shift 4-5 under load
-EVT-202608050417-50401,ASSET-50401,TRA-308,High,2026-08-05 04:17:00,Resolved,2026-08-05 05:46:32,1892,97,2142,Transmission slip detected on shift 4-5 under load
-EVT-202608050317-50203,ASSET-50203,FUEL-073,Medium,2026-08-05 03:17:00,Open,,1804,87,2286,Fuel system anomaly — injector flow variance >12%
-EVT-202608040217-50101,ASSET-50101,COOL-220,Critical,2026-08-04 02:17:00,Open,,1896,123,2074,Coolant temperature elevated — sustained >118C for 6+ minutes
-EVT-202608032017-50702,ASSET-50702,BRK-512,Medium,2026-08-03 20:17:00,Open,,1715,89,2054,Brake pad wear over 70% — replacement window approaching
-EVT-202608031117-50303,ASSET-50303,FUEL-073,Medium,2026-08-03 11:17:00,Resolved,2026-08-03 13:02:30,1810,83,2298,Fuel system anomaly — injector flow variance >12%
-EVT-202608020617-50704,ASSET-50704,AIR-204,Low,2026-08-02 06:17:00,Resolved,2026-08-02 07:37:20,1983,91,1976,Air filter restriction approaching service threshold
-EVT-202608010917-50703,ASSET-50703,ELE-091,High,2026-08-01 09:17:00,Resolved,2026-08-01 17:09:54,1418,81,1995,Electrical short detected on auxiliary harness
-EVT-202607311517-50702,ASSET-50702,LUB-016,Low,2026-07-31 15:17:00,Open,,1521,80,1990,Lubrication cycle skipped on bay 3 — operator notified
-EVT-202607310217-50801,ASSET-50801,HYD-447,Critical,2026-07-31 02:17:00,Resolved,2026-07-31 19:30:50,2014,89,4210,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202607300717-50503,ASSET-50503,ELE-091,High,2026-07-30 07:17:00,Resolved,2026-07-30 14:55:02,1731,79,1741,Electrical short detected on auxiliary harness
-EVT-202607271617-50701,ASSET-50701,ELE-091,High,2026-07-27 16:17:00,Resolved,2026-07-27 18:12:35,1759,77,1916,Electrical short detected on auxiliary harness
-EVT-202607271317-50502,ASSET-50502,VIB-654,Critical,2026-07-27 13:17:00,Resolved,2026-07-27 16:01:21,1743,94,2193,Bearing vibration anomaly — ISO 10816 zone D exceeded for 8 minutes
-EVT-202607270617-50401,ASSET-50401,FUEL-073,Medium,2026-07-27 06:17:00,Resolved,2026-07-27 07:30:37,1720,87,2116,Fuel system anomaly — injector flow variance >12%
-EVT-202607270017-50902,ASSET-50902,AIR-204,Low,2026-07-27 00:17:00,Open,,1749,83,2039,Air filter restriction approaching service threshold
-EVT-202607262117-50304,ASSET-50304,ENG-105,Critical,2026-07-26 21:17:00,Resolved,2026-07-27 00:05:12,1913,93,2333,Engine oil pressure below safe threshold (<22 psi at full load)
-EVT-202607261217-50601,ASSET-50601,TRA-308,High,2026-07-26 12:17:00,Resolved,2026-07-26 17:44:00,1804,93,2042,Transmission slip detected on shift 4-5 under load
-EVT-202607252017-50704,ASSET-50704,LUB-016,Low,2026-07-25 20:17:00,Open,,1618,86,2128,Lubrication cycle skipped on bay 3 — operator notified
-EVT-202607251917-50701,ASSET-50701,AIR-204,Low,2026-07-25 19:17:00,Resolved,2026-07-25 21:21:34,1902,89,2210,Air filter restriction approaching service threshold
-EVT-202607250817-50902,ASSET-50902,HYD-447,Critical,2026-07-25 08:17:00,Resolved,2026-07-25 12:39:10,1965,88,4278,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202607241417-50803,ASSET-50803,COOL-220,Critical,2026-07-24 14:17:00,Resolved,2026-07-24 17:22:14,1920,119,2106,Coolant temperature elevated — sustained >118C for 6+ minutes
-EVT-202607222017-50702,ASSET-50702,FUEL-073,Medium,2026-07-22 20:17:00,Resolved,2026-07-23 01:41:03,1830,83,1931,Fuel system anomaly — injector flow variance >12%
-EVT-202607210817-50602,ASSET-50602,HYD-447,Critical,2026-07-21 08:17:00,Resolved,2026-07-21 14:16:32,1952,93,4343,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
-EVT-202607201617-50301,ASSET-50301,AIR-204,Low,2026-07-20 16:17:00,Open,,1652,90,2159,Air filter restriction approaching service threshold
+EVT-202609171439-50101,ASSET-50101,HYD-447,Critical,2026-09-17 14:39:00,Open,,2160,102,4280,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202609161821-50105,ASSET-50105,COOL-220,Critical,2026-09-16 18:21:00,Open,,1850,121,2100,Coolant temperature elevated — sustained >118C for 6 minutes
+EVT-202609151621-50302,ASSET-50302,HYD-447,Critical,2026-09-15 16:21:00,Open,,2080,95,4310,Hydraulic pressure spike on lift cycle — secondary relief tripped twice
+EVT-202609150821-50703,ASSET-50703,FUEL-073,Medium,2026-09-15 08:21:00,Resolved,2026-09-15 13:56:36,1707,84,2139,Fuel system anomaly — injector flow variance >12%
+EVT-202609142021-50703,ASSET-50703,TRA-308,High,2026-09-14 20:21:00,Resolved,2026-09-14 21:49:52,1734,90,2279,Transmission slip detected on shift 4-5 under load
+EVT-202609140621-50503,ASSET-50503,VIB-654,Critical,2026-09-14 06:21:00,Open,,1720,89,2050,Bearing vibration anomaly on alternator — ISO 10816 zone D exceeded
+EVT-202609132221-50302,ASSET-50302,TRA-308,High,2026-09-13 22:21:00,Resolved,2026-09-14 02:44:57,1875,91,2086,Transmission slip detected on shift 4-5 under load
+EVT-202609130221-50503,ASSET-50503,HYD-447,Critical,2026-09-13 02:21:00,Resolved,2026-09-13 19:03:36,2171,90,4214,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202609130021-50703,ASSET-50703,ENG-105,Critical,2026-09-13 00:21:00,Open,,1980,99,2310,Engine oil pressure below safe threshold under load — derated
+EVT-202609121021-50401,ASSET-50401,VIB-654,Critical,2026-09-12 10:21:00,Resolved,2026-09-12 21:12:45,1801,88,1803,Bearing vibration anomaly — ISO 10816 zone D exceeded for 8 minutes
+EVT-202609111821-50401,ASSET-50401,LUB-016,Low,2026-09-11 18:21:00,Resolved,2026-09-12 00:58:12,1789,86,1964,Lubrication cycle skipped on bay 3 — operator notified
+EVT-202609100221-50205,ASSET-50205,TRA-308,High,2026-09-10 02:21:00,Resolved,2026-09-10 05:11:22,1946,94,2103,Transmission slip detected on shift 4-5 under load
+EVT-202609090921-50802,ASSET-50802,HYD-447,Critical,2026-09-09 09:21:00,Open,,2057,91,4214,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202609080621-50106,ASSET-50106,BRK-512,Medium,2026-09-08 06:21:00,Resolved,2026-09-08 08:48:04,1567,83,2132,Brake pad wear over 70% — replacement window approaching
+EVT-202609071421-51001,ASSET-51001,FUEL-073,Medium,2026-09-07 14:21:00,Resolved,2026-09-07 22:06:55,1796,90,1931,Fuel system anomaly — injector flow variance >12%
+EVT-202609071321-50106,ASSET-50106,ENG-105,Critical,2026-09-07 13:21:00,Resolved,2026-09-07 17:47:41,1904,93,2312,Engine oil pressure below safe threshold (<22 psi at full load)
+EVT-202609071221-50201,ASSET-50201,AIR-204,Low,2026-09-07 12:21:00,Resolved,2026-09-07 14:25:47,1675,83,2251,Air filter restriction approaching service threshold
+EVT-202609052021-50101,ASSET-50101,COOL-220,Critical,2026-09-05 20:21:00,Resolved,2026-09-06 06:51:00,1767,119,2026,Coolant temperature elevated — sustained >118C for 6+ minutes
+EVT-202609050221-50202,ASSET-50202,TRA-308,High,2026-09-05 02:21:00,Open,,1735,88,1955,Transmission slip detected on shift 4-5 under load
+EVT-202609042121-50702,ASSET-50702,HYD-447,Critical,2026-09-04 21:21:00,Open,,2110,91,4268,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202609042021-50102,ASSET-50102,VIB-654,Critical,2026-09-04 20:21:00,Resolved,2026-09-05 02:10:00,1742,86,2088,Bearing vibration anomaly — ISO 10816 zone D exceeded for 8 minutes
+EVT-202609032021-50104,ASSET-50104,HYD-447,Critical,2026-09-03 20:21:00,Resolved,2026-09-04 08:51:00,2187,96,4267,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202609021821-50105,ASSET-50105,HYD-447,Critical,2026-09-02 18:21:00,Open,,2069,89,4331,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202609012021-50202,ASSET-50202,ENG-105,Critical,2026-09-01 20:21:00,Resolved,2026-09-02 08:33:00,2041,98,2398,Engine oil pressure below safe threshold (<22 psi at full load)
+EVT-202609010221-50202,ASSET-50202,LUB-016,Low,2026-09-01 02:21:00,Resolved,2026-09-01 07:29:43,1614,87,2189,Lubrication cycle skipped on bay 3 — operator notified
+EVT-202608311421-50901,ASSET-50901,ELE-091,High,2026-08-31 14:21:00,Resolved,2026-08-31 17:12:22,1571,81,1767,Electrical short detected on auxiliary harness
+EVT-202608292021-50503,ASSET-50503,COOL-220,Critical,2026-08-29 20:21:00,Resolved,2026-08-30 09:06:00,1802,120,2012,Coolant temperature elevated — sustained >118C for 6+ minutes
+EVT-202608272021-50201,ASSET-50201,VIB-654,Critical,2026-08-27 20:21:00,Resolved,2026-08-28 07:51:00,1570,93,2052,Bearing vibration anomaly — ISO 10816 zone D exceeded for 8 minutes
+EVT-202608271821-50502,ASSET-50502,FUEL-073,Medium,2026-08-27 18:21:00,Resolved,2026-08-27 23:30:31,1788,83,1937,Fuel system anomaly — injector flow variance >12%
+EVT-202608250021-50105,ASSET-50105,TRA-308,High,2026-08-25 00:21:00,Resolved,2026-08-25 05:56:46,1874,93,1914,Transmission slip detected on shift 4-5 under load
+EVT-202608242021-50703,ASSET-50703,HYD-447,Critical,2026-08-24 20:21:00,Resolved,2026-08-25 08:21:00,1946,88,4228,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202608241521-50302,ASSET-50302,ENG-105,Critical,2026-08-24 15:21:00,Resolved,2026-08-25 05:48:28,1985,92,2265,Engine oil pressure below safe threshold (<22 psi at full load)
+EVT-202608231921-50205,ASSET-50205,COOL-220,Critical,2026-08-23 19:21:00,Open,,1756,119,2135,Coolant temperature elevated — sustained >118C for 6+ minutes
+EVT-202608231221-50603,ASSET-50603,HYD-447,Critical,2026-08-23 12:21:00,Open,,2132,92,4308,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202608230521-50102,ASSET-50102,LUB-016,Low,2026-08-23 05:21:00,Resolved,2026-08-23 08:29:17,1785,84,2114,Lubrication cycle skipped on bay 3 — operator notified
+EVT-202608230121-50105,ASSET-50105,BRK-512,Medium,2026-08-23 01:21:00,Open,,1670,84,2183,Brake pad wear over 70% — replacement window approaching
+EVT-202608212321-50302,ASSET-50302,TRA-308,High,2026-08-21 23:21:00,Resolved,2026-08-22 03:08:08,1864,95,1961,Transmission slip detected on shift 4-5 under load
+EVT-202608210021-50105,ASSET-50105,FUEL-073,Medium,2026-08-21 00:21:00,Resolved,2026-08-21 06:14:15,1696,89,2104,Fuel system anomaly — injector flow variance >12%
+EVT-202608201521-50202,ASSET-50202,TRA-308,High,2026-08-20 15:21:00,Resolved,2026-08-20 23:00:13,1968,92,2156,Transmission slip detected on shift 4-5 under load
+EVT-202608192021-50801,ASSET-50801,ENG-105,Critical,2026-08-19 20:21:00,Resolved,2026-08-20 07:36:00,1889,94,2316,Engine oil pressure below safe threshold (<22 psi at full load)
+EVT-202608191821-50401,ASSET-50401,TRA-308,High,2026-08-19 18:21:00,Resolved,2026-08-19 20:36:31,1771,93,2176,Transmission slip detected on shift 4-5 under load
+EVT-202608191221-50205,ASSET-50205,FUEL-073,Medium,2026-08-19 12:21:00,Resolved,2026-08-19 19:08:56,1641,90,2148,Fuel system anomaly — injector flow variance >12%
+EVT-202608190621-50503,ASSET-50503,FUEL-073,Medium,2026-08-19 06:21:00,Resolved,2026-08-19 10:41:01,1906,84,2237,Fuel system anomaly — injector flow variance >12%
+EVT-202608190321-50501,ASSET-50501,ENG-105,Critical,2026-08-19 03:21:00,Open,,2006,100,2104,Engine oil pressure below safe threshold (<22 psi at full load)
+EVT-202608181321-50301,ASSET-50301,TRA-308,High,2026-08-18 13:21:00,Open,,1638,95,2181,Transmission slip detected on shift 4-5 under load
+EVT-202608171421-50702,ASSET-50702,FUEL-073,Medium,2026-08-17 14:21:00,Open,,1962,82,1984,Fuel system anomaly — injector flow variance >12%
+EVT-202608161221-50402,ASSET-50402,AIR-204,Low,2026-08-16 12:21:00,Open,,1933,80,1947,Air filter restriction approaching service threshold
+EVT-202608151221-50902,ASSET-50902,VIB-654,Critical,2026-08-15 12:21:00,Resolved,2026-08-15 19:56:02,1535,88,1989,Bearing vibration anomaly — ISO 10816 zone D exceeded for 8 minutes
+EVT-202608142321-50106,ASSET-50106,TRA-308,High,2026-08-14 23:21:00,Resolved,2026-08-15 02:21:50,1984,91,2244,Transmission slip detected on shift 4-5 under load
+EVT-202608132021-50203,ASSET-50203,LUB-016,Low,2026-08-13 20:21:00,Open,,1703,87,1913,Lubrication cycle skipped on bay 3 — operator notified
+EVT-202608130621-50702,ASSET-50702,ELE-091,High,2026-08-13 06:21:00,Resolved,2026-08-13 08:24:04,1730,81,2094,Electrical short detected on auxiliary harness
+EVT-202608121521-50203,ASSET-50203,FUEL-073,Medium,2026-08-12 15:21:00,Resolved,2026-08-12 22:23:35,1716,85,2176,Fuel system anomaly — injector flow variance >12%
+EVT-202608060321-50201,ASSET-50201,HYD-447,Critical,2026-08-06 03:21:00,Open,,1947,91,4242,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202608052221-50401,ASSET-50401,ENG-105,Critical,2026-08-05 22:21:00,Resolved,2026-08-06 12:21:55,2047,93,2317,Engine oil pressure below safe threshold (<22 psi at full load)
+EVT-202608051721-51001,ASSET-51001,TRA-308,High,2026-08-05 17:21:00,Open,,1668,92,1959,Transmission slip detected on shift 4-5 under load
+EVT-202608051021-50703,ASSET-50703,COOL-220,Critical,2026-08-05 10:21:00,Resolved,2026-08-05 22:57:51,1731,123,2053,Coolant temperature elevated — sustained >118C for 6+ minutes
+EVT-202608050721-50803,ASSET-50803,TRA-308,High,2026-08-05 07:21:00,Resolved,2026-08-05 13:04:44,1883,90,1998,Transmission slip detected on shift 4-5 under load
+EVT-202608050521-50401,ASSET-50401,TRA-308,High,2026-08-05 05:21:00,Resolved,2026-08-05 06:50:32,1892,97,2142,Transmission slip detected on shift 4-5 under load
+EVT-202608050421-50203,ASSET-50203,FUEL-073,Medium,2026-08-05 04:21:00,Open,,1804,87,2286,Fuel system anomaly — injector flow variance >12%
+EVT-202608040321-50101,ASSET-50101,COOL-220,Critical,2026-08-04 03:21:00,Open,,1896,123,2074,Coolant temperature elevated — sustained >118C for 6+ minutes
+EVT-202608032121-50702,ASSET-50702,BRK-512,Medium,2026-08-03 21:21:00,Open,,1715,89,2054,Brake pad wear over 70% — replacement window approaching
+EVT-202608031221-50303,ASSET-50303,FUEL-073,Medium,2026-08-03 12:21:00,Resolved,2026-08-03 14:06:30,1810,83,2298,Fuel system anomaly — injector flow variance >12%
+EVT-202608020721-50704,ASSET-50704,AIR-204,Low,2026-08-02 07:21:00,Resolved,2026-08-02 08:41:20,1983,91,1976,Air filter restriction approaching service threshold
+EVT-202608011021-50703,ASSET-50703,ELE-091,High,2026-08-01 10:21:00,Resolved,2026-08-01 18:13:54,1418,81,1995,Electrical short detected on auxiliary harness
+EVT-202607311621-50702,ASSET-50702,LUB-016,Low,2026-07-31 16:21:00,Open,,1521,80,1990,Lubrication cycle skipped on bay 3 — operator notified
+EVT-202607310321-50801,ASSET-50801,HYD-447,Critical,2026-07-31 03:21:00,Resolved,2026-07-31 20:34:50,2014,89,4210,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202607300821-50503,ASSET-50503,ELE-091,High,2026-07-30 08:21:00,Resolved,2026-07-30 15:59:02,1731,79,1741,Electrical short detected on auxiliary harness
+EVT-202607271721-50701,ASSET-50701,ELE-091,High,2026-07-27 17:21:00,Resolved,2026-07-27 19:16:35,1759,77,1916,Electrical short detected on auxiliary harness
+EVT-202607271421-50502,ASSET-50502,VIB-654,Critical,2026-07-27 14:21:00,Resolved,2026-07-27 17:05:21,1743,94,2193,Bearing vibration anomaly — ISO 10816 zone D exceeded for 8 minutes
+EVT-202607270721-50401,ASSET-50401,FUEL-073,Medium,2026-07-27 07:21:00,Resolved,2026-07-27 08:34:37,1720,87,2116,Fuel system anomaly — injector flow variance >12%
+EVT-202607270121-50902,ASSET-50902,AIR-204,Low,2026-07-27 01:21:00,Open,,1749,83,2039,Air filter restriction approaching service threshold
+EVT-202607262221-50304,ASSET-50304,ENG-105,Critical,2026-07-26 22:21:00,Resolved,2026-07-27 01:09:12,1913,93,2333,Engine oil pressure below safe threshold (<22 psi at full load)
+EVT-202607261321-50601,ASSET-50601,TRA-308,High,2026-07-26 13:21:00,Resolved,2026-07-26 18:48:00,1804,93,2042,Transmission slip detected on shift 4-5 under load
+EVT-202607252121-50704,ASSET-50704,LUB-016,Low,2026-07-25 21:21:00,Open,,1618,86,2128,Lubrication cycle skipped on bay 3 — operator notified
+EVT-202607252021-50701,ASSET-50701,AIR-204,Low,2026-07-25 20:21:00,Resolved,2026-07-25 22:25:34,1902,89,2210,Air filter restriction approaching service threshold
+EVT-202607250921-50902,ASSET-50902,HYD-447,Critical,2026-07-25 09:21:00,Resolved,2026-07-25 13:43:10,1965,88,4278,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202607241521-50803,ASSET-50803,COOL-220,Critical,2026-07-24 15:21:00,Resolved,2026-07-24 18:26:14,1920,119,2106,Coolant temperature elevated — sustained >118C for 6+ minutes
+EVT-202607222121-50702,ASSET-50702,FUEL-073,Medium,2026-07-22 21:21:00,Resolved,2026-07-23 02:45:03,1830,83,1931,Fuel system anomaly — injector flow variance >12%
+EVT-202607210921-50602,ASSET-50602,HYD-447,Critical,2026-07-21 09:21:00,Resolved,2026-07-21 15:20:32,1952,93,4343,Hydraulic pressure spike — main pump output beyond 4250 psi for 47s
+EVT-202607201721-50301,ASSET-50301,AIR-204,Low,2026-07-20 17:21:00,Open,,1652,90,2159,Air filter restriction approaching service threshold
