@@ -53,7 +53,7 @@ Every expectation below was verified against the live deployment, not assumed.
 | 4 | `python -m pytest tests/ -q` | `5 passed` |
 | 5 | Active contracts with `End_Date__c < TODAY` | **0** |
 | 6 | Headline utterance (Test 1 below) | **3** and **$1,020,000.00** |
-| 7 | `sf apex run test --class-names BedrockStageWarrantyTest` | 4 passed — the trust gate holds |
+| 7 | `sf apex run test --class-names BedrockStageWarrantyTest --target-org SForg --synchronous` | 4 passed — the trust gate holds |
 | 8 | Claims on expired-warranty assets | **0** (see below) |
 
 If 3 fails, the Connected App token chain is the culprit — see
@@ -330,7 +330,7 @@ Agent routes to off-topic subagent, redirects without revealing internals.
    (`http://localhost:8501`). Same architecture pattern off-platform.
 
 3. **Vercel dashboard fails to render or polls hang.** Skip step 9 of the
-   demo path; switch directly to the Lightning record tabs (BSV-*/BWC-*).
+   demo path ([deck-outline.md](deck-outline.md) Slide 9); switch directly to the Lightning record tabs (BSV-*/BWC-*).
    The records are still in Salesforce — the dashboard is only a read
    surface, and the architecture story (Section 6) holds without the live widget.
    Open `https://vercel.com/ugrantiv-6508s-projects/bedrock-dashboard` if

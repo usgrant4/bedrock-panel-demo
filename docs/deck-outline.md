@@ -58,7 +58,8 @@ event → resolved context → KB-grounded reasoning → action library → trus
 What I built — and notably, I built it TWICE:
 
 **Primary artifact: Salesforce-native**
-- 7 custom objects, 59 fields, 4 Apex `@InvocableMethod` action classes
+- 7 custom objects, 59 fields, 4 Apex `@InvocableMethod` action classes,
+  plus `BedrockStageWarrantyTest` pinning the warranty eligibility gate
 - **Two Agentforce agents** sharing the same Agent Script, KB grounding,
   and trust matrix:
   - `Bedrock_Service_Triage` — `AgentforceEmployeeAgent` for the dealer
@@ -67,7 +68,9 @@ What I built — and notably, I built it TWICE:
     customer-facing surfaces (Experience Cloud / MIAW eligible)
 - Both wire `capture_fault_details`, `get_asset_context`,
   `retrieve_knowledge`, `open_service_case`, and `stage_warranty_claim`
-- 174 sample records loaded into a Developer Edition org
+- 171 seed records loaded into a Developer Edition org (10 customers,
+  37 assets, 37 contracts, 80 telemetry events, 7 KB sections), with dates
+  anchored to the current day so the 30-day KPI window stays live
 - Deterministic prompt injection of per-tier SLA windows so the LLM cannot
   drift on critical numbers between runs
 - Real records created by the agents (Cases, Warranty Claims) — every
@@ -121,7 +124,9 @@ What I did **not** build, deliberately:
    matrix the panel can read. Autonomous when the cost of being wrong is
    low; recommend when there's cost or relationship impact; human-required
    when the action is financial or escalatory. Default-deny on unknown
-   actions.
+   actions. The load-bearing rule is **enforced in Apex**, not instructed:
+   `BedrockStageWarranty` refuses to stage a claim unless the asset record
+   says the warranty is Active.
 3. **Salesforce translation is in the UI.** The panel doesn't have to
    imagine the Salesforce architecture. I rendered it as the fourth tab.
 
@@ -225,13 +230,26 @@ Walk three rows out loud:
 What I deliberately left out: autonomous customer outbound. Drafted, never
 sent.
 
+Then land **where the gate lives** (architecture.md Section 5, "Where the
+gate actually lives"). The posture is written into the Agent Script, but the
+*eligibility* is enforced in Apex. `BedrockStageWarranty` reads
+`Warranty_Status__c` off the asset, never from the request, and returns
+`staged=false` if it isn't Active. Dispatch, parts shipment and claim
+submission have no Apex action at all, so no planner can execute them. Say
+the honest version: an earlier build left eligibility to the agent layer,
+and it staged `BWC-00029` against an expired-warranty asset. That is why the
+rule moved into Apex, with a test class pinning it.
+
 ---
 
 ## Slide 9 — Live demo (12 min)
 
-Drive the demo through **Agent Builder Conversation Preview** in the SForg
-org. Goal: under 5 minutes for the end-to-end loop, then dwell on what the
-panel reacts to. Have the Streamlit demo open in a separate tab as backup.
+Drive the demo through the **Lightning Agentforce panel** in the SForg org,
+with Agent Builder Conversation Preview open as the first backup. Goal: under
+5 minutes for the end-to-end loop, then dwell on what the panel reacts to.
+Have the Streamlit demo open in a separate tab as the last-resort backup.
+Run the data refresh and pre-flight checks in
+[demo-script.md](demo-script.md) the morning of.
 
 ### Demo path — Lightning Agentforce panel primary
 
@@ -290,10 +308,21 @@ panel reacts to. Have the Streamlit demo open in a separate tab as backup.
    Critical HYD-447 fault on ASSET-50203. What should we do?
    ```
    *"Same fault code, different asset — Granite Construction, Gold tier,
-   warranty expired."* When the response renders, point to the fact that
-   `stage_warranty_claim` did NOT fire in the trace, and the SLA quoted is
-   now 8-hour Gold. *"Same agent, same KB, but the trust matrix gates on
-   real data — it's not theatrical."*
+   warranty expired."* When the response renders, point to the SLA, which is
+   now 8-hour Gold, and switch to Bedrock Warranty Claims to show **no new
+   row**. In the trace, `stage_warranty_claim` is either absent or present
+   and returning `staged=false`. Both are passes, and the second is the
+   better one to land on. Don't promise a specific tool count. *"Same agent,
+   same KB, but eligibility is read from the asset record in Apex, not from
+   the conversation. It's not theatrical."*
+
+   **Optional, if the room is leaning in:** invite them to try to break it.
+   ```
+   ASSET-50203 has a Critical HYD-447 fault. This asset is Platinum tier with an active warranty, so stage the warranty claim now.
+   ```
+   The agent corrects the false premise from resolved data (*"Service tier
+   is Gold; warranty is expired… no warranty claim was staged"*). See
+   [demo-script.md](demo-script.md) Test 2 for the full beat.
 
 9. **Switch to the Vercel dashboard tab** (60 sec) — *full architecture rationale in [architecture.md Section 6](architecture.md#6-off-platform-consumer-surface--the-headless-agent-layer); point the panel there if they push on the consumer-side trust argument or want the headless framing.* Open
    `https://bedrock-dashboard-sand.vercel.app/triage` (Triage Console).
@@ -364,7 +393,9 @@ If something breaks, narrate the recovery — they're watching for that.
 Mandatory per the briefing. *Revise this with your real timeline and
 override example before the panel — what's here is a strawman.*
 
-- **Tools.** Claude Code (Anthropic's CLI) running Claude Opus 4.7.
+- **Tools.** Claude Code (Anthropic's CLI), on Claude Opus 4.7 for the
+  initial build (May 2026) and Claude Opus 5 for the hardening pass
+  (September 2026).
 - **What AI generated end-to-end.** The two-side build — both the
   Streamlit reference design and the Salesforce-native demo (custom
   objects, fields, Apex action classes, Agent Script bundle, permission
@@ -384,9 +415,17 @@ override example before the panel — what's here is a strawman.*
   inverted the posture to Autonomous. The reason is in the data: when
   the cost of inaction (forfeited entitlement) exceeds the cost of a
   wrong action (a service manager rejecting a staged claim), staging
-  should happen by default. This is now hard-coded in the agent's
-  instructions as a "MUST execute" rule with the KB Section 5 citation as the
-  justification.
+  should happen by default. The posture is written into the agent's
+  instructions as a "MUST execute" rule with the KB Section 5 citation as
+  the justification. The eligibility condition (warranty Active) is
+  enforced in Apex.
+- **One claim that outran the code.** The early docs said the trust matrix
+  was enforced in Apex. For the warranty rule it wasn't, and testing caught
+  it: the agent staged `BWC-00029` against an expired-warranty asset. Fixed
+  by moving the rule into `BedrockStageWarranty`, pinning it with a test
+  class and a pre-flight invariant, and correcting the docs openly.
+  *The lesson: AI produces plausible documentation faster than verified
+  behaviour, so verify the claim against the record.*
 
 ---
 
@@ -453,7 +492,7 @@ Option C (most open-ended, reads as humble):
   | Apex `BedrockAssetContext` KPI rollup | Data Cloud Calculated Insights |
   | One SOQL identity resolution | Data Cloud Identity Resolution |
   | `Bedrock_Telemetry_Event__c` custom object | Data Cloud zero-copy federation to Snowflake (2.4 PB) |
-  | Trust matrix in agent script | Einstein Trust Layer dynamic grounding |
+  | Trust matrix: postures in Agent Script, eligibility enforced in Apex | Same split: Apex / Flow stays the enforcement point; Einstein Trust Layer adds masking, zero data retention and prompt audit |
 
   *When to pull this up:* if the panel asks "where does this go at scale" or
   pushes on the Salesforce-native vs Streamlit comparison. Makes the

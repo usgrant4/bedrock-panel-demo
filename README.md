@@ -45,7 +45,7 @@ The full panel argument lives in [docs/architecture.md](docs/architecture.md).
 | Component | Where |
 |---|---|
 | 7 custom objects + 59 fields | [force-app/main/default/objects/](force-app/main/default/objects/) |
-| 4 Apex `@InvocableMethod` action classes | [force-app/main/default/classes/](force-app/main/default/classes/) — `BedrockAssetContext`, `BedrockKnowledge`, `BedrockOpenCase`, `BedrockStageWarranty` |
+| 4 Apex `@InvocableMethod` action classes + the trust-gate test | [force-app/main/default/classes/](force-app/main/default/classes/) — `BedrockAssetContext`, `BedrockKnowledge`, `BedrockOpenCase`, `BedrockStageWarranty`; `BedrockStageWarrantyTest` pins the warranty eligibility gate |
 | Two Agentforce agents | [force-app/main/default/aiAuthoringBundles/](force-app/main/default/aiAuthoringBundles/) — `Bedrock_Service_Triage` (`AgentforceEmployeeAgent`) + `Bedrock_Customer_Service` (`AgentforceServiceAgent`). Same Agent Script, same KB grounding, same trust matrix; agent type declares which surfaces the runtime exposes them on. |
 | Permission set | [force-app/main/default/permissionsets/Bedrock_Demo_Admin.permissionset-meta.xml](force-app/main/default/permissionsets/Bedrock_Demo_Admin.permissionset-meta.xml) |
 | Connected App (OAuth Client Credentials + JWT issuance) | [force-app/main/default/connectedApps/Bedrock_Dashboard_OAuth.connectedApp-meta.xml](force-app/main/default/connectedApps/Bedrock_Dashboard_OAuth.connectedApp-meta.xml) |
@@ -109,8 +109,14 @@ toggled on.
 ```powershell
 sf org login web --alias SForg
 sf project deploy start --source-dir force-app/main/default --target-org SForg
-sf data tree import --plan data/sample/import-plan.json --target-org SForg
+sf data import tree --plan force-app/main/default/data/bedrock-plan.json --target-org SForg
 ```
+
+That loads the 171 seed records (10 customers, 37 assets, 37 contracts, 80
+telemetry events, 7 KB sections). The tree-import JSON is a snapshot dated
+May 2026, so on a fresh org run the data refresh in
+[docs/demo-script.md](docs/demo-script.md#data-freshness-do-this-the-morning-of-before-anything-else)
+straight after it. Otherwise the 30-day KPI window reads 0 / $0.
 
 To deploy the UI bundle to a digital-experience site, see
 [force-app/main/default/uiBundles/BedrockDashboard/README.md](force-app/main/default/uiBundles/BedrockDashboard/README.md).
@@ -212,16 +218,17 @@ bedrock-panel-demo/
 ├── force-app/main/default/      # Salesforce metadata
 │   ├── aiAuthoringBundles/      # Both Agentforce agents (.agent files)
 │   ├── bots/                    # BotVersion config (employee agent only — service generated on deploy)
-│   ├── classes/                 # 4 Apex action classes
+│   ├── classes/                 # 4 Apex action classes + BedrockStageWarrantyTest
 │   ├── connectedApps/           # Bedrock_Dashboard_OAuth
-│   ├── data/upsert/             # KB CSV
+│   ├── data/                    # Tree-import JSON + plan (fresh-org load)
+│   │   └── upsert/              # Upsert CSVs — the data refresh path
 │   ├── genAiPlannerBundles/     # Planner topology
 │   ├── objects/                 # 7 custom objects + fields
 │   ├── permissionsets/          # Bedrock_Demo_Admin
 │   └── uiBundles/BedrockDashboard/  # The Vercel SPA — Vite/React/Tailwind/shadcn
 │       ├── api/                 # Serverless functions (token mint, SOQL, agent session/message)
 │       └── src/                 # React app — Triage Console, Architecture page, etc.
-├── tools/                       # Helper scripts (find_agent_ids, agent_chat.py, etc.)
+├── tools/                       # Helper scripts: agent_chat.py, find_agent_ids, data refresh + rehearsal reset
 └── tests/                       # Smoke tests for the Streamlit pieces
 ```
 
@@ -241,17 +248,23 @@ expired**), use `ASSET-50203`:
 
 > *Critical HYD-447 fault on ASSET-50203. What should we do?*
 
-Watch the trace — `stage_warranty_claim` does *not* fire because the
-trust matrix gates on real data, not theater.
+No warranty claim gets written. Depending on the run, `stage_warranty_claim`
+is either skipped by the planner or called and refused by Apex
+(`staged=false`). Either way the Warranty Claims list gets no new row,
+because eligibility is read from the asset record and not taken from the
+conversation.
 
 ---
 
 ## Status
 
-Built for the Innovation TA panel (May 2026). Repo is currently private
-during panel prep; archival public release possible afterward.
+Built for the Salesforce Innovation TA panel. First built in May 2026, then
+hardened in September 2026: the demo data now anchors to the current date,
+and the warranty gate is enforced in Apex. Repo is currently private during
+panel prep; archival public release possible afterward.
 
-The build was scaffolded with Claude Code (Claude Opus 4.7); architectural
-choices, trust matrix, and the federation-vs-ingestion position are
-hand-defended. See *How I used AI* in [docs/deck-outline.md](docs/deck-outline.md)
-Slide 10 for the disclosure breakdown.
+The build was scaffolded with Claude Code on Claude Opus 4.7, and the
+September hardening was done on Claude Opus 5. The architectural choices,
+the trust matrix and the federation-vs-ingestion position are hand-defended.
+See *How I used AI* in [docs/deck-outline.md](docs/deck-outline.md) Slide 10
+for the disclosure breakdown.

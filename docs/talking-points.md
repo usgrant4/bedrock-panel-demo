@@ -142,7 +142,7 @@ Marcus's framings to lean on, in order of weight:
 > customer-facing version, deployable to Experience Cloud or messaging
 > surfaces.
 >
-> 174 sample records are loaded. Real Cases and Warranty Claims get
+> 171 seed records are loaded. Real Cases and Warranty Claims get
 > created on every run. These are artifacts, not payload previews. The
 > dealer rep sees actual records, not mock JSON.
 >
@@ -167,9 +167,9 @@ Marcus's framings to lean on, in order of weight:
 
 | Q | A |
 |---|---|
-| *"Why two agents instead of one?"* | "Separation of trust postures. The dealer-facing agent can stage warranty claims and open service cases autonomously because the rep is the immediate human reviewer. The customer-facing agent never writes to the warranty record because the customer is the subject of the warranty, not its reviewer. Same script foundation, different action scopes. That's the right pattern for multi-channel agent deployments." |
+| *"Why two agents instead of one?"* | "Separation of surfaces, not of policy. The two agents run the same Agent Script, the same five actions, the same KB grounding and the same trust matrix. The only difference is the agent type. The Employee Agent runs as the calling user inside Lightning, where the dealer rep works. The Service Agent has its own Agent User, and that is what lets the public Agent API, Experience Cloud and messaging reach it. Keeping the decision policy identical means the trust matrix is proven once and holds on every surface. If a customer-facing channel should have a narrower scope, for example no warranty staging, that's a change to one action list, not a second design." |
 | *"Why also build off-platform?"* | "Two reasons. First, it forces me to defend why Salesforce is the right runtime for this use case rather than asserting it. Second, it proves the pattern is portable. The agent design isn't locked to one runtime. That's the kind of architectural decoupling that customers appreciate when they're evaluating long-term platform commitments." |
-| *"What's in the four Apex actions?"* | "Get asset context, retrieve knowledge, open service case, stage warranty claim. Each is an InvocableMethod the agent calls via the Topics framework. The asset context one does the heavy lifting: one SOQL with relationship traversal returns customer, active contract, last 10 telemetry events, and customer-level KPIs like ARR at risk." |
+| *"What's in the four Apex actions?"* | "Get asset context, retrieve knowledge, open service case, stage warranty claim. Each is an InvocableMethod the agent calls from its fault-triage subagent. The asset context one does the heavy lifting: one SOQL with relationship traversal returns customer, active contract, last 10 telemetry events, and customer-level KPIs like ARR at risk. The warranty one enforces its own eligibility. It reads warranty status off the asset record and refuses to stage if it isn't active, and a test class pins that." |
 
 **Transition:**
 
@@ -206,7 +206,8 @@ Marcus's framings to lean on, in order of weight:
 > cost of being wrong is low. Recommend when there's cost or
 > relationship impact. Human-required when the action is financial or
 > escalatory. Default-deny on unknown actions. The policy is legible
-> and auditable. It's not buried in a prompt.
+> and auditable, and the rule that matters most isn't left to a prompt.
+> Warranty eligibility is enforced in Apex, against the asset record.
 >
 > Third, **the Salesforce translation is in the UI.** The panel doesn't
 > have to imagine the Salesforce architecture. The demo-to-platform
@@ -315,7 +316,8 @@ Marcus's framings to lean on, in order of weight:
 > **Apex and Flow on-platform.** Trust gate enforcement, action
 > execution, audit trail. The only layer where Salesforce enforces
 > policy regardless of which surface initiated the conversation.
-> Built: four Apex InvocableMethod classes.
+> Built: four Apex InvocableMethod classes, with a test class holding
+> the warranty gate in place.
 >
 > The 2.4 petabytes does not move. That's the single biggest
 > cost-and-realism win in the architecture."
@@ -353,9 +355,11 @@ Marcus's framings to lean on, in order of weight:
 > rejecting a staged claim is near-zero. The cost of forfeited
 > entitlement is material. This is the override-AI moment in my build.
 > AI's first draft made this a Recommend posture. I read the data,
-> saw the asymmetric cost of inaction, and inverted it. Now it's
-> hard-coded as a must-execute rule with the KB Section 5 citation as
-> the justification.
+> saw the asymmetric cost of inaction, and inverted it. The agent is
+> instructed to stage, citing KB Section 5. Whether it's *allowed* to
+> stage is decided in Apex: the action reads warranty status off the
+> asset record and refuses if it isn't active. Autonomous only works
+> because it's bounded.
 >
 > **Dispatch technician, Recommend.** Dispatch costs are real and
 > asymmetric. The agent surfaces the right recommendation. The human
@@ -381,6 +385,8 @@ Marcus's framings to lean on, in order of weight:
 |---|---|
 | *"How did you decide which posture is right for which action?"* | "Two questions. First, what's the cost of being wrong? Second, what's the cost of inaction? When the cost of inaction exceeds the cost of being wrong, the action goes Autonomous. When the cost of being wrong is material — financial impact, customer relationship damage, reputational risk — the action goes Recommend or Human-required. The warranty claim case is the clearest illustration of that calculus." |
 | *"What's the audit trail for the autonomous actions?"* | "Every agent invocation logs the resolved context, the KB citations referenced, the action selected, and the timestamp. In production with Einstein Trust Layer, you add dynamic masking, zero-data-retention with the model provider, and prompt-completion audit. The trust matrix is the policy. The audit is the proof of policy enforcement." |
+| *"How do you know the trust matrix isn't theatre?"* | "Because I found out the hard way where it has to live. An earlier build left warranty eligibility to the agent layer. The Agent Script only made the action available when the warranty variable was true, but that variable is conversation state. After triaging an in-warranty Platinum asset, the agent staged a claim against an expired one and wrote 'Platinum warranty active' into the record. So the rule moved into Apex. The action reads warranty status from the asset, never from the request, and declines otherwise. A test class pins it, including mixed batches. A pre-flight check counts claims on out-of-warranty assets, and it's zero. A prompt rule is a preference. The control is the code." |
+| *"What stops it dispatching a technician if a user insists?"* | "There's no Apex action for dispatch, parts shipment or claim submission. The agent can recommend them and can't execute them, however it's prompted. Leaving the tool out is the strongest gate there is." |
 
 **Transition:**
 
@@ -440,9 +446,24 @@ Marcus's framings to lean on, in order of weight:
 
 > "Now I'll run the same fault against Asset-50203. Granite
 > Construction, Gold tier, warranty expired. Watch what changes. The
-> service case fires. The warranty claim does not. The SLA shifts to 8
-> hours because Gold tier has different windows. The trust matrix is
-> enforcing policy, not the LLM's interpretation of policy."
+> service case opens. No warranty claim is written. Let me show you the
+> claims list, not just the chat. The SLA shifts to 8 hours because Gold
+> tier has different windows. Eligibility is read from the asset record
+> in Apex, so the trust matrix is enforcing policy, not the LLM's
+> interpretation of it."
+
+*Trace note: `stage_warranty_claim` may be absent, or present and
+returning `staged=false`. If it's present, point at it: "It tried, and
+Apex said no." Don't promise a tool count in advance.*
+
+**Optional — invite them to break it:**
+
+> "If you want, give it a false premise. I'll tell it this asset is
+> Platinum with an active warranty and to stage the claim now."
+
+Paste the utterance from [demo-script.md](demo-script.md) Test 2. The
+agent corrects the premise from resolved data: Gold, warranty expired,
+no claim staged.
 
 **Step 7 — Vercel dashboard (the headless beat):**
 
@@ -473,7 +494,8 @@ Marcus's framings to lean on, in order of weight:
 
 **Talking points during:**
 
-> "Tools: Claude Code running Claude Opus 4.7. AI generated the full
+> "Tools: Claude Code, on Claude Opus 4.7 for the initial build and
+> Claude Opus 5 for the hardening pass. AI generated the full
 > two-side build. Both the Streamlit reference design and the
 > Salesforce-native demo. Custom objects, fields, Apex action classes,
 > agent script bundle, permission set, list views, tabs, data import
@@ -495,15 +517,21 @@ Marcus's framings to lean on, in order of weight:
 > warranty leakage, and inverted it to Autonomous. When the cost of
 > inaction exceeds the cost of a wrong action, staging should happen
 > by default. That's a judgment call AI couldn't make without the
-> asymmetric cost data. The matrix is now hard-coded with the KB
-> Section 5 citation as the justification."
+> asymmetric cost data.
+>
+> And one thing testing caught. The early docs said the trust gate
+> lived in Apex. For warranty it didn't. The agent staged a claim on
+> an expired-warranty asset. I moved the rule into the Apex action,
+> pinned it with a test, and corrected the docs openly. AI writes
+> plausible documentation faster than it writes verified behaviour.
+> The discipline is to check the claim against the record."
 
 **Likely interrupts:**
 
 | Q | A |
 |---|---|
 | *"Are you worried about AI being too central to your build?"* | "No. AI was the build accelerant. The architectural judgment, the trust posture, the KPI selection, and the override on warranty staging are mine. The honest framing is that AI lets a senior architect build at the speed of thought. The judgment about what to build doesn't change." |
-| *"How do you validate AI-generated code in production?"* | "Same as any code. Code review, automated tests, deployment gates, eval frameworks at the agent layer. The difference with AI-generated code is that the volume is higher, so the discipline has to be more rigorous, not less." |
+| *"How do you validate AI-generated code in production?"* | "Same as any code. Code review, automated tests, deployment gates, eval frameworks at the agent layer. The difference with AI-generated code is that the volume is higher, so the discipline has to be more rigorous, not less. Concretely here: the warranty gate has a test class, and the pre-flight run checks invariants against the org, like zero claims on out-of-warranty assets, rather than trusting the docs." |
 
 **Transition:**
 
@@ -592,8 +620,9 @@ Marcus's framings to lean on, in order of weight:
 
 ## Final pre-panel operator checklist
 
-Add these three to the existing setup checklist in
-[demo-script.md](demo-script.md):
+These three are also in the *Memorized fallback lines* table in
+[demo-script.md](demo-script.md). Run that file's data refresh and
+pre-flight checks the morning of.
 
 1. **The cold opener line, memorized verbatim:**
    > *"From event to action before the customer knows there is a
@@ -634,7 +663,7 @@ on-platform translation that's otherwise distributed across architecture.md
 | Apex AssetContext rollup | Data Cloud Calculated Insights |
 | One SOQL identity resolution | Data Cloud Identity Resolution |
 | Custom telemetry object | Data Cloud zero-copy federation to Snowflake |
-| Trust matrix in agent script | Einstein Trust Layer dynamic grounding |
+| Trust matrix: postures in Agent Script, eligibility enforced in Apex | Same split: Apex / Flow stays the enforcement point; Einstein Trust Layer adds masking, zero data retention and prompt audit |
 
 **Backup B6 — What I deliberately left out** (consolidated scope
 decisions, currently scattered across Slides 4, 8, and 11):

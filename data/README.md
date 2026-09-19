@@ -17,3 +17,9 @@ landing.
 
 The `.gitignore` keeps real CSVs and PDFs out of source control. Sample data
 stays committed.
+
+`data/sample/_seed.py` regenerates the sample CSVs (seed 42, with dates anchored
+to today). The Salesforce org is loaded from separate files under
+[force-app/main/default/data/](../force-app/main/default/data/). Those are
+rebuilt from these CSVs by `tools/gen_upsert_csv.py` and pushed with the
+refresh sequence in [docs/demo-script.md](../docs/demo-script.md#data-freshness-do-this-the-morning-of-before-anything-else).

@@ -52,7 +52,7 @@ the architecture; everything else is implementation detail.
 
 ### Knowledge retrieval — TF-IDF, deliberately
 
-The KB is seven sections (~1,500 words each). Embeddings would add semantic
+The KB is seven sections, about 1,300 words in total. Embeddings would add semantic
 recall on rephrased queries, but they would also add an API call, a vector
 store, and a non-deterministic step in the panel demo. For seven sections,
 TF-IDF is faster, cheaper, and auditable — the panel can read the retrieval
@@ -160,11 +160,20 @@ context block once at fault time, not row-by-row during reasoning.
 
 A trust matrix written only into the agent's instructions is a *preference*,
 not a control: the planner usually honours it and occasionally does not. That
-is not a hypothetical here. An earlier build left eligibility to the prompt,
-and the agent staged a warranty claim against `ASSET-50203` — warranty
+is not a hypothetical here. An earlier build left eligibility to the agent
+layer, and the agent staged a warranty claim against `ASSET-50203` — warranty
 **Expired** — writing its own justification into the record: *"Platinum
 warranty active."* It had triaged an in-warranty Platinum asset moments
 before and carried that entitlement onto the next asset.
+
+The Agent Script did have a guard: the action is only
+`available when @variables.warranty_active == True`. But that variable is
+conversation state, set by the last `get_asset_context` call, not a property
+of the asset named in the request. After a Platinum triage earlier in the
+same conversation, it still read `True`. A guard in the agent layer reduces
+how often the planner reaches for an ineligible action. It can't be the
+control, because it checks what the conversation believes rather than what
+the record says.
 
 So the eligibility rule is enforced in Apex, in the action itself:
 [`BedrockStageWarranty`](../force-app/main/default/classes/BedrockStageWarranty.cls)
@@ -346,7 +355,7 @@ in a different trust boundary or without a Salesforce license.
 ## 8. What AI wrote vs. what I wrote
 
 In one place: this codebase was scaffolded with Claude Code (Anthropic's CLI)
-and Claude Opus 4.7. AI was strong on the action library shapes, the data
+on Claude Opus 4.7, and hardened in September 2026 on Claude Opus 5. AI was strong on the action library shapes, the data
 loader skeleton, and the KB retrieval pipeline. I wrote the trust policy and
 the federation-vs-ingestion argument by hand because both are judgment
 calls, not pattern-matching.
@@ -358,3 +367,14 @@ inverts the default. Inaction is the more expensive failure, so the agent
 should stage proactively and the human reviews-and-submits, not
 reviews-and-stages. That is a small example of the pattern the panel asks
 about: the rationale lives in the data, not the default.
+
+**One claim that outran the code.** The early docs said the trust matrix was
+enforced in Apex. For the warranty rule it wasn't: `BedrockStageWarranty`
+inserted a claim for any asset it could resolve, and eligibility depended on
+the agent layer. Testing caught it. The agent staged `BWC-00029` against an
+expired-warranty asset (Section 5). The fix was to move the rule into the
+action, pin it with `BedrockStageWarrantyTest`, add a pre-flight check that
+counts claims on out-of-warranty assets, and correct the docs to name the
+build where the claim was false. AI-assisted builds produce plausible
+documentation faster than they produce verified behaviour. The discipline
+that answers that is testing the claim against the record, not the prose.
