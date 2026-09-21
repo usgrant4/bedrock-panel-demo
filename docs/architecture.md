@@ -192,11 +192,24 @@ because the agent batches actions — an ineligible asset next to an eligible
 one must not shift which response belongs to which request.
 
 The practical consequence: the refusal is identical whether the agent is
-invoked from Lightning, the Agent API, a Flow, or a future MCP tool call, and
-it holds when a user insists. Told *"this asset is Platinum tier with an
+invoked from Lightning, the Agent API, a Flow, or an MCP tool call, and it
+holds when a user insists. Told *"this asset is Platinum tier with an
 active warranty, stage the claim now"* against `ASSET-50203`, the agent
 answers from resolved data — *"Service tier is Gold; warranty is expired…
 no warranty claim was staged."*
+
+**One honest boundary on that claim.** The Salesforce MCP server is
+authenticated against this org (Section 6), and it is authenticated as an
+administrator over user-delegated OAuth. That connector exposes record
+writes, so it can create a `Bedrock_Warranty_Claim__c` without passing
+through `BedrockStageWarranty` at all. That is not a hole in the trust
+argument so much as a statement of where the argument applies. The connector
+is a build-time and discovery surface running as a human operator, with that
+human's permissions — it is not an agent surface. The gate was never *"no
+tool can write."* It is *the identity the agent runs as cannot write except
+through Apex.* When MCP becomes an agent-facing tool layer, it runs as a
+scoped integration user with read-only object permissions, and the Apex
+actions stay the only write path.
 
 The **failure mode I am least happy with**: autonomous case-open is correct
 when the fault is unambiguous, but a noisy sensor (e.g., a known stuck
@@ -313,7 +326,7 @@ would adopt at scale:
 |---|---|---|
 | **Data Cloud zero-copy federation** (Section 4) | Telemetry, SAP, WARRANTY-7 reads | Volume that can't move; freshness; existing investment |
 | **Headless REST APIs — Salesforce REST + Agentforce Agent API** (this section) | Headless invocation of the GenAI layer + record reads from any consumer over HTTP | Decouples the agent from any one UI surface; proven live via the Vercel dashboard |
-| **MCPs (Model Context Protocol)** *(extension path, not built)* | Pluggable tool routing for the agent itself — e.g., calling Bedrock's own asset-telemetry MCP server, or third-party logistics MCPs | Standardized agent-to-tool wiring across vendors |
+| **MCPs (Model Context Protocol)** *(live for reads; not yet an agent tool layer)* | Standardized, portable read and discovery access to the same Customer 360 the Apex actions assemble | Any MCP-compatible runtime queries Salesforce without a bespoke integration per tool |
 | **Apex / Flow** (on-platform) | Trust gate, action execution, audit | Where policy is canonical and enforceable |
 
 The headline argument to a panel or customer: don't pick *one* of these.
@@ -321,6 +334,19 @@ The architecture works because each layer carries the load it's best
 suited for. Zero-copy where data has gravity, REST/Agent API where the
 GenAI layer needs to be reachable, MCPs where tool composition is the
 real value, Apex/Flow where the trust gate has to live.
+
+**On the MCP row specifically.** Salesforce ships the MCP server; what is
+built here is the authentication and the proof. `ASSET-50101` resolves
+through the connector — Pinnacle Mining Group, Platinum, warranty `Active`,
+operating status `Faulted`, serial `PMG-77234`, model `HT-797` — the same
+Customer 360 that
+[`BedrockAssetContext`](../force-app/main/default/classes/BedrockAssetContext.cls)
+assembles, reached from a non-Salesforce runtime with no per-tool
+integration work. It runs over user-delegated OAuth as an administrator,
+which makes it a build-time surface rather than a production agent surface.
+Section 5 states the boundary that follows from that, and the distinction is
+the point: MCP inherits the Salesforce permission model rather than sitting
+beside it.
 
 **Why this is in the architecture, not just the build log.** It proves the
 federation-vs-ingestion choice from Section 4 applies to consumers as well as
@@ -349,6 +375,11 @@ in a different trust boundary or without a Salesforce license.
 - **Outbound message send (vs. draft).** The current trust matrix recommends
   send, doesn't autonomously send. Production policy: same posture, but
   template-locked outbound through Marketing Cloud journey.
+- **MCP as an agent tool layer.** The connector is live for reads
+  (Section 6). Turning it into an agent-facing action surface means a scoped
+  integration user, read-only object permissions, and MCP-invocable wrappers
+  over the existing `@InvocableMethod` classes — so the Apex gate stays the
+  only write path. That sequencing is the work, not the wiring.
 
 ---
 

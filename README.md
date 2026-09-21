@@ -30,9 +30,9 @@ different consumers:
 
 The architecture itself is **multi-layered** — Data Cloud zero-copy
 federation where data has gravity (recommended), headless REST APIs
-where the GenAI layer needs to be reachable (built), MCPs as the future
-tool-composition vector (recommended), Apex / Flow where the trust gate
-has to live (built).
+where the GenAI layer needs to be reachable (built), MCPs where tool
+composition is the portability play (live for reads), Apex / Flow where
+the trust gate has to live (built).
 
 The full panel argument lives in [docs/architecture.md](docs/architecture.md).
 
@@ -80,7 +80,7 @@ you build outside Salesforce?"* without having to imagine it.
 |---|---|---|
 | **Data Cloud zero-copy federation** | 2.4 PB telemetry in Snowflake; SAP parts; WARRANTY-7 mainframe | **Recommended** — lead in [docs/architecture.md Section 4](docs/architecture.md#4-federation-vs-ingestion--the-trade-off) |
 | **Headless REST APIs (Salesforce REST + Agentforce Agent API)** | Decouple the agent layer from any UI surface; reads + writes from any consumer | **Built and live** — see Vercel app above |
-| **MCPs (Model Context Protocol)** | Standardized agent-to-tool wiring; pluggable third-party tools | **Recommended** — extension path |
+| **MCPs (Model Context Protocol)** | Standardized, portable read access to the same Customer 360 the Apex actions assemble | **Live for reads** — Salesforce ships the server; authenticated against this org. Agent-facing tool layer is still the extension path — see [Section 5](docs/architecture.md#5-trust-posture-rationale) for why that distinction is load-bearing |
 | **Apex / Flow (on-platform)** | Trust gate enforcement, action execution, audit | **Built** — four `@InvocableMethod` classes |
 
 The trust matrix sits in Apex regardless of which surface invokes the
@@ -243,8 +243,8 @@ tier with active warranty. The headline utterance triages this:
 > *We have a Critical HYD-447 hydraulic fault on ASSET-50101. Please triage
 > and recommend next steps.*
 
-For the trust-boundary variant (Granite Construction, Gold tier, **warranty
-expired**), use `ASSET-50203`:
+For the trust-boundary variant (Granite Construction Partners, Gold tier,
+**warranty expired**), use `ASSET-50203`:
 
 > *Critical HYD-447 fault on ASSET-50203. What should we do?*
 

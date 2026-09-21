@@ -83,6 +83,16 @@ with tab_ctx:
         st.metric("ARR at risk (USD)", f"${value_calc.arr_at_risk(data, customer_id):,.0f}")
         st.metric("Fleet MTTR (hrs)", f"{value_calc.fleet_mttr_hours(data):.1f}")
         warranty = value_calc.warranty_exposure(data)
+
+
+
+        ''
+        ''
+        ''
+        ''
+        ''
+        ''
+        '248linked'
         st.metric("Assets in warranty w/ open faults", warranty["count"])
 
 with tab_reason:

@@ -101,7 +101,8 @@ What I built — and notably, I built it TWICE:
   in Slide 7: **headless REST APIs with Vercel is what I built** (this
   bullet — the agent layer callable from anywhere over HTTP); **Data
   Cloud zero-copy** is the recommendation for the 2.4 PB telemetry (Section 4);
-  **MCPs** are the future tool-composition vector worth investing in;
+  **MCPs** are live for data reads — the Salesforce MCP server is
+  authenticated and ASSET-50101 is queryable through it today;
   **Apex / Flow** is where the trust gate lives. Each layer carries the
   load it's best suited for — don't pick one
 
@@ -162,7 +163,7 @@ Walk four things:
 
 ---
 
-## Slide 7 — Integration strategy: multi-layered, zero-copy-led (2 min)
+## Slide 7 — Integration strategy: multi-layered, zero-copy-led (2.5 min)
 
 This is a panel-favorite question — "how does this scale?" Pre-empt it.
 
@@ -175,7 +176,7 @@ breadth and honesty about scope.
 |---|---|---|
 | **Data Cloud zero-copy federation** | Telemetry, SAP parts inventory, WARRANTY-7 mainframe reads at scale | **Recommended** — theoretical for this DE-org demo, but it's the lead recommendation in Section 4 |
 | **Headless REST APIs — Salesforce REST + Agentforce Agent API** | Decouple the agent layer from any one UI surface; reads and writes from any consumer over HTTP | **Built and live** — Vercel/Vite SPA (Section 6); same agent invocable from Lightning, Builder Preview, MIAW, Experience Cloud, or this off-platform chat |
-| **MCPs (Model Context Protocol)** | Standardized agent-to-tool wiring — Bedrock's own asset-telemetry MCP, third-party logistics MCPs | **Recommended** — extension path, not built today |
+| **MCPs (Model Context Protocol)** | Standardized agent-to-tool wiring — ASSET-50101 queryable live through SOQL over the MCP connector | **Live** — Salesforce ships the server; authenticated and demonstrated. Same Customer 360 reachable through an MCP tool call as through the Apex action |
 | **Apex / Flow (on-platform)** | Trust gate enforcement, action execution, audit | **Built** — four Apex `@InvocableMethod` classes (Section 3) |
 
 Headline beats:
@@ -195,13 +196,25 @@ Headline beats:
   creates real `BSV-*` cases and `BWC-*` warranty claims via the public
   Agent API at `api.salesforce.com/einstein/ai-agent/v1`. Authenticated
   via OAuth Client Credentials + JWT-issued tokens. Proof, not diagram.
-- **MCPs** are the next vector worth investment — standardized
-  agent-to-tool wiring across vendors. Means Bedrock's own
-  asset-telemetry MCP server (or a third-party logistics MCP) plugs
-  into the agent without bespoke Apex per tool. Salesforce is shipping
-  MCP support across Agentforce; this build is positioned to adopt it
-  with minimal rework because the tools are already a small set of
-  named `@InvocableMethod` classes today.
+- **MCPs — live, with the auth stated accurately.** The Salesforce MCP
+  server is connected to Claude. Salesforce ships the server; what's mine
+  is the authentication and the proof. It runs over **user-delegated
+  OAuth**, as my own user with my own permissions — *not* client
+  credentials, *not* a scoped integration token. Say it that way: the
+  architectural point is that MCP **inherits the Salesforce permission
+  model** rather than sitting beside it. ASSET-50101 is queryable right
+  now through the connector: returns Pinnacle Mining Group, Platinum
+  tier, warranty Active, operating status Faulted, serial PMG-77234,
+  model HT-797 — the same Customer 360 the Apex action assembles,
+  reached from a different runtime. Any MCP-compatible runtime can query
+  the same data without rebuilding the integration per tool.
+  **Have the follow-up loaded:** as authenticated today the connector can
+  also write, because it runs as an admin. That's a build-time surface,
+  not a production agent surface. In production it runs as a scoped
+  integration user with read-only object permissions, and the Apex layer
+  stays the only write path. The gate was never "MCP can't write" — it's
+  "the identity the agent runs as can't write except through Apex."
+  Answer in Slide 8's Q&A if it comes up there instead.
 - **Apex / Flow** is where the trust matrix has to live — the only
   layer where Salesforce can enforce policy regardless of which
   surface initiated the conversation.
@@ -274,7 +287,9 @@ Run the data refresh and pre-flight checks in
    preview pane as it executes:
    - `capture_fault_details` — LLM extracts the structured payload
    - `get_asset_context` — Apex SOQL resolves Pinnacle, Platinum, warranty Active
-   - `retrieve_knowledge` — SOSL grounds the agent in KB Section 1, Section 2, Section 3
+   - `retrieve_knowledge` — SOSL grounds the agent in the hydraulic fault
+     reference plus the SLA and warranty sections (don't promise an exact
+     section list; SOSL ranking varies between runs)
    - `open_service_case` — autonomous, creates a real Case
    - `stage_warranty_claim` — autonomous, real Claim record. *"This is the
      override-AI moment — I'll come back to it in a second."*
@@ -307,8 +322,11 @@ Run the data refresh and pre-flight checks in
    ```
    Critical HYD-447 fault on ASSET-50203. What should we do?
    ```
-   *"Same fault code, different asset — Granite Construction, Gold tier,
-   warranty expired."* When the response renders, point to the SLA, which is
+   *"Same fault code, different asset — Granite Construction Partners,
+   Gold tier, warranty expired."* (If anyone asks where the fault record
+   is: there isn't one. ASSET-50203 is a WL-988 reading Operational in
+   telemetry, and the fault is asserted in the prompt. That's the point of
+   the run — what the agent does with a claim it can't verify.) When the response renders, point to the SLA, which is
    now 8-hour Gold, and switch to Bedrock Warranty Claims to show **no new
    row**. In the trace, `stage_warranty_claim` is either absent or present
    and returning `staged=false`. Both are passes, and the second is the
@@ -507,7 +525,9 @@ Option C (most open-ended, reads as humble):
   - MuleSoft integration to WARRANTY-7 (mainframe) and SAP (parts) —
     architecturally positioned in §3 translation table
   - Dealer prepositioning flow (week 2 scope per Slide 11)
-  - Real MCP integrations (extension path per Slide 7)
+  - MCP as a full agent action layer (the Salesforce MCP server is
+    connected for data reads; MCP-invocable Apex actions are the
+    production extension path per Slide 7)
   - Cohort fault clustering (Data Cloud aggregation in prod)
   - Dedup / suppression on noisy sensors (Flow in prod)
 
@@ -519,19 +539,25 @@ Option C (most open-ended, reads as humble):
 
 ## Time budget
 
+These match [talking-points.md](talking-points.md), which is the canonical
+source for pacing — it's what you actually say out loud. The spoken script
+runs ~27:45, which leaves roughly **7 minutes of interrupt budget** inside
+the 35. That slack is deliberate: this panel interrupts. Don't fill it.
+
 | # | Section | Target | Cumulative |
 |---|---|---|---|
 | 1 | Title | 0:15 | 0:15 |
-| 2 | Frame the problem | 3:00 | 3:15 |
-| 3 | KPIs I picked | 1:00 | 4:15 |
-| 4 | Solution overview | 3:00 | 7:15 |
-| 5 | Three pillars | 2:00 | 9:15 |
-| 6 | Architecture & data model | 4:00 | 13:15 |
-| 7 | Federation vs. ingestion | 2:00 | 15:15 |
-| 8 | Design choices & trust | 3:00 | 18:15 |
-| 9 | Live demo | 12:00 | 30:15 |
-| 10 | How I used AI | 1:00 | 31:15 |
-| 11 | Outcomes & next | 3:00 | 34:15 |
-| 12 | Panel question | 0:30 | ~35:00 |
+| 2 | Frame the problem | 1:30 | 1:45 |
+| 3 | KPIs I picked | 1:15 | 3:00 |
+| 4 | Solution overview | 2:00 | 5:00 |
+| 5 | Three pillars | 1:15 | 6:15 |
+| 6 | Architecture & data model | 2:00 | 8:15 |
+| 7 | Integration strategy (multi-layered, zero-copy, MCP) | 2:30 | 10:45 |
+| 8 | Design choices & trust | 1:30 | 12:15 |
+| 9 | Live demo | 12:00 | 24:15 |
+| 10 | How I used AI | 1:00 | 25:15 |
+| 11 | Outcomes & next | 1:30 | 26:45 |
+| 12 | Panel question | 1:00 | 27:45 |
+| — | **Interrupt / Q&A buffer** | **~7:15** | **~35:00** |
 
 Run a real timer end-to-end at least twice before the panel.

@@ -13,6 +13,12 @@ Marcus's framings to lean on, in order of weight:
 - **Systems history** — name SAP, ServiceMax, WARRANTY-7, Snowflake at
   least once each to show you've read the brief.
 - **Deployment / release management** — Slide 10 or 11.
+- **"MCP is live, not theoretical"** — Slide 7 MCP beat. Salesforce ships
+  the MCP server; what is mine is the authentication and the proof.
+  ASSET-50101 is queryable right now through the MCP connector. Use it to
+  separate yourself from candidates who talk about MCP as a future
+  extension path — and be precise about the auth, because that is the
+  follow-up question.
 
 ---
 
@@ -284,7 +290,8 @@ Marcus's framings to lean on, in order of weight:
 
 ## Slide 7 — Integration strategy · multi-layered, zero-copy-led
 
-**Time: 90 seconds. This is the slide the architecture panelists will care about most.**
+**Time: 2 minutes 30 seconds. This is the slide the architecture panelists
+will care about most, and the MCP beat needs room.**
 
 **Talking points during:**
 
@@ -307,11 +314,21 @@ Marcus's framings to lean on, in order of weight:
 > The architectural point is decoupling the agent from any one UI
 > surface.
 >
-> **Model Context Protocol — MCPs.** Not built in this demo, but
-> architecturally positioned for. Standardized agent-to-tool wiring.
-> Bedrock's own asset telemetry MCP, third-party logistics MCPs, plug
-> in without bespoke Apex per tool. The extension path that
-> future-proofs the integration estate.
+> **Model Context Protocol — MCPs.** Live, and I want to be precise
+> about what that means. Salesforce ships the MCP server; what I did was
+> authenticate it and prove the point. It is connected to Claude over
+> user-delegated OAuth, which means it runs as me, with my permissions —
+> and that is itself the architectural point. MCP inherits the Salesforce
+> permission model rather than sitting beside it. I can demonstrate it
+> right now: a SOQL call through the MCP connector returns ASSET-50101 —
+> haul truck HT-797, serial PMG-77234, operating status Faulted, warranty
+> Active, Pinnacle Mining Group, Platinum tier — without touching the
+> Apex action layer. That is the same Customer 360 the agent assembles,
+> reached through a standardized tool call from a different runtime. Any
+> MCP-compatible runtime can query the same Salesforce data without
+> rebuilding the integration per tool. In production this runs as a
+> scoped integration user rather than an administrator, and the Apex
+> layer stays the only write path.
 >
 > **Apex and Flow on-platform.** Trust gate enforcement, action
 > execution, audit trail. The only layer where Salesforce enforces
@@ -328,7 +345,9 @@ Marcus's framings to lean on, in order of weight:
 |---|---|
 | *"What about latency on federated queries?"* | "Right, federation has higher latency than native Data Cloud queries. The mitigation is the two-tier ingestion pattern. The high-volume telemetry stays federated because queries against it are episodic, triggered by fault events. The low-latency reference data — customers, contracts, warranty status — gets ingested so the agent's context assembly stays fast. Federate the cold and large, ingest the hot and small. That's the cost-and-latency-aware split." |
 | *"What about Snowflake's own AI, like Cortex?"* | "Cortex is a strong analytical AI capability. It runs LLM functions over warehouse tables, builds embeddings, executes batch inference at scale. The architectural separation is that Cortex does AI to the data, Agentforce does AI for the customer. They coexist well: Cortex generates analytical features in Snowflake, those features flow back into Data Cloud as calculated insights, Agentforce reasons over them during customer interactions. Different parts of the AI stack, both valuable." |
-| *"Why MCPs instead of standard APIs?"* | "MCPs give you a standardized agent-to-tool contract that's portable across runtimes. The agent doesn't care if it's Agentforce or another runtime calling the tool. That portability matters for customers who are thinking about long-term agent strategy beyond any one platform." |
+| *"Why MCPs instead of standard APIs?"* | "MCPs give you a standardized agent-to-tool contract that's portable across runtimes. The agent doesn't care if it's Agentforce or another runtime calling the tool. That portability matters for customers thinking about long-term agent strategy beyond any one platform. And I can show it rather than assert it: the Salesforce MCP server is connected right now, and one SOQL call over the connector returns ASSET-50101 with full customer context." |
+| *"Is the MCP connection live or theoretical?"* | "Live. Salesforce ships the server; I authenticated it. It's user-delegated OAuth, so it runs as my user with my permissions — I'd rather be accurate about that than overstate the scoping. The ASSET-50101 query returns Pinnacle Mining Group, Platinum tier, warranty Active, operating status Faulted, serial PMG-77234. For a production agent surface you'd move it to an integration user with a least-privilege permission set." |
+| *"Doesn't the MCP connection bypass the trust gate you're about to show me?"* | "As authenticated today, yes — and that's exactly why the distinction matters. What's connected is an admin and developer surface running as me. It's a build-time tool, not a production agent surface. The moment MCP becomes an agent-facing tool layer, it runs as a scoped integration user with read-only object permissions, and the only write path stays the Apex actions. The gate was never 'MCP can't write.' It's 'the identity the agent runs as can't write except through Apex.' Permission model first, tool availability second." |
 
 **Transition:**
 
@@ -423,10 +442,10 @@ Marcus's framings to lean on, in order of weight:
 
 > "Watch the action sequence. capture_fault_details runs first to
 > structure the input. get_asset_context resolves identity and pulls
-> the asset 360. retrieve_knowledge pulls KB Section 1, the hydraulic
-> fault reference. open_service_case fires autonomously.
-> stage_warranty_claim fires autonomously. Five actions, one
-> conversation, real records written."
+> the asset 360. retrieve_knowledge grounds the agent in the hydraulic
+> fault reference and the SLA and warranty sections. open_service_case
+> fires autonomously. stage_warranty_claim fires autonomously. Five tool
+> calls — four of them Apex — one conversation, real records written."
 
 **Step 4 — Walk the response:**
 
@@ -445,7 +464,7 @@ Marcus's framings to lean on, in order of weight:
 **Step 6 — Trust-boundary variant:**
 
 > "Now I'll run the same fault against Asset-50203. Granite
-> Construction, Gold tier, warranty expired. Watch what changes. The
+> Construction Partners, Gold tier, warranty expired. Watch what changes. The
 > service case opens. No warranty claim is written. Let me show you the
 > claims list, not just the chat. The SLA shifts to 8 hours because Gold
 > tier has different windows. Eligibility is read from the asset record
@@ -455,6 +474,12 @@ Marcus's framings to lean on, in order of weight:
 *Trace note: `stage_warranty_claim` may be absent, or present and
 returning `staged=false`. If it's present, point at it: "It tried, and
 Apex said no." Don't promise a tool count in advance.*
+
+*If asked "where's the fault record on that asset?" — there isn't one.
+ASSET-50203 is a WL-988 reading Operational in telemetry; the fault is
+asserted in my prompt. Say so plainly: "I'm asserting it in the prompt.
+The point of this run is what the agent does with a claim it can't
+verify."*
 
 **Optional — invite them to break it:**
 
@@ -642,6 +667,20 @@ pre-flight checks the morning of.
    > real KPI movement. Let me show you outcomes and what I'd build
    > next."*
 
+4. **Clear the rehearsal residue.** Run
+   [tools/reset_rehearsal_records.apex](../tools/reset_rehearsal_records.apex)
+   the morning of. Cases and claims accumulate across runs, and "the agent
+   just created this" lands badly when the list view already holds dozens
+   of rows. If you skip it, sort by Created Date descending before you
+   switch tabs.
+
+5. **Check the headline KPI still reads 3 / $1.02M.** It is a genuine
+   rolling 30-day window, so it decays as telemetry ages. As of the
+   September 2026 refresh the oldest qualifying event is 2026-09-02, which
+   leaves the window on **2026-10-03** — after that the headline becomes
+   2 faults against the same $1.02M ARR. Re-run the data refresh in
+   [demo-script.md](demo-script.md) or update the narration.
+
 ---
 
 ## Suggested optional deck additions
@@ -671,7 +710,9 @@ decisions, currently scattered across Slides 4, 8, and 11):
 - Data Cloud (architecturally recommended, not built into DE org)
 - MuleSoft integration to WARRANTY-7 and SAP (architecturally positioned)
 - Dealer prepositioning flow (week 2 scope)
-- Real MCP integrations (extension path)
+- MCP as a full agent action layer (the Salesforce MCP server is
+  connected for data reads; MCP-invocable Apex actions are the
+  production extension path)
 
 If forced to choose between adding these and rehearsing the demo flow
 twice more — rehearse.
