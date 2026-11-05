@@ -66,7 +66,7 @@ store, and a non-deterministic step in the panel demo. For seven sections,
 TF-IDF is faster, cheaper, and auditable — the panel can read the retrieval
 score column and see why each section was returned.
 
-In production this becomes Data Cloud Vector Database, which is the right
+In production this becomes Data 360 Vector Database, which is the right
 choice when the KB grows past a few dozen sections, when query rephrasing
 matters, or when the retrieval feeds Agentforce as a grounded data source.
 
@@ -93,10 +93,10 @@ defendable substitution, not a vague analogue.
 
 | Layer | Demo | Salesforce realization |
 |---|---|---|
-| Telemetry stream | CSV of fault events | **Bedrock Connect (Kinesis) → Data Cloud** with **zero-copy federation** to Snowflake. The 2.4 PB stays in Snowflake; Data Cloud queries through it. Federation is the cost/latency win — see Section 4. |
-| Reference data (customers, contracts, warranty status) | small CSVs | **Data Cloud DLOs → DMOs** with **identity resolution** rules on `customer_id ↔ asset_id ↔ serial_number`. Volatile-enough to ingest, small-enough that the cost is trivial. |
+| Telemetry stream | CSV of fault events | **Bedrock Connect (Kinesis) → Data 360** with **zero-copy federation** to Snowflake. The 2.4 PB stays in Snowflake; Data 360 queries through it. Federation is the cost/latency win — see Section 4. |
+| Reference data (customers, contracts, warranty status) | small CSVs | **Data 360 DLOs → DMOs** with **identity resolution** rules on `customer_id ↔ asset_id ↔ serial_number`. Volatile-enough to ingest, small-enough that the cost is trivial. |
 | Legacy systems (SAP, ServiceMax, WARRANTY-7) | not modeled | **MuleSoft Anypoint** API-led layer. SAP S/4HANA for parts, ServiceMax during the migration to Service Cloud, WARRANTY-7 as a back-end claim-staging integration. |
-| Knowledge base | PDF / MD via TF-IDF | **Data Cloud Vector Database** with embeddings, exposed to **Agentforce** as a grounded data source. Citations preserved as metadata, surfaced in the agent response. |
+| Knowledge base | PDF / MD via TF-IDF | **Data 360 Vector Database** with embeddings, exposed to **Agentforce** as a grounded data source. Citations preserved as metadata, surfaced in the agent response. |
 | Reasoning engine | Claude Opus 4.7 | **Agentforce + Atlas Reasoning Engine**. Topics for sub-flows (Triage / Dispatch / Warranty). Standard + Custom Actions for execution. |
 | Action: open case | dict payload | **Apex / Flow** action → **Service Cloud Case**. |
 | Action: dispatch technician | dict payload | **Field Service Work Order** + Resource Optimization. |
@@ -104,14 +104,14 @@ defendable substitution, not a vague analogue.
 | Action: customer comms | drafted email body | **Marketing Cloud Engagement** journey trigger; outbound from Service Cloud Case context. |
 | Action: warranty claim | staged dict | **MuleSoft → WARRANTY-7** integration, staged for service-manager review per Section 5 of the KB. |
 | Dealer surface | Streamlit UI | **Experience Cloud** (LWR) for the dealer portal + an embedded **LWC** in the **Service Console** for in-app context for dealer service reps. |
-| Audit / governance | session-scoped timeline | **Data Cloud Audit Trail** + **Agentforce session traces** + standard Salesforce platform audit logs. |
+| Audit / governance | session-scoped timeline | **Data 360 Audit Trail** + **Agentforce session traces** + standard Salesforce platform audit logs. |
 
 ### Why these choices, in panel-defendable form
 
-- **Data Cloud over Salesforce Connect (External Objects).** Salesforce
+- **Data 360 over Salesforce Connect (External Objects).** Salesforce
   Connect via OData is the third option for federating reference data. It
-  loses to Data Cloud federation here because the customer is heavily
-  invested in Snowflake AI workloads, and Data Cloud preserves the
+  loses to Data 360 federation here because the customer is heavily
+  invested in Snowflake AI workloads, and Data 360 preserves the
   agent-grounding surface (prompt templates, vector search) that Connect
   doesn't expose.
 - **Agentforce over a custom LangGraph in Heroku.** The KPI is dealer- and
@@ -128,12 +128,12 @@ defendable substitution, not a vague analogue.
 
 Bedrock has 2.4 PB of telemetry in Snowflake. Two options:
 
-- **Ingest into Data Cloud.** Move the data. Simple, single source of truth,
+- **Ingest into Data 360.** Move the data. Simple, single source of truth,
   governed by Salesforce. **But:** copying 2.4 PB is cost-prohibitive; data
   is already governed in Snowflake; freshness matters more than
   query-locality for fault-detection workloads.
-- **Federate via Data Cloud zero-copy / Snowflake share.** Leave the data in
-  Snowflake; Data Cloud queries against it. **Win:** no movement cost, the
+- **Federate via Data 360 zero-copy / Snowflake share.** Leave the data in
+  Snowflake; Data 360 queries against it. **Win:** no movement cost, the
   data stays where the customer has invested in AI tooling, query-time
   freshness. **Cost:** federation latency on every query (mid-double-digit
   ms vs. single-digit on ingested data); access patterns must be
@@ -146,8 +146,8 @@ Bedrock has 2.4 PB of telemetry in Snowflake. Two options:
 | Telemetry events (Snowflake) | **Federate** | 2.4 PB; freshness > locality; Snowflake gravity |
 | SAP parts inventory | **Federate** | Transactional, lives in S/4HANA |
 | WARRANTY-7 claims | **Federate via MuleSoft** | Mainframe; cannot bulk-extract |
-| Customers, contracts, warranty status | **Ingest into Data Cloud** | Small, used as join keys + agent gates; staleness here = wrong agent decision |
-| Dealer service history (post-ServiceMax migration) | **Ingest into Data Cloud** | Already inside Salesforce; no reason to federate |
+| Customers, contracts, warranty status | **Ingest into Data 360** | Small, used as join keys + agent gates; staleness here = wrong agent decision |
+| Dealer service history (post-ServiceMax migration) | **Ingest into Data 360** | Already inside Salesforce; no reason to federate |
 | Read-side consumers (dashboards, BI, partner apps) | **Federate via Salesforce REST + OAuth** | Same discipline on the read path — read at query time, no parallel mirror; freshness controlled by poll cadence. See Section 6. |
 
 The panel will likely push on the latency claim. Be honest: federation is a
@@ -222,7 +222,7 @@ actions stay the only write path.
 The **failure mode I am least happy with**: autonomous case-open is correct
 when the fault is unambiguous, but a noisy sensor (e.g., a known stuck
 transducer on engine_hours > 15,000) could open repeated cases. The
-mitigation is a deduplication step *before* the agent — Data Cloud
+mitigation is a deduplication step *before* the agent — Data 360
 streaming aggregations or a lightweight Flow that suppresses cases on the
 same `asset_id + fault_code` within a configurable window. I would build
 that in week 2.
@@ -332,7 +332,7 @@ would adopt at scale:
 
 | Integration layer | Use case | What it solves |
 |---|---|---|
-| **Data Cloud zero-copy federation** (Section 4) | Telemetry, SAP, WARRANTY-7 reads | Volume that can't move; freshness; existing investment |
+| **Data 360 zero-copy federation** (Section 4) | Telemetry, SAP, WARRANTY-7 reads | Volume that can't move; freshness; existing investment |
 | **Headless REST APIs — Salesforce REST + Agentforce Agent API** (this section) | Headless invocation of the GenAI layer + record reads from any consumer over HTTP | Decouples the agent from any one UI surface; proven live via the Vercel dashboard |
 | **MCPs (Model Context Protocol)** *(live for reads; not yet an agent tool layer)* | Standardized, portable read and discovery access to the same Customer 360 the Apex actions assemble | Any MCP-compatible runtime queries Salesforce without a bespoke integration per tool |
 | **Apex / Flow** (on-platform) | Trust gate, action execution, audit | Where policy is canonical and enforceable |
@@ -379,7 +379,7 @@ in a different trust boundary or without a Salesforce license.
 - **Dedup / suppression.** Per Section 5.
 - **Dealer prepositioning recommendations.** The KB describes the pattern
   (HYD-447 cluster on HT-797 above 2,000 hours); the demo doesn't yet
-  generate the recommendation. A nightly Flow + Data Cloud aggregation.
+  generate the recommendation. A nightly Flow + Data 360 aggregation.
 - **Outbound message send (vs. draft).** The current trust matrix recommends
   send, doesn't autonomously send. Production policy: same posture, but
   template-locked outbound through Marketing Cloud journey.

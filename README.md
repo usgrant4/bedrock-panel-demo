@@ -28,7 +28,7 @@ different consumers:
 3. A Vite/React SPA on Vercel that invokes the public Agentforce Agent API
    directly — no Salesforce dependency on the client side.
 
-The architecture itself is **multi-layered** — Data Cloud zero-copy
+The architecture itself is **multi-layered** — Data 360 zero-copy
 federation where data has gravity (recommended), headless REST APIs
 where the GenAI layer needs to be reachable (built), MCPs where tool
 composition is the portability play (live for reads), Apex / Flow where
@@ -78,7 +78,7 @@ you build outside Salesforce?"* without having to imagine it.
 
 | Integration layer | Purpose | Status in this build |
 |---|---|---|
-| **Data Cloud zero-copy federation** | 2.4 PB telemetry in Snowflake; SAP parts; WARRANTY-7 mainframe | **Recommended** — lead in [docs/architecture.md Section 4](docs/architecture.md#4-federation-vs-ingestion--the-trade-off) |
+| **Data 360 zero-copy federation** | 2.4 PB telemetry in Snowflake; SAP parts; WARRANTY-7 mainframe | **Recommended** — lead in [docs/architecture.md Section 4](docs/architecture.md#4-federation-vs-ingestion--the-trade-off) |
 | **Headless REST APIs (Salesforce REST + Agentforce Agent API)** | Decouple the agent layer from any UI surface; reads + writes from any consumer | **Built and live** — see Vercel app above |
 | **MCPs (Model Context Protocol)** | Standardized, portable read access to the same Customer 360 the Apex actions assemble | **Live for reads** — Salesforce ships the server; authenticated against this org. Agent-facing tool layer is still the extension path — see [Section 5](docs/architecture.md#5-trust-posture-rationale) for why that distinction is load-bearing |
 | **Apex / Flow (on-platform)** | Trust gate enforcement, action execution, audit | **Built** — four `@InvocableMethod` classes |
@@ -262,7 +262,7 @@ conversation.
 
 Built for the Salesforce Innovation TA panel. First built in May 2026, then
 hardened in September 2026: the demo data now anchors to the current date,
-and the warranty gate is enforced in Apex. Repo is public.
+and the warranty gate is enforced in Apex. Repo is private; access granted on request for panel review.
 
 The build was scaffolded with Claude Code on Claude Opus 4.7, and the
 September hardening was done on Claude Opus 5. The architectural choices,

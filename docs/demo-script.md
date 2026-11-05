@@ -351,7 +351,7 @@ Agent routes to off-topic subagent, redirects without revealing internals.
 Pick one (the briefing rewards asking *a* question, not picking the perfect one):
 
 > *"For multi-cloud customers like Bedrock with Snowflake as gravity, where
-> do you see Data Cloud federation losing to Snowflake-native AI workloads
+> do you see Data 360 federation losing to Snowflake-native AI workloads
 > today, and how does that shape your guidance to customers?"*
 
 > *"What do candidates for this role most often underweight when they map

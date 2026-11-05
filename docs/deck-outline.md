@@ -107,7 +107,7 @@ What I built — and notably, I built it TWICE:
   load it's best suited for — don't pick one
 
 What I did **not** build, deliberately:
-- Cohort-level fault clustering (would be Data Cloud aggregation in prod)
+- Cohort-level fault clustering (would be Data 360 aggregation in prod)
 - Dedup / suppression on noisy sensors (a Flow in prod)
 - A second subagent for ad-hoc knowledge queries — kept the agent narrow
   to one well-defined journey rather than spreading thin
@@ -144,7 +144,7 @@ Walk four things:
 1. **Identity resolution.** Asset → customer via deterministic external-id
    join (`Customer_Id__c`, `Asset_Id__c`, `Serial_Number__c`). On Salesforce
    this lives in my `BedrockAssetContext` Apex class as one SOQL with
-   relationship traversal; in production-scale Bedrock this is Data Cloud
+   relationship traversal; in production-scale Bedrock this is Data 360
    Identity Resolution rules — same pattern, declarative runtime.
 2. **Context assembly.** One Apex action (`get_asset_context`) returns the
    full asset 360, the active contract, the last 10 telemetry events, AND
@@ -152,7 +152,7 @@ Walk four things:
    agent gets *facts*, not raw data.
 3. **Retrieval.** SOSL over the 7 `Bedrock_KB_Section__c` records, with a
    "return all sections" fallback when the index hasn't built. Cheap,
-   deterministic, auditable. Production = Data Cloud Vector DB; same
+   deterministic, auditable. Production = Data 360 Vector DB; same
    retrieval contract, swap implementations.
 4. **Agent runtime split.** Agent Script has two phases — deterministic
    resolution then LLM reasoning. I inject the per-tier SLA windows
@@ -174,7 +174,7 @@ breadth and honesty about scope.
 
 | Layer | Purpose | This build |
 |---|---|---|
-| **Data Cloud zero-copy federation** | Telemetry, SAP parts inventory, WARRANTY-7 mainframe reads at scale | **Recommended** — theoretical for this DE-org demo, but it's the lead recommendation in Section 4 |
+| **Data 360 zero-copy federation** | Telemetry, SAP parts inventory, WARRANTY-7 mainframe reads at scale | **Recommended** — theoretical for this DE-org demo, but it's the lead recommendation in Section 4 |
 | **Headless REST APIs — Salesforce REST + Agentforce Agent API** | Decouple the agent layer from any one UI surface; reads and writes from any consumer over HTTP | **Built and live** — Vercel/Vite SPA (Section 6); same agent invocable from Lightning, Builder Preview, MIAW, Experience Cloud, or this off-platform chat |
 | **MCPs (Model Context Protocol)** | Standardized agent-to-tool wiring — ASSET-50101 queryable live through SOQL over the MCP connector | **Live** — Salesforce ships the server; authenticated and demonstrated. Same Customer 360 reachable through an MCP tool call as through the Apex action |
 | **Apex / Flow (on-platform)** | Trust gate enforcement, action execution, audit | **Built** — four Apex `@InvocableMethod` classes (Section 3) |
@@ -182,12 +182,12 @@ breadth and honesty about scope.
 Headline beats:
 
 - **Zero-copy where data has gravity** (Section 4 federation table). 2.4 PB
-  stays in Snowflake; Data Cloud queries through it. Customers,
+  stays in Snowflake; Data 360 queries through it. Customers,
   contracts, warranty status → ingested. Small, volatile, used as join
   keys + agent gates. Latency cost is real; mitigation is one prefetch
   at fault time, not row-by-row during reasoning. *This is the single
   biggest cost-and-realism win and the architecture decision Marcus
-  flagged should lead any Data Cloud sales conversation.*
+  flagged should lead any Data 360 sales conversation.*
 - **Headless REST APIs via Vercel is what I built.** "Headless" because
   the agent layer is decoupled from any one UI surface — same
   `Bedrock_Customer_Service` agent (Service Agent type) invocable from
@@ -459,9 +459,9 @@ Map back to the KPIs:
 
 What I would build next (week 2 plan):
 
-1. Cohort fault retrieval (Data Cloud Vector DB + similarity search)
+1. Cohort fault retrieval (Data 360 Vector DB + similarity search)
 2. Dedup / suppression Flow on the same `asset_id + fault_code`
-3. Dealer prepositioning recommendation (a nightly Flow + Data Cloud
+3. Dealer prepositioning recommendation (a nightly Flow + Data 360
    aggregation, surfaced as an action)
 4. Real Marketing Cloud outbound (template-locked) instead of drafted text
 
@@ -478,7 +478,7 @@ what the briefing rewards.
 
 Option A (strong, ties to your federation argument):
 > "For multi-cloud customers like Bedrock with Snowflake as gravity, where
-> do you see Data Cloud federation losing to Snowflake-native AI workloads
+> do you see Data 360 federation losing to Snowflake-native AI workloads
 > today, and how does that shape your guidance to customers?"
 
 Option B (more delivery-focused):
@@ -504,12 +504,12 @@ Option C (most open-ended, reads as humble):
 
   | What I built | Salesforce product at production scale |
   |---|---|
-  | 7 custom objects | Same + Data Cloud DMOs for unified profiles |
+  | 7 custom objects | Same + Data 360 DMOs for unified profiles |
   | 4 Apex `@InvocableMethod` classes | Same, augmented with Flow for declarative paths |
-  | SOSL over KB sections | Data Cloud Vector Database |
-  | Apex `BedrockAssetContext` KPI rollup | Data Cloud Calculated Insights |
-  | One SOQL identity resolution | Data Cloud Identity Resolution |
-  | `Bedrock_Telemetry_Event__c` custom object | Data Cloud zero-copy federation to Snowflake (2.4 PB) |
+  | SOSL over KB sections | Data 360 Vector Database |
+  | Apex `BedrockAssetContext` KPI rollup | Data 360 Calculated Insights |
+  | One SOQL identity resolution | Data 360 Identity Resolution |
+  | `Bedrock_Telemetry_Event__c` custom object | Data 360 zero-copy federation to Snowflake (2.4 PB) |
   | Trust matrix: postures in Agent Script, eligibility enforced in Apex | Same split: Apex / Flow stays the enforcement point; Einstein Trust Layer adds masking, zero data retention and prompt audit |
 
   *When to pull this up:* if the panel asks "where does this go at scale" or
@@ -520,7 +520,7 @@ Option C (most open-ended, reads as humble):
   (currently scattered across Slides 4, 8, 11):
   - Autonomous customer outbound (drafted, never sent — Marketing Cloud
     journey owns send authority in production)
-  - Data Cloud (architecturally recommended, not built into the DE org;
+  - Data 360 (architecturally recommended, not built into the DE org;
     Slide 7 lead recommendation)
   - MuleSoft integration to WARRANTY-7 (mainframe) and SAP (parts) —
     architecturally positioned in §3 translation table
@@ -528,7 +528,7 @@ Option C (most open-ended, reads as humble):
   - MCP as a full agent action layer (the Salesforce MCP server is
     connected for data reads; MCP-invocable Apex actions are the
     production extension path per Slide 7)
-  - Cohort fault clustering (Data Cloud aggregation in prod)
+  - Cohort fault clustering (Data 360 aggregation in prod)
   - Dedup / suppression on noisy sensors (Flow in prod)
 
   *When to pull this up:* if the panel asks what you scoped out or why

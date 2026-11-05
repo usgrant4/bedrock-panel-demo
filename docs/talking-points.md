@@ -8,7 +8,7 @@ not to do). Rehearse twice; iterate the voice; commit.
 Marcus's framings to lean on, in order of weight:
 - **"Headless"** — every time the Vercel/REST surface comes up.
 - **"Multi-layered"** — Slide 7 explicitly; sprinkle elsewhere.
-- **"Zero-copy"** — Slide 7 lead phrase. Use it where Data Cloud comes up.
+- **"Zero-copy"** — Slide 7 lead phrase. Use it where Data 360 comes up.
 - **"Generative AI layer"** — when introducing the agent.
 - **Systems history** — name SAP, ServiceMax, WARRANTY-7, Snowflake at
   least once each to show you've read the brief.
@@ -247,7 +247,7 @@ Marcus's framings to lean on, in order of weight:
 > external-ID join on Customer_Id, Asset_Id, and Serial_Number. In this
 > build, that's one SOQL with relationship traversal in the
 > BedrockAssetContext Apex class. In a production-scale Bedrock
-> deployment, the same logical pattern runs through Data Cloud's
+> deployment, the same logical pattern runs through Data 360's
 > Identity Resolution rules. Declarative runtime, same outcome. The
 > agent doesn't care which mechanism resolves identity. The
 > architecture is the same.
@@ -262,7 +262,7 @@ Marcus's framings to lean on, in order of weight:
 >
 > **Retrieval.** SOSL over seven KB section records with a 'return all
 > sections' fallback when the index hasn't built. Cheap, deterministic,
-> auditable. The production swap is Data Cloud Vector Database. Same
+> auditable. The production swap is Data 360 Vector Database. Same
 > retrieval contract, different implementation. The agent calls
 > retrieve_knowledge regardless of the substrate behind it.
 >
@@ -279,7 +279,7 @@ Marcus's framings to lean on, in order of weight:
 | Q | A |
 |---|---|
 | *"Why not just put SLA in the prompt?"* | "Because that's exactly where LLM drift happens. Numerics in prompts are unstable across model versions. If I move from one model version to the next and the SLA window suddenly becomes 6 hours instead of 4 because the model interpreted the prompt slightly differently, that's a defect that's invisible until a customer hits it. The deterministic phase removes the surface area for that defect." |
-| *"How does this scale to thousands of agents and millions of assets?"* | "The data model scales horizontally. SOQL relationship traversal becomes Data Cloud calculated insights. The retrieval substrate moves from SOSL to vector search. The Apex actions stay the same in shape and become the contract between agent and platform. Scaling the agent runtime is Salesforce's problem, not the customer's. That's part of the value of building on the platform rather than a custom orchestrator." |
+| *"How does this scale to thousands of agents and millions of assets?"* | "The data model scales horizontally. SOQL relationship traversal becomes Data 360 calculated insights. The retrieval substrate moves from SOSL to vector search. The Apex actions stay the same in shape and become the contract between agent and platform. Scaling the agent runtime is Salesforce's problem, not the customer's. That's part of the value of building on the platform rather than a custom orchestrator." |
 
 **Transition:**
 
@@ -297,8 +297,8 @@ will care about most, and the MCP beat needs room.**
 
 > "Four integration layers. Each carries a specific load.
 >
-> **Data Cloud zero-copy federation.** The 2.4 petabytes of telemetry
-> stays in Snowflake. Data Cloud queries through it. The customer
+> **Data 360 zero-copy federation.** The 2.4 petabytes of telemetry
+> stays in Snowflake. Data 360 queries through it. The customer
 > master, contracts, and warranty status get ingested because they're
 > small, volatile, and used as join keys and agent gates. This is the
 > lead architecture recommendation. It's theoretical in this DE-org
@@ -343,8 +343,8 @@ will care about most, and the MCP beat needs room.**
 
 | Q | A |
 |---|---|
-| *"What about latency on federated queries?"* | "Right, federation has higher latency than native Data Cloud queries. The mitigation is the two-tier ingestion pattern. The high-volume telemetry stays federated because queries against it are episodic, triggered by fault events. The low-latency reference data — customers, contracts, warranty status — gets ingested so the agent's context assembly stays fast. Federate the cold and large, ingest the hot and small. That's the cost-and-latency-aware split." |
-| *"What about Snowflake's own AI, like Cortex?"* | "Cortex is a strong analytical AI capability. It runs LLM functions over warehouse tables, builds embeddings, executes batch inference at scale. The architectural separation is that Cortex does AI to the data, Agentforce does AI for the customer. They coexist well: Cortex generates analytical features in Snowflake, those features flow back into Data Cloud as calculated insights, Agentforce reasons over them during customer interactions. Different parts of the AI stack, both valuable." |
+| *"What about latency on federated queries?"* | "Right, federation has higher latency than native Data 360 queries. The mitigation is the two-tier ingestion pattern. The high-volume telemetry stays federated because queries against it are episodic, triggered by fault events. The low-latency reference data — customers, contracts, warranty status — gets ingested so the agent's context assembly stays fast. Federate the cold and large, ingest the hot and small. That's the cost-and-latency-aware split." |
+| *"What about Snowflake's own AI, like Cortex?"* | "Cortex is a strong analytical AI capability. It runs LLM functions over warehouse tables, builds embeddings, executes batch inference at scale. The architectural separation is that Cortex does AI to the data, Agentforce does AI for the customer. They coexist well: Cortex generates analytical features in Snowflake, those features flow back into Data 360 as calculated insights, Agentforce reasons over them during customer interactions. Different parts of the AI stack, both valuable." |
 | *"Why MCPs instead of standard APIs?"* | "MCPs give you a standardized agent-to-tool contract that's portable across runtimes. The agent doesn't care if it's Agentforce or another runtime calling the tool. That portability matters for customers thinking about long-term agent strategy beyond any one platform. And I can show it rather than assert it: the Salesforce MCP server is connected right now, and one SOQL call over the connector returns ASSET-50101 with full customer context." |
 | *"Is the MCP connection live or theoretical?"* | "Live. Salesforce ships the server; I authenticated it. It's user-delegated OAuth, so it runs as my user with my permissions — I'd rather be accurate about that than overstate the scoping. The ASSET-50101 query returns Pinnacle Mining Group, Platinum tier, warranty Active, operating status Faulted, serial PMG-77234. For a production agent surface you'd move it to an integration user with a least-privilege permission set." |
 | *"Doesn't the MCP connection bypass the trust gate you're about to show me?"* | "As authenticated today, yes — and that's exactly why the distinction matters. What's connected is an admin and developer surface running as me. It's a build-time tool, not a production agent surface. The moment MCP becomes an agent-facing tool layer, it runs as a scoped integration user with read-only object permissions, and the only write path stays the Apex actions. The gate was never 'MCP can't write.' It's 'the identity the agent runs as can't write except through Apex.' Permission model first, tool availability second." |
@@ -580,7 +580,7 @@ no claim staged.
 > **Week 2 build plan. Four items.** Cohort fault retrieval with Data
 > Cloud Vector DB across the telemetry corpus. Dedup and suppression
 > flow to filter noisy sensors before the agent gets invoked. Dealer
-> prepositioning via nightly Flow plus Data Cloud aggregation,
+> prepositioning via nightly Flow plus Data 360 aggregation,
 > surfaced as a named agent action. Real Marketing Cloud outbound
 > replacing the drafted text output, with template locks.
 >
@@ -602,7 +602,7 @@ no claim staged.
 
 | Q | A |
 |---|---|
-| *"Why not LangGraph?"* | "Two reasons. First, LangGraph is an orchestration layer on probabilistic models. It's a fine fit for exploratory or unstructured use cases. For a regulated, customer-impacting workflow like Bedrock service, you need the platform-enforced governance underneath. Agentforce sits on Data Cloud's identity layer and inside Salesforce's permission model. That's the discipline you need when an agent might stage a six-figure warranty claim. Second, the engineering team that would maintain a custom LangGraph orchestrator is a team Bedrock doesn't have to staff if they're on Agentforce. Operational cost matters." |
+| *"Why not LangGraph?"* | "Two reasons. First, LangGraph is an orchestration layer on probabilistic models. It's a fine fit for exploratory or unstructured use cases. For a regulated, customer-impacting workflow like Bedrock service, you need the platform-enforced governance underneath. Agentforce sits on Data 360's identity layer and inside Salesforce's permission model. That's the discipline you need when an agent might stage a six-figure warranty claim. Second, the engineering team that would maintain a custom LangGraph orchestrator is a team Bedrock doesn't have to staff if they're on Agentforce. Operational cost matters." |
 | *"Where would this expand next strategically?"* | "Parts attach rate, once prepositioning is live. CSAT, once Service Cloud Voice integrates. Contract renewal, once Sales Cloud is wired to receive agent-surfaced renewal triggers. The same architecture extends. The agent layer becomes the connective tissue across the customer 360, not just the service motion." |
 
 **Transition:**
@@ -619,7 +619,7 @@ no claim staged.
 **Pick Option A. It's the strongest. Verbatim:**
 
 > "One question for you. For multi-cloud customers like Bedrock with
-> Snowflake as data gravity, where do you see Data Cloud federation
+> Snowflake as data gravity, where do you see Data 360 federation
 > losing to Snowflake-native AI workloads today? And how does that
 > shape the guidance you give customers when they're evaluating where
 > to invest?"
@@ -696,18 +696,18 @@ on-platform translation that's otherwise distributed across architecture.md
 
 | What I built | Salesforce product at production scale |
 |---|---|
-| 7 custom objects | Same + Data Cloud DMOs for unified profiles |
+| 7 custom objects | Same + Data 360 DMOs for unified profiles |
 | 4 Apex InvocableMethods | Same, augmented with Flow for declarative paths |
-| SOSL over KB sections | Data Cloud Vector Database |
-| Apex AssetContext rollup | Data Cloud Calculated Insights |
-| One SOQL identity resolution | Data Cloud Identity Resolution |
-| Custom telemetry object | Data Cloud zero-copy federation to Snowflake |
+| SOSL over KB sections | Data 360 Vector Database |
+| Apex AssetContext rollup | Data 360 Calculated Insights |
+| One SOQL identity resolution | Data 360 Identity Resolution |
+| Custom telemetry object | Data 360 zero-copy federation to Snowflake |
 | Trust matrix: postures in Agent Script, eligibility enforced in Apex | Same split: Apex / Flow stays the enforcement point; Einstein Trust Layer adds masking, zero data retention and prompt audit |
 
 **Backup B6 — What I deliberately left out** (consolidated scope
 decisions, currently scattered across Slides 4, 8, and 11):
 - Autonomous customer outbound (drafted, never sent)
-- Data Cloud (architecturally recommended, not built into DE org)
+- Data 360 (architecturally recommended, not built into DE org)
 - MuleSoft integration to WARRANTY-7 and SAP (architecturally positioned)
 - Dealer prepositioning flow (week 2 scope)
 - MCP as a full agent action layer (the Salesforce MCP server is
