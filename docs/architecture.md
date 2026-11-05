@@ -6,6 +6,14 @@ exact same pattern would land on Salesforce.
 
 ---
 
+## 0. One-page overview
+
+![Architecture overview](architecture-overview.png)
+
+Four columns: what stays with the customer, what Salesforce connects to, what Salesforce owns, and what Salesforce enables. Dashed boxes are designed, not built in this reference. Editable source: [architecture-overview.html](architecture-overview.html).
+
+---
+
 ## 1. The pattern
 
 Six steps, the same in this demo and in the production architecture:

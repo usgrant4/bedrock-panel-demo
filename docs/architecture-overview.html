@@ -1,0 +1,85 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  body { margin:0; background:#fff; font-family: Inter, "Segoe UI", Arial, sans-serif; color:#111; }
+  .page { width:1600px; padding:40px 48px; box-sizing:border-box; }
+  h1 { font-size:26px; margin:0 0 4px; font-weight:600; }
+  .sub { font-size:14px; color:#555; margin-bottom:24px; }
+  .cols { display:grid; grid-template-columns: 1fr 1fr 1.25fr 1fr; gap:28px; }
+  .col { border-top:4px solid #999; padding-top:12px; }
+  .col h2 { font-size:15px; letter-spacing:.06em; text-transform:uppercase; margin:0 0 2px; font-weight:700; }
+  .col .who { font-size:12px; color:#666; margin-bottom:14px; }
+  .box { border:1.5px solid #cfcfcf; border-radius:6px; padding:10px 12px; margin-bottom:12px; background:#fafafa; }
+  .box b { display:block; font-size:14px; margin-bottom:3px; }
+  .box span { display:block; font-size:12.5px; color:#444; line-height:1.4; }
+  .box.owns { background:#eef3fb; border-color:#9db4dc; }
+  .box.gate { background:#e9f6ec; border-color:#7fbf8e; }
+  .box.designed { border-style:dashed; background:#fff; }
+  .tag { display:inline-block; width:auto; font-size:10.5px; font-weight:500; padding:1px 6px; border-radius:3px; margin-left:8px; vertical-align:middle; background:#ddd; color:#333; }
+  .box b { display:flex; align-items:center; }
+  .tag.d { background:#fff; border:1px solid #999; }
+  .c1 { border-top-color:#777; } .c2 { border-top-color:#4a6fa5; } .c3 { border-top-color:#2f7d43; } .c4 { border-top-color:#b5742a; }
+  .flows { margin-top:26px; display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .flow { border:1.5px solid #ddd; border-radius:6px; padding:12px 16px; }
+  .flow h3 { font-size:13px; margin:0 0 6px; text-transform:uppercase; letter-spacing:.05em; }
+  .flow p { margin:0; font-size:13px; line-height:1.5; color:#333; }
+  .legend { margin-top:16px; font-size:12px; color:#555; }
+  .legend i { display:inline-block; width:14px; height:10px; border:1.5px solid #999; margin:0 6px 0 14px; vertical-align:middle; }
+  .legend i.s { background:#fafafa; } .legend i.d { border-style:dashed; background:#fff; } .legend i.g { background:#e9f6ec; border-color:#7fbf8e; }
+</style></head><body><div class="page">
+<h1>Proactive Service Agent for Connected Heavy Equipment</h1>
+<div class="sub">Data flows left to right. Actions flow right to left and terminate in Apex, the only write path. Dashed boxes are designed, not built in the reference.</div>
+
+<div class="cols">
+  <div class="col c1">
+    <h2>Stays external</h2>
+    <div class="who">Customer owns</div>
+    <div class="box"><b>Snowflake</b><span>2.4 PB telemetry. 900K assets reporting every 30 s via Kinesis. Governed here, never copied.</span></div>
+    <div class="box"><b>SAP S/4HANA</b><span>Parts inventory, pricing, orders.</span></div>
+    <div class="box"><b>WARRANTY-7</b><span>Mainframe claims system. Adjudication and payout stay here.</span></div>
+    <div class="box"><b>ServiceMax</b><span>Legacy field service, migrating to Service Cloud.</span></div>
+    <div class="box"><b>Finance</b><span>Claim payout approval. Human required, never automated.</span></div>
+  </div>
+
+  <div class="col c2">
+    <h2>Salesforce connects to</h2>
+    <div class="who">Integration and identity layer</div>
+    <div class="box designed"><b>Data 360 zero copy federation<span class="tag d">designed</span></b><span>Telemetry, SAP parts, WARRANTY-7 claims read at query time. No movement cost, Snowflake gravity, freshness. Cost: read latency, so context is prefetched once at fault time.</span></div>
+    <div class="box designed"><b>Data 360 ingest, DLO to DMO<span class="tag d">designed</span></b><span>Customers, contracts, warranty status. Small, volatile, used as gates. Identity resolution on customer_id, asset_id, serial_number.</span></div>
+    <div class="box designed"><b>Data 360 vector store<span class="tag d">designed</span></b><span>KB grounding for Agentforce. TF IDF in the reference build.</span></div>
+    <div class="box designed"><b>MuleSoft Anypoint<span class="tag d">designed</span></b><span>API led layer to SAP and WARRANTY-7. Reused by future use cases, not a point integration.</span></div>
+  </div>
+
+  <div class="col c3">
+    <h2>Salesforce owns</h2>
+    <div class="who">Platform, policy, records</div>
+    <div class="box owns"><b>Agentforce<span class="tag">built</span></b><span>Bedrock_Customer_Service (service agent, public Agent API) and Bedrock_Service_Triage (employee agent, Lightning). One Agent Script, one KB, one trust matrix. Five actions.</span></div>
+    <div class="box gate"><b>Apex InvocableMethods, the trust gate<span class="tag">built, tested</span></b><span>BedrockAssetContext and BedrockKnowledge read. BedrockOpenCase and BedrockStageWarranty write. Eligibility read from the record, never the request. No Apex action exists for dispatch, parts, send, or submit, so no prompt can trigger them. Runs as a scoped integration user.</span></div>
+    <div class="box owns"><b>Objects<span class="tag">built</span></b><span>7 custom objects, 59 fields. Cases and staged warranty claims are the outcomes.</span></div>
+    <div class="box owns"><b>Audit<span class="tag">built</span></b><span>Agentforce session traces, platform audit. Data 360 audit trail when federation lands.</span></div>
+  </div>
+
+  <div class="col c4">
+    <h2>Salesforce enables</h2>
+    <div class="who">Consumers, all through the same gate</div>
+    <div class="box"><b>Service Console<span class="tag">built</span></b><span>Lightning Agentforce panel for dealer service reps. Employee agent runs as the calling user.</span></div>
+    <div class="box"><b>Agent API and REST<span class="tag">built, live</span></b><span>Vercel SPA proves the headless property: JWT minted server side via client credentials, no secrets in the browser. Writes only through the agent. Any BI tool or partner app, no Salesforce license.</span></div>
+    <div class="box designed"><b>Experience Cloud<span class="tag d">designed</span></b><span>Dealer portal on LWR. Same agent, portal user identity.</span></div>
+    <div class="box"><b>MCP<span class="tag">read only</span></b><span>Live for reads over admin OAuth. Build time and discovery surface, not an agent surface. Agent facing MCP would run as a read only integration user with Apex as the only write path.</span></div>
+  </div>
+</div>
+
+<div class="flows">
+  <div class="flow"><h3>Trust postures</h3>
+    <p><b>Autonomous:</b> open case, draft message, stage warranty claim. Reversible or drafts; the 72 hour entitlement window makes inaction the worse failure.<br>
+    <b>Recommend:</b> dispatch technician, ship or preposition parts, send message, submit claim. Cost, customer impact, or financial commitment.<br>
+    <b>Human required:</b> escalate to engineer, approve payout. Also the default for anything not in the matrix.</p>
+  </div>
+  <div class="flow"><h3>Where the boundaries sit</h3>
+    <p><b>Data 360</b> ends at identity and grounding. It does not own the gate and does not store telemetry.<br>
+    <b>Agentforce</b> ends at the action signature. It chooses which action to call; Apex decides whether it is allowed.<br>
+    <b>Salesforce</b> ends at the record. Adjudication, payout, parts fulfillment, and telemetry storage stay with the customer.</p>
+  </div>
+</div>
+<div class="legend">Legend: <i class="s"></i> built <i class="d"></i> designed, not built <i class="g"></i> trust gate, tested (4 of 4 Apex tests pass)</div>
+</div></body></html>
