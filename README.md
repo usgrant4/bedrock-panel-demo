@@ -262,7 +262,7 @@ conversation.
 
 Built for the Salesforce Innovation TA panel. First built in May 2026, then
 hardened in September 2026: the demo data now anchors to the current date,
-and the warranty gate is enforced in Apex. Repo is private; access granted on request for panel review.
+and the warranty gate is enforced in Apex. Repo is public.
 
 The build was scaffolded with Claude Code on Claude Opus 4.7, and the
 September hardening was done on Claude Opus 5. The architectural choices,
