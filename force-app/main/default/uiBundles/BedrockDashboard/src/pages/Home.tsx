@@ -92,7 +92,7 @@ export default function Home() {
             <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm text-slate-200">
               <li><span className="font-medium">Triage</span> — live agent + the trust matrix. Run a fault; new cases and claims appear here within 10s.</li>
               <li><span className="font-medium">Asset 360</span> — the same object graph the agent assembles via BedrockAssetContext.</li>
-              <li><span className="font-medium">Architecture</span> — green state today, MCP-mediated future, why not Data Cloud yet.</li>
+              <li><span className="font-medium">Architecture</span> — green state today, Data 360-federated future, MCP as a gated tool layer.</li>
               <li><span className="font-medium">Inventory</span> — every object, field, Apex action, and the agent topology, if the panel wants to drill in.</li>
             </ol>
           </CardContent>

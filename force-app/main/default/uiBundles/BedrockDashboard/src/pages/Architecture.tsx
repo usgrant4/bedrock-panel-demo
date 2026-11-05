@@ -3,13 +3,13 @@ import { GreenStateDiagram, FutureStateDiagram } from '@/components/Architecture
 import { ARCHITECTURE_NARRATIVE, HOW_I_USED_AI, KPI_TARGETS } from '@/lib/bedrock-config';
 
 const FEDERATION_TABLE = [
-  { layer: 'Telemetry events (2.4 PB)', demoStack: 'Seeded into Bedrock_Telemetry_Event__c (80 records)', salesforceStack: 'Data Cloud zero-copy federation to Snowflake', stance: 'Federate (future)' },
+  { layer: 'Telemetry events (2.4 PB)', demoStack: 'Seeded into Bedrock_Telemetry_Event__c (80 records)', salesforceStack: 'Data 360 zero-copy federation to Snowflake', stance: 'Federate (designed)' },
   { layer: 'Asset / Customer / Contract', demoStack: 'pandas join in data_loader.py', salesforceStack: 'Custom objects (Bedrock_*__c) with lookups', stance: 'Ingest' },
-  { layer: 'Knowledge Base', demoStack: 'Markdown + TF-IDF in knowledge.py', salesforceStack: 'Bedrock_KB_Section__c + SOSL (upgrade: DC vector search)', stance: 'Ingest' },
+  { layer: 'Knowledge Base', demoStack: 'Markdown + TF-IDF in knowledge.py', salesforceStack: 'Bedrock_KB_Section__c + SOSL (upgrade: Data 360 vector search)', stance: 'Ingest' },
   { layer: 'Reasoning', demoStack: 'Claude API call in agent.py', salesforceStack: 'Agentforce agent (Bedrock_Service_Triage) calling Apex invocables', stance: 'Salesforce-native' },
   { layer: 'Actions', demoStack: 'Python dicts in actions.py', salesforceStack: 'Apex @InvocableMethod classes writing custom objects', stance: 'Salesforce-native' },
   { layer: 'Trust policy', demoStack: 'Python enum in trust_policy.py', salesforceStack: 'Agent action posture + permission set', stance: 'Salesforce-native' },
-  { layer: 'Consumption policy', demoStack: '— (none)', salesforceStack: 'MCP consumption controller (future)', stance: 'Future' },
+  { layer: 'Tool composition', demoStack: 'Salesforce MCP server, live for reads', salesforceStack: 'MCP as an agent tool layer: scoped integration user, read-only object perms, Apex stays the only write path', stance: 'Designed' },
   { layer: 'UI', demoStack: 'Streamlit (off-platform)', salesforceStack: 'React Vercel + SF Web Tab (UIBundle Beta blocked); future: native UI Bundle', stance: 'Hybrid today' },
 ];
 
@@ -59,8 +59,8 @@ export default function Architecture() {
         <h1 className="text-2xl font-bold text-slate-900">Architecture</h1>
         <p className="mt-2 max-w-3xl text-slate-600">
           How the off-platform demo maps to a Salesforce-native deployment, what runs today, and
-          what the next iteration adds. The headline architectural call is federation-vs-ingestion —
-          and the under-told corollary is <em>consumption control</em> via MCP.
+          what the next iteration adds. The headline architectural call is federation-vs-ingestion.
+          The corollary is that the trust gate lives in Apex, which is what lets any surface, MCP included, reach the agent safely.
         </p>
       </section>
 
@@ -98,9 +98,9 @@ export default function Architecture() {
       <section>
         <Card className="border-slate-200">
           <CardHeader>
-            <CardTitle className="text-sm">Why not Data Cloud (yet)</CardTitle>
+            <CardTitle className="text-sm">Data 360: federate, and when</CardTitle>
             <div className="text-xs text-slate-500">
-              Federation is correct. Federation today is premature.
+              Federation is the right pattern for telemetry; ingest the join keys. At demo scale it is premature. Week 1 of the build measures federation latency and cost before committing.
             </div>
           </CardHeader>
           <CardContent>
@@ -108,14 +108,14 @@ export default function Architecture() {
               <div>
                 <div className="font-semibold text-slate-900">Scale doesn't justify it yet</div>
                 <p className="mt-1 text-xs">
-                  Demo runs at 174 records. Data Cloud break-even is millions of records / TB-scale.
+                  Demo runs at 171 records. Data 360 break-even is millions of records / TB-scale.
                   Today's data fits natively in custom objects with single-digit-ms SOQL latency.
                 </p>
               </div>
               <div>
                 <div className="font-semibold text-slate-900">Consumption is billable</div>
                 <p className="mt-1 text-xs">
-                  Data Cloud is priced on <strong>Flex Credits</strong> — per row ingested, per query,
+                  Data 360 is priced on <strong>Flex Credits</strong> — per row ingested, per query,
                   per CDP segment refresh, per identity stitch. Without controls, an agent that calls
                   retrieval on every utterance burns credits fast.
                 </p>
@@ -124,7 +124,7 @@ export default function Architecture() {
                 <div className="font-semibold text-slate-900">Current cost model is defensible</div>
                 <p className="mt-1 text-xs">
                   Vercel free tier hosts the dashboard + serverless API. Salesforce REST API is
-                  included in the org license. OAuth refresh-token grant: <strong>zero net-new
+                  included in the org license. OAuth client credentials with one Salesforce Integration user: <strong>zero net-new
                   license cost</strong>.
                 </p>
               </div>

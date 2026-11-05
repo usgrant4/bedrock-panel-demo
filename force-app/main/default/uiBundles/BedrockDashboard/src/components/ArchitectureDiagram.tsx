@@ -158,7 +158,7 @@ export function GreenStateDiagram() {
 
           <Box
             node={{
-              label: '7 Bedrock_* custom objects · 174 records',
+              label: '7 Bedrock_* custom objects · 171 records',
               sub: 'Customer · Asset · Service_Contract · Telemetry_Event · KB_Section · Service_Case · Warranty_Claim',
               color: 'data',
             }}
@@ -181,9 +181,10 @@ export function GreenStateDiagram() {
           <div className="mt-2 grid w-full max-w-3xl grid-cols-2 gap-2 text-[11px] text-slate-600">
             <div className="rounded-md border border-slate-200 p-2">
               <div className="font-semibold text-slate-800">Trust matrix (writes)</div>
-              <div className="mt-0.5">Autonomous: open_service_case · stage_warranty_claim</div>
-              <div>Recommend: dispatch_technician · ship_part · draft_customer_message</div>
-              <div>Human: escalate_to_bedrock_engineer</div>
+              <div className="mt-0.5">Autonomous: open_service_case · draft_customer_message · stage_warranty_claim</div>
+              <div>Recommend: dispatch_technician · ship_part · preposition_parts · send_customer_message · submit_warranty_claim</div>
+              <div>Human-required: escalate_to_bedrock_engineer · approve_warranty_payout · any action not in the matrix</div>
+              <div className="mt-0.5">Enforced in Apex: eligibility is read from the record, never the request. No Apex action exists for dispatch, parts, send, or submit.</div>
             </div>
             <div className="rounded-md border border-slate-200 p-2">
               <div className="font-semibold text-slate-800">Headless property</div>
@@ -203,52 +204,52 @@ export function FutureStateDiagram() {
   return (
     <Card className="border-violet-200">
       <CardHeader>
-        <CardTitle className="text-sm">Future state — MCP-mediated, Data Cloud-federated</CardTitle>
+        <CardTitle className="text-sm">Future state — Data 360-federated, MCP as a gated tool layer</CardTitle>
         <div className="text-xs text-slate-500">
-          Same agent + same trust matrix · adds an MCP consumption controller and Data Cloud federation
+          Same agent + same trust matrix · adds Data 360 federation and MCP-invocable wrappers over the Apex actions
         </div>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col items-center gap-3 py-2">
           <Box node={{ label: 'Bedrock_Service_Triage agent', color: 'agent' }} className="w-72" />
-          <Arrow label="action request + budget ceiling" />
+          <Arrow label="tool call · scoped integration user" />
           <Box
             node={{
-              label: 'MCP consumption controller',
-              sub: 'per-action budget · routing policy · same shape as trust matrix, but for cost',
+              label: 'MCP tool layer',
+              sub: 'read-only object permissions · MCP-invocable wrappers over the @InvocableMethod classes · Apex remains the only write path',
               color: 'future',
             }}
             className="w-full max-w-2xl"
           />
           <div className="grid w-full max-w-2xl grid-cols-3 gap-4 pt-1">
             <div className="flex flex-col items-center gap-2">
-              <Arrow label="cheap" />
+              <Arrow label="ingest" />
               <Box
                 node={{
-                  label: 'Cached SOQL',
-                  sub: 'stale-OK reads · zero DC quota',
+                  label: 'Data 360 DMOs',
+                  sub: 'customers · contracts · warranty status · identity resolution on customer, asset, serial',
                   color: 'data',
                 }}
                 className="w-full"
               />
             </div>
             <div className="flex flex-col items-center gap-2">
-              <Arrow label="bounded" />
+              <Arrow label="ground" />
               <Box
                 node={{
-                  label: 'Data Cloud vector search',
-                  sub: 'KB embeddings refreshed on update only',
+                  label: 'Data 360 vector search',
+                  sub: 'KB grounding with citations · replaces SOSL when the KB grows',
                   color: 'future',
                 }}
                 className="w-full"
               />
             </div>
             <div className="flex flex-col items-center gap-2">
-              <Arrow label="metered" />
+              <Arrow label="federate" />
               <Box
                 node={{
-                  label: 'Data Cloud federation',
-                  sub: 'zero-copy → Snowflake (2.4 PB)',
+                  label: 'Data 360 federation',
+                  sub: 'zero-copy → Snowflake (2.4 PB) · SAP parts · WARRANTY-7 via MuleSoft',
                   color: 'future',
                 }}
                 className="w-full"
@@ -266,16 +267,16 @@ export function FutureStateDiagram() {
           />
           <div className="mt-2 grid w-full max-w-2xl grid-cols-2 gap-2 text-[11px] text-slate-600">
             <div className="rounded-md border border-violet-200 bg-violet-50 p-2">
-              <div className="font-semibold text-violet-900">Why MCP, not raw Data Cloud</div>
-              <div className="mt-0.5">DC charges per row ingested, per query, per identity stitch (Flex Credits).</div>
-              <div>Without a controller, agent loops can burn the monthly budget in days.</div>
-              <div>MCP enforces the budget the same way the trust matrix enforces blast radius.</div>
+              <div className="font-semibold text-violet-900">Why MCP inherits the permission model</div>
+              <div className="mt-0.5">The connector is live for reads today, as an admin over user-delegated OAuth: a build-time surface.</div>
+              <div>As an agent surface it runs as a scoped integration user with read-only object permissions.</div>
+              <div>The gate was never "no tool can write." It is "the identity the agent runs as cannot write except through Apex."</div>
             </div>
             <div className="rounded-md border border-violet-200 bg-violet-50 p-2">
-              <div className="font-semibold text-violet-900">When MCP routes to DC vs cache</div>
-              <div className="mt-0.5">get_asset_context → cached SOQL (no DC).</div>
-              <div>retrieve_knowledge → DC only if KB updated since last index.</div>
-              <div>fleet_mttr_rollup → DC on dashboard load, never per agent turn.</div>
+              <div className="font-semibold text-violet-900">Federate vs ingest</div>
+              <div className="mt-0.5">Federate what is big or governed elsewhere: telemetry, SAP parts, WARRANTY-7 claims.</div>
+              <div>Ingest what is small and used as a gate: customers, contracts, warranty status. Stale gate data means a wrong agent decision.</div>
+              <div>Federation is a read-time cost, so context is prefetched once at fault time, never row by row during reasoning.</div>
             </div>
           </div>
         </div>
