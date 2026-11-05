@@ -200,6 +200,7 @@ full sequence in [docs/demo-script.md](docs/demo-script.md#data-freshness-do-thi
 
 | Doc | What it is |
 |---|---|
+| [docs/execution-handoff.md](docs/execution-handoff.md) | Execution handoff for the implementation team: scope, interfaces, ownership, risks, unknowns, exit conditions |
 | [docs/architecture-overview.png](docs/architecture-overview.png) | One-page architecture: what stays external, what Salesforce connects to, owns, and enables, with built vs designed marked. Source in architecture-overview.html |
 | [docs/architecture.md](docs/architecture.md) | The panel's reading companion — 8 sections covering the pattern, the Salesforce translation table, federation-vs-ingestion, trust posture rationale, the headless agent layer, what's out of scope, and what AI wrote vs I wrote |
 | [docs/deck-outline.md](docs/deck-outline.md) | 12-slide deck structure with time budgets, demo path, and backup paths if anything breaks live |
